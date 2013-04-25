@@ -49,6 +49,9 @@ public class XdmDecoder extends MessageValidator {
 			MessageValidatorEngine mvc = new MessageValidatorEngine();
 
 			XdmDecoder xd = new XdmDecoder(vc, erBuilder, is);
+			xd.er = er;
+			if (!xd.isXDM())
+				System.out.println("XDM type detection failed");
 			xd.showContents = true;
 			xd.run(er, mvc);
 		} catch (FileNotFoundException e) {
@@ -75,18 +78,8 @@ public class XdmDecoder extends MessageValidator {
 
 	public void run(ErrorRecorder er, MessageValidatorEngine mvc) {
 
-		er.challenge("Decoding ZIP");
-		try {
-			contents = new ZipDecoder().parse(in);
-		} 
-		catch (ZipException e) {
-			er.err(Code.NoCode, e);
+		if (!decode(er))
 			return;
-		}
-		catch (IOException e) {
-			er.err(Code.NoCode, e);
-			return;
-		}
 
 		if (showContents) {
 			for (Path path : contents.keySet()) {
@@ -220,6 +213,24 @@ public class XdmDecoder extends MessageValidator {
 		mvc.run();
 	}
 
+	boolean decode(ErrorRecorder er) {
+		if (contents != null)
+			return true;  // already decoded
+		er.challenge("Decoding ZIP");
+		try {
+			contents = new ZipDecoder().parse(in);
+		} 
+		catch (ZipException e) {
+			er.err(Code.NoCode, e);
+			return false;
+		}
+		catch (IOException e) {
+			er.err(Code.NoCode, e);
+			return false;
+		}
+		return true;
+	}
+
 	String simplifyPath(String path) {
 		String[] parts = path.split(File.separator);
 		rerun:
@@ -288,6 +299,8 @@ public class XdmDecoder extends MessageValidator {
 	//	}
 
 	public boolean isXDM() {
+		if (!decode(er))
+			return false;
 		if (!hasIheXdm()) return false;
 		for (Path path: getSubsetDirs()) {
 			if (hasMetadata(path))
