@@ -1,5 +1,7 @@
 package gov.nist.toolkit.actorfactory.client;
 
+import gov.nist.toolkit.simcommon.client.SimId;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +36,8 @@ public class Simulator  implements Serializable, IsSerializable  {
 	
 	public SimulatorConfig getConfig(int i) { return configs.get(i); }
 	
-	public List<String> getIds() {
-		List<String> ids = new ArrayList<String>();
+	public List<SimId> getIds() {
+		List<SimId> ids = new ArrayList<SimId>();
 		for (SimulatorConfig c : configs)
 			ids.add(c.id);
 		return ids;

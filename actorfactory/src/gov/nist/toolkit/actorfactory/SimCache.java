@@ -3,6 +3,7 @@ package gov.nist.toolkit.actorfactory;
 
 import gov.nist.toolkit.actorfactory.client.NoSimException;
 import gov.nist.toolkit.actorfactory.client.SimulatorConfig;
+import gov.nist.toolkit.simcommon.client.SimId;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -37,7 +38,7 @@ public class SimCache {
 			sm = new SimManager(sessionId);
 			mgrs.put(sessionId, sm);
 		}
-		String simId = sc.getId();
+		SimId simId = sc.getId();
 		SimulatorConfig sc1 = sm.getSimulatorConfig(simId);
 		if (sc1 == null) {
 			sm.addSimConfig(sc);
@@ -73,7 +74,7 @@ public class SimCache {
 	 * @return
 	 * @throws IOException
 	 */
-	public Set<SimManager> getSimManagersForSim(String simId) throws IOException {
+	public Set<SimManager> getSimManagersForSim(SimId simId) throws IOException {
 		Set<SimManager> smans = new HashSet<SimManager>();
 		for (SimManager sman : mgrs.values()) {
 			SimulatorConfig sconf = sman.getSimulatorConfig(simId);
@@ -94,7 +95,7 @@ public class SimCache {
 	 * @return
 	 * @throws IOException
 	 */
-	public SimulatorConfig getSimulatorConfig(String simId) throws IOException {
+	public SimulatorConfig getSimulatorConfig(SimId simId) throws IOException {
 		for (SimManager sman : mgrs.values()) {
 			SimulatorConfig sconf = sman.getSimulatorConfig(simId);
 			if (sconf != null)
@@ -103,7 +104,7 @@ public class SimCache {
 		return null;
 	}
 
-	public void deleteSimConfig(String simId) throws IOException {
+	public void deleteSimConfig(SimId simId) throws IOException {
 		// remove from cache
 		for (SimManager sman : mgrs.values()) {
 			sman.removeSimulatorConfig(simId);

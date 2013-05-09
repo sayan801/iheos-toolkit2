@@ -6,6 +6,7 @@ import gov.nist.toolkit.actortransaction.client.ATFactory.ActorType;
 import gov.nist.toolkit.actortransaction.client.ATFactory.ParamType;
 import gov.nist.toolkit.actortransaction.client.ATFactory.TransactionType;
 import gov.nist.toolkit.envSetting.EnvSetting;
+import gov.nist.toolkit.simcommon.client.SimId;
 import gov.nist.toolkit.simcommon.client.config.SimulatorConfigElement;
 import gov.nist.toolkit.sitemanagement.client.Site;
 import gov.nist.toolkit.sitemanagement.client.TransactionBean;
@@ -32,7 +33,7 @@ public class RegistryActorFactory extends ActorFactory {
 		return buildNew(simm, null, configureBase);
 	}
 
-	public Simulator buildNew(SimManager simm, String simId, boolean configureBase) throws EnvironmentNotSelectedException, NoSessionException {
+	public Simulator buildNew(SimManager simm, SimId simId, boolean configureBase) throws EnvironmentNotSelectedException, NoSessionException {
 		ActorType actorType = ActorType.REGISTRY;
 		SimulatorConfig sc;
 		if (configureBase)

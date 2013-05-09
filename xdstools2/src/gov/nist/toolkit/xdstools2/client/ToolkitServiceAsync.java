@@ -15,6 +15,7 @@ import gov.nist.toolkit.results.client.Result;
 import gov.nist.toolkit.results.client.SiteSpec;
 import gov.nist.toolkit.results.client.TestLogs;
 import gov.nist.toolkit.results.client.XdstestLogId;
+import gov.nist.toolkit.simcommon.client.SimId;
 import gov.nist.toolkit.sitemanagement.client.Site;
 import gov.nist.toolkit.sitemanagement.client.TransactionOfferings;
 import gov.nist.toolkit.tk.client.TkProps;
@@ -68,11 +69,11 @@ public interface ToolkitServiceAsync {
 	void getTestlogListing(String sessionName, AsyncCallback<List<String>> callback);
 	void getUpdateNames(AsyncCallback<List<String>> callback);
 	
-	void getTransactionRequest(String simName, String actor, String trans, String event, AsyncCallback<String> callback);
-	void getTransactionResponse(String simName, String actor, String trans, String event, AsyncCallback<String> callback);
-	void getTransactionLog(String simName, String actor, String trans, String event, AsyncCallback<String> callback);
+	void getTransactionRequest(SimId simName, String trans, String event, AsyncCallback<String> callback);
+	void getTransactionResponse(SimId simName, String trans, String event, AsyncCallback<String> callback);
+	void getTransactionLog(SimId simName, String trans, String event, AsyncCallback<String> callback);
 
-	void getTransactionsForSimulator(String simid, AsyncCallback<List<String>> callback);
+	void getTransactionsForSimulator(SimId simid, AsyncCallback<List<String>> callback);
 
 //	void getActorNames(AsyncCallback<List<String>> callback);
 
@@ -92,7 +93,7 @@ public interface ToolkitServiceAsync {
 
 //	void  validateMessage(ValidationContext vc, String simFileName, AsyncCallback<MessageValidationResults> callback);
 
-	void  getTransInstances(String simid, String actor, String trans, AsyncCallback<List<String>> callback);
+	void  getTransInstances(SimId simid, String trans, AsyncCallback<List<String>> callback);
   
 	void getLastMetadata(AsyncCallback<List<Result>> callback);
 	void getLastFilename(AsyncCallback<String> callback);
@@ -157,10 +158,10 @@ public interface ToolkitServiceAsync {
 	
 	void  getActorTypeNames(AsyncCallback<List<String>> callback);
 	void  getNewSimulator(String actorTypeName, AsyncCallback<Simulator> callback);
-	void getSimConfigs(List<String> ids, AsyncCallback<List<SimulatorConfig>> callback);
+	void getSimConfigs(List<SimId> ids, AsyncCallback<List<SimulatorConfig>> callback);
 	void putSimConfig(SimulatorConfig config, AsyncCallback<String> callback);
 	void deleteConfig(SimulatorConfig config, AsyncCallback<String> callback);
-	void getActorSimulatorNameMap(AsyncCallback<Map<String, String>> callback);
+	void getActorSimulatorNameMap(AsyncCallback<Map<String, SimId>> callback);
 //	void getSimulatorTransactionNames(String simid, AsyncCallback<List<String>> callback);
 	void removeOldSimulators(AsyncCallback<Integer> callback);
 	

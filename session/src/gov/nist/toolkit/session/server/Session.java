@@ -13,6 +13,7 @@ import gov.nist.toolkit.results.client.SiteSpec;
 import gov.nist.toolkit.securityCommon.SecurityParams;
 import gov.nist.toolkit.session.server.serviceManager.QueryServiceManager;
 import gov.nist.toolkit.session.server.serviceManager.XdsTestServiceManager;
+import gov.nist.toolkit.simcommon.client.SimId;
 import gov.nist.toolkit.simcommon.server.ExtendedPropertyManager;
 import gov.nist.toolkit.sitemanagement.Sites;
 import gov.nist.toolkit.sitemanagement.client.Site;
@@ -325,8 +326,8 @@ public class Session implements SecurityParams {
 		return ipAddr;
 	}
 	
-	public String getDefaultSimId() {
-		return ipAddr;
+	public SimId getDefaultSimId() {
+		return new SimId(ipAddr);
 	}
 	
 	public void setLastUpload(String filename, byte[] last, String filename2, byte[] last2) {
@@ -542,7 +543,7 @@ public class Session implements SecurityParams {
 		return "x";
 	}
 
-	public void deleteSim(String simulatorId) {
+	public void deleteSim(SimId simulatorId) {
 		try {
 			logger.info("Delete sim " + simulatorId);
 			SimDb simdb = new SimDb(simulatorId, null, null);

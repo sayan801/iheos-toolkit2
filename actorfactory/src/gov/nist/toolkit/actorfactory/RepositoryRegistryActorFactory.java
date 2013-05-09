@@ -4,6 +4,7 @@ import gov.nist.toolkit.actorfactory.client.Simulator;
 import gov.nist.toolkit.actorfactory.client.SimulatorConfig;
 import gov.nist.toolkit.actortransaction.client.ATFactory.ActorType;
 import gov.nist.toolkit.actortransaction.client.ATFactory.TransactionType;
+import gov.nist.toolkit.simcommon.client.SimId;
 import gov.nist.toolkit.sitemanagement.client.Site;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class RepositoryRegistryActorFactory extends ActorFactory {
 		else
 			sc = new SimulatorConfig();
 
-		String simId = sc.getId();
+		SimId simId = sc.getId();
 		// This needs to be grouped with a Document Registry
 		registryActorFactory = new RegistryActorFactory();
 		SimulatorConfig registryConfig = registryActorFactory.buildNew(simm, simId, true).getConfig(0);

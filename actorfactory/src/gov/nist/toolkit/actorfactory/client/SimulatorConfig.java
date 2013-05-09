@@ -1,6 +1,7 @@
 package gov.nist.toolkit.actorfactory.client;
 
 
+import gov.nist.toolkit.simcommon.client.SimId;
 import gov.nist.toolkit.simcommon.client.config.SimulatorConfigElement;
 import gov.nist.toolkit.sitemanagement.client.Site;
 import gov.nist.toolkit.valsupport.client.ValidationContext;
@@ -26,7 +27,7 @@ public class SimulatorConfig implements Serializable, IsSerializable {
 	/**
 	 * Globally unique id for this simulator
 	 */
-	String id;
+	SimId id;
 	String type;
 //	String[] values;   // these are possible values
 	Date expires;
@@ -110,7 +111,7 @@ public class SimulatorConfig implements Serializable, IsSerializable {
 		
 	}
 	
-	public SimulatorConfig(String id, String type, Date expiration) {
+	public SimulatorConfig(SimId id, String type, Date expiration) {
 		this.id = id;
 		this.type = type;
 		expires = expiration;
@@ -195,7 +196,7 @@ public class SimulatorConfig implements Serializable, IsSerializable {
 	}
 	
 	
-	public String getId() {
+	public SimId getId() {
 		return id;
 	}
 	

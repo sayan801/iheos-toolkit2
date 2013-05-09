@@ -5,6 +5,7 @@ import gov.nist.toolkit.actorfactory.client.SimulatorConfig;
 import gov.nist.toolkit.actortransaction.client.ATFactory.ActorType;
 import gov.nist.toolkit.actortransaction.client.ATFactory.ParamType;
 import gov.nist.toolkit.actortransaction.client.ATFactory.TransactionType;
+import gov.nist.toolkit.simcommon.client.SimId;
 import gov.nist.toolkit.sitemanagement.client.Site;
 import gov.nist.toolkit.sitemanagement.client.TransactionBean;
 import gov.nist.toolkit.sitemanagement.client.TransactionBean.RepositoryType;
@@ -26,7 +27,7 @@ public class RepositoryActorFactory extends ActorFactory {
 		return buildNew(simm, null, configureBase);
 	}
 
-	public Simulator buildNew(SimManager simm, String simId, boolean configureBase) {
+	public Simulator buildNew(SimManager simm, SimId simId, boolean configureBase) {
 		ActorType actorType = ActorType.REPOSITORY;
 		SimulatorConfig sc;
 		if (configureBase)

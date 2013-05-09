@@ -5,7 +5,6 @@ import gov.nist.toolkit.actorfactory.SimCache;
 import gov.nist.toolkit.actorfactory.SimDb;
 import gov.nist.toolkit.actorfactory.SimManager;
 import gov.nist.toolkit.actorfactory.SimulatorFactory;
-import gov.nist.toolkit.actorfactory.SiteServiceManager;
 import gov.nist.toolkit.actorfactory.client.NoSimException;
 import gov.nist.toolkit.actorfactory.client.Simulator;
 import gov.nist.toolkit.actorfactory.client.SimulatorConfig;
@@ -17,6 +16,7 @@ import gov.nist.toolkit.installation.Installation;
 import gov.nist.toolkit.results.ResultBuilder;
 import gov.nist.toolkit.results.client.Result;
 import gov.nist.toolkit.session.server.Session;
+import gov.nist.toolkit.simcommon.client.SimId;
 import gov.nist.toolkit.simulators.support.SimInstanceTerminator;
 import gov.nist.toolkit.simulators.support.ValidateMessageService;
 import gov.nist.toolkit.utilities.io.Io;
@@ -51,9 +51,9 @@ public class SimulatorServiceManager extends CommonServiceManager {
 		this.session = session;
 	}
 
-	public List<String> getTransInstances(String simid, String xactor, String trans) throws Exception
+	public List<String> getTransInstances(SimId simid, String trans) throws Exception
 	{
-		logger.debug(session.id() + ": " + "getTransInstances : " + simid + " - " + xactor + " - " + trans);
+		logger.debug(session.id() + ": " + "getTransInstances : " + simid  + " - " + trans);
 		SimDb simdb;
 		try {
 			simdb = new SimDb(simid);
@@ -61,8 +61,7 @@ public class SimulatorServiceManager extends CommonServiceManager {
 			logger.error("getTransInstances", e);
 			throw new Exception(e.getMessage());
 		}
-		ActorType actor = simdb.getSimulatorActorType();
-		return simdb.getTransInstances(actor.toString(), trans);
+		return simdb.getTransInstances(trans);
 	}
 
 	public List<Result> getSelectedMessage(String simFileSpec) {
@@ -164,7 +163,7 @@ public class SimulatorServiceManager extends CommonServiceManager {
 		}
 	}
 
-	public List<String> getTransactionsForSimulator(String simid) throws Exception  {
+	public List<String> getTransactionsForSimulator(SimId simid) throws Exception  {
 		logger.debug(session.id() + ": " + "getTransactionsForSimulator(" + simid + ")");
 		SimDb simdb;
 		try {
@@ -176,18 +175,13 @@ public class SimulatorServiceManager extends CommonServiceManager {
 		return simdb.getTransactionsForSimulator();
 	}
 
-	public String getTransactionRequest(String simid, String actor,
-			String trans, String event) {
-		logger.debug(session.id() + ": " + "getTransactionRequest - " + simid + " - " + actor + " - " + trans + " - " + event);
+	public String getTransactionRequest(SimId simid, String trans, String event) {
+		logger.debug(session.id() + ": " + "getTransactionRequest - " + simid + " - " + trans + " - " + event);
 		try {
 			SimDb db = new SimDb(simid);
 
-			if (actor == null)
-				actor = db.getSimulatorActorType().toString();
-
-			File headerFile = db.getRequestHeaderFile(simid, actor, trans,
-					event);
-			File bodyFile = db.getRequestBodyFile(simid, actor, trans, event);
+			File headerFile = db.getRequestHeaderFile(simid, trans, event);
+			File bodyFile = db.getRequestBodyFile(simid, trans, event);
 
 			return Io.stringFromFile(headerFile)
 					// + "\r\n"
@@ -197,19 +191,15 @@ public class SimulatorServiceManager extends CommonServiceManager {
 		}
 	}
 
-	public String getTransactionResponse(String simid, String actor,
-			String trans, String event) {
-		logger.debug(session.id() + ": " + "getTransactionResponse - " + simid + " - " + actor + " - " + trans + " - " + event);
+	public String getTransactionResponse(SimId simid, String trans, String event) {
+		logger.debug(session.id() + ": " + "getTransactionResponse - " + simid + " - " + trans + " - " + event);
 		try {
 			SimDb db = new SimDb(simid);
 
-			if (actor == null)
-				actor = db.getSimulatorActorType().toString();
-
-			File headerFile = db.getResponseHeaderFile(simid, actor, trans,
+			File headerFile = db.getResponseHeaderFile(simid, trans,
 					event);
 			File bodyFile = db
-					.getResponseBodyFile(simid, actor, trans, event);
+					.getResponseBodyFile(simid, trans, event);
 
 			return Io.stringFromFile(headerFile)
 					// + "\r\n"
@@ -219,16 +209,12 @@ public class SimulatorServiceManager extends CommonServiceManager {
 		}
 	}
 
-	public String getTransactionLog(String simid, String actor, String trans,
-			String event) {
-		logger.debug(session.id() + ": " + "getTransactionLog - " + simid + " - " + actor + " - " + trans + " - " + event);
+	public String getTransactionLog(SimId simid, String trans, String event) {
+		logger.debug(session.id() + ": " + "getTransactionLog - " + simid + " - " + trans + " - " + event);
 		try {
 			SimDb db = new SimDb(simid);
 
-			if (actor == null)
-				actor = db.getSimulatorActorType().toString();
-
-			File logFile = db.getLogFile(simid, actor, trans, event);
+			File logFile = db.getLogFile(simid, trans, event);
 
 			return Io.stringFromFile(logFile);
 		} catch (Exception e) {
@@ -262,7 +248,7 @@ public class SimulatorServiceManager extends CommonServiceManager {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<SimulatorConfig> getSimConfigs(List<String> ids) throws Exception  {
+	public List<SimulatorConfig> getSimConfigs(List<SimId> ids) throws Exception  {
 		logger.debug(session.id() + ": " + "getSimConfigs " + ids);
 
 		SimulatorFactory simFact = new SimulatorFactory(new SimCache().getSimManagerForSession(session.id()));
@@ -340,7 +326,7 @@ public class SimulatorServiceManager extends CommonServiceManager {
 	 * 
 	 * @return map from simulator name (private name) to simulator id (global id)
 	 */
-	public Map<String, String> getSimulatorNameMap() {
+	public Map<String, SimId> getSimulatorNameMap() {
 		logger.debug(session.id() + ": " + "getActorSimulatorNameMap");
 		return new SimCache().getSimManagerForSession(session.id(), true).getNameMap();
 	}

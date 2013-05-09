@@ -16,6 +16,7 @@ import gov.nist.toolkit.http.HttpHeader;
 import gov.nist.toolkit.http.HttpHeader.HttpHeaderParseException;
 import gov.nist.toolkit.installation.Installation;
 import gov.nist.toolkit.session.server.Session;
+import gov.nist.toolkit.simcommon.client.SimId;
 import gov.nist.toolkit.simcommon.client.config.SimulatorConfigElement;
 import gov.nist.toolkit.simulators.sim.ig.IgActorSimulator;
 import gov.nist.toolkit.simulators.sim.recip.RecipientActorSimulator;
@@ -132,13 +133,13 @@ public class SimServlet  extends HttpServlet {
 	}
 
 	void handleDelete(HttpServletResponse response, String[] parts) {
-		String simid;
+		SimId simid;
 		String actor;
 		String transaction;
 		String message;
 
 		try {
-			simid = parts[0];
+			simid = new SimId(parts[0]);
 			actor = parts[1];
 			transaction = parts[2];
 			message = parts[3];
@@ -210,14 +211,14 @@ public class SimServlet  extends HttpServlet {
 	
 	// handle simulator message download
 	void handleMsgDownload(HttpServletResponse response, String[] parts) {
-		String simid;
+		SimId simid;
 		String actor;
 		String transaction;
 		String message;
 		
 
 		try {
-			simid       = parts[0];
+			simid       = new SimId(parts[0]);
 			actor       = parts[1];
 			transaction = parts[2];
 			message     = parts[3];
@@ -263,12 +264,12 @@ public class SimServlet  extends HttpServlet {
 
 	// clean up index of an actor
 	void handleIndex(HttpServletResponse response, String[] parts) {
-		String simid;
+		SimId simid;
 		String actor;
 		String transaction;
 
 		try {
-			simid = parts[0];
+			simid = new SimId(parts[0]);
 			actor = parts[1];
 			transaction = parts[2];
 		} catch (Exception e) {
@@ -372,12 +373,12 @@ public class SimServlet  extends HttpServlet {
 		transIds.add("pnr");
 		transIds.add("xcqr");
 
-		String simid = null;
+		SimId simid = null;
 		String actor = null;
 		String transaction = null;
 		String validation = null;
 		try {
-			simid = uriParts[simIndex + 1];
+			simid = new SimId(uriParts[simIndex + 1]);
 			actor = uriParts[simIndex + 2];
 			transaction = uriParts[simIndex + 3];
 		}
@@ -599,7 +600,7 @@ public class SimServlet  extends HttpServlet {
 
 	}
 	
-	public RegIndex getRegIndex(SimDb db, String simid) {
+	public RegIndex getRegIndex(SimDb db, SimId simid) {
 		ServletContext servletContext = config.getServletContext(); 
 		String registryIndexFile = db.getRegistryIndexFile().toString();
 		RegIndex regIndex;
@@ -618,7 +619,7 @@ public class SimServlet  extends HttpServlet {
 		return regIndex;
 	}
 
-	public RepIndex getRepIndex(SimDb db, String simid) {
+	public RepIndex getRepIndex(SimDb db, SimId simid) {
 		ServletContext servletContext = config.getServletContext(); 
 		String repositoryIndexFile = db.getRepositoryIndexFile().toString();
 		RepIndex repIndex;

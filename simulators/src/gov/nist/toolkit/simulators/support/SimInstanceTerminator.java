@@ -2,9 +2,9 @@ package gov.nist.toolkit.simulators.support;
 
 import gov.nist.toolkit.actorfactory.SimCache;
 import gov.nist.toolkit.actorfactory.SimDb;
-import gov.nist.toolkit.actorfactory.client.Simulator;
 import gov.nist.toolkit.actorfactory.client.SimulatorConfig;
 import gov.nist.toolkit.session.server.Session;
+import gov.nist.toolkit.simcommon.client.SimId;
 
 import java.io.IOException;
 import java.util.Date;
@@ -37,8 +37,8 @@ public class SimInstanceTerminator {
 		Date now = new Date();
 		int deleted = 0;
 		
-		List<String> simIds = simdb.getAllSimIds();
-		for (String simId : simIds) {
+		List<SimId> simIds = simdb.getAllSimIds();
+		for (SimId simId : simIds) {
 			SimulatorConfig asc;
 			try {
 //				asc = new SimDb().SimManager.getSimManager(session.id()).getSimulatorConfig(id);

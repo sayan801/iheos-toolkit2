@@ -6,6 +6,7 @@ import gov.nist.toolkit.actortransaction.client.ATFactory.ActorType;
 import gov.nist.toolkit.actortransaction.client.ATFactory.ParamType;
 import gov.nist.toolkit.actortransaction.client.ATFactory.TransactionType;
 import gov.nist.toolkit.envSetting.EnvSetting;
+import gov.nist.toolkit.simcommon.client.SimId;
 import gov.nist.toolkit.sitemanagement.client.Site;
 import gov.nist.toolkit.sitemanagement.client.TransactionBean;
 import gov.nist.toolkit.sitemanagement.client.TransactionBean.RepositoryType;
@@ -46,7 +47,7 @@ public class RGActorFactory extends ActorFactory {
 		else
 			sc = new SimulatorConfig();
 
-		String simId = sc.getId();
+		SimId simId = sc.getId();
 
 		File codesFile = EnvSetting.getEnvSetting(simm.sessionId).getCodesFile();
 		addEditableConfig(sc, codesEnvironment, ParamType.SELECTION, codesFile.toString());

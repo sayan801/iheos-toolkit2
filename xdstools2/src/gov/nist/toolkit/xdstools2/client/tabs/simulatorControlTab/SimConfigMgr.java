@@ -53,7 +53,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 			row++;
 			
 			tbl.setWidget(row, 0, HtmlMarkup.html("Simulator ID"));
-			tbl.setWidget(row, 1, HtmlMarkup.html(config.getId()));
+			tbl.setWidget(row, 1, HtmlMarkup.html(config.getId().toString()));
 			
 			row++;
 			

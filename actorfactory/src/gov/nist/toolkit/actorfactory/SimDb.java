@@ -4,11 +4,12 @@ import gov.nist.toolkit.actorfactory.client.NoSimException;
 import gov.nist.toolkit.actortransaction.client.ATFactory;
 import gov.nist.toolkit.actortransaction.client.ATFactory.ActorType;
 import gov.nist.toolkit.actortransaction.client.ATFactory.TransactionType;
+import gov.nist.toolkit.http.HttpHeader.HttpHeaderParseException;
 import gov.nist.toolkit.http.HttpMessage;
 import gov.nist.toolkit.http.HttpParseException;
 import gov.nist.toolkit.http.HttpParser;
-import gov.nist.toolkit.http.HttpHeader.HttpHeaderParseException;
 import gov.nist.toolkit.installation.Installation;
+import gov.nist.toolkit.simcommon.client.SimId;
 import gov.nist.toolkit.simcommon.server.ExtendedPropertyManager;
 import gov.nist.toolkit.utilities.io.Io;
 import gov.nist.toolkit.utilities.io.ZipDir;
@@ -33,7 +34,7 @@ import org.apache.log4j.Logger;
  * configurations are managed through ActorSimulatorConfig class.
  */
 public class SimDb {
-	String simId = null;    // ip is the simulator id
+	SimId simId = null;    // ip is the simulator id
 	File dbRoot = null;  // base of the simulator db
 	String event = null;
 	File simDir = null;   // directory within simdb that represents this event
@@ -43,9 +44,8 @@ public class SimDb {
 	static Logger logger = Logger.getLogger(SimDb.class);
 
 
-	static public SimDb mkSim(String simid, String actor) throws IOException, NoSimException {
+	static public SimDb mkSim(SimId simid, String actor) throws IOException, NoSimException {
 
-		simid = simid.replaceAll("\\.", "_");    // dir name that should be acceptable on all system types
 		File simActorDir = new File(getDbRoot().getAbsolutePath() + File.separatorChar + simid + File.separatorChar + actor);
 		simActorDir.mkdirs();
 		if (!simActorDir.exists()) {
@@ -65,13 +65,13 @@ public class SimDb {
 
 	}
 	
-	public SimDb(String simulatorId) throws IOException, NoSimException {
+	public SimDb(SimId simulatorId) throws IOException, NoSimException {
 		this(simulatorId, null, null);
 	}
 
 
 	// ipAddr aka simid
-	public SimDb(String simId, String actor, String transaction) throws IOException, NoSimException {
+	public SimDb(SimId simId, String actor, String transaction) throws IOException, NoSimException {
 		this.simId = simId;
 		this.actor = actor;
 		this.transaction = transaction;
@@ -80,8 +80,7 @@ public class SimDb {
 		if (!dbRoot.canWrite() || !dbRoot.isDirectory())
 			throw new IOException("Simulator database location, " + dbRoot.toString() + " is not a directory or cannot be written to");
 
-		String ipdir = simId.replaceAll("\\.", "_");
-		simDir = new File(dbRoot.toString()  /*.getAbsolutePath()*/ + File.separatorChar + ipdir);
+		simDir = simId.getRoot(); //new File(dbRoot.toString()  /*.getAbsolutePath()*/ + File.separatorChar + ipdir);
 		if (!simDir.exists()) {
 			logger.error("Simulator " + simId + " does not exist");
 			throw new NoSimException("Simulator " + simId + " does not exist");
@@ -134,13 +133,13 @@ public class SimDb {
 
 
 	
-	public List<String> getAllSimIds() {
+	public List<SimId> getAllSimIds() {
 		File[] files = dbRoot.listFiles();
-		List<String> ids = new ArrayList<String>();
+		List<SimId> ids = new ArrayList<SimId>();
 		
 		for (File sim : files) {
 			if (sim.isDirectory())
-				ids.add(sim.getName());
+				ids.add(new SimId(sim.getName()));
 		}
 		
 		return ids;
@@ -275,7 +274,12 @@ public class SimDb {
 		return simDir;
 	}
 
-	public List<String> getTransInstances(String ignored_actor, String trans) {
+	/**
+	 * Get list of transaction instance file names for this transaction in this simulator.
+	 * @param trans
+	 * @return
+	 */
+	public List<String> getTransInstances(String trans) {
 		List<String> names = new ArrayList<String>();
 
 		for (File actor : simDir.listFiles()) {
@@ -454,7 +458,7 @@ public class SimDb {
 		return null;
 	}
 
-	public File getTransactionEvent(String simid, String actor, String trans, String event) {
+	public File getTransactionEvent(SimId simid, String actor, String trans, String event) {
 		File dir = new File(simDir 
 				+ File.separator + actor
 				+ File.separator + trans
@@ -464,83 +468,42 @@ public class SimDb {
 		return dir;
 	}
 
-	public File getRequestHeaderFile(String simid, String actor, String trans, String event) {
-//		File dir = new File(ipDir 
-//				+ File.separator + actor
-//				+ File.separator + trans
-//				+ File.separator + event
-//				+ File.separator + "request_hdr.txt"
-//		);
-//
-//		return dir;
-		
+	public File getRequestHeaderFile(SimId simid, String trans, String event) {
 		File dir = findEventDir(trans, event);
 		if (dir == null)
 			return null;
 		return new File(dir + File.separator + "request_hdr.txt");
 	}
 
-	public File getResponseHeaderFile(String simid, String actor, String trans, String event) {
-//		File dir = new File(ipDir 
-//				+ File.separator + actor
-//				+ File.separator + trans
-//				+ File.separator + event
-//				+ File.separator + "response_hdr.txt"
-//		);
-//
-//		return dir;
+	public File getResponseHeaderFile(SimId simid, String trans, String event) {
 		File dir = findEventDir(trans, event);
 		if (dir == null)
 			return null;
 		return new File(dir + File.separator + "response_hdr.txt");
 	}
 
-	public File getRequestBodyFile(String simid, String actor, String trans, String event) {
-//		File dir = new File(ipDir 
-//				+ File.separator + actor
-//				+ File.separator + trans
-//				+ File.separator + event
-//				+ File.separator + "request_body.bin"
-//		);
-//
-//		return dir;
+	public File getRequestBodyFile(SimId simid, String trans, String event) {
 		File dir = findEventDir(trans, event);
 		if (dir == null)
 			return null;
 		return new File(dir + File.separator + "request_body.bin");
 	}
 
-	public File getResponseBodyFile(String simid, String actor, String trans, String event) {
-//		File dir = new File(ipDir 
-//				+ File.separator + actor
-//				+ File.separator + trans
-//				+ File.separator + event
-//				+ File.separator + "response_body.txt"
-//		);
-//
-//		return dir;
+	public File getResponseBodyFile(SimId simid, String trans, String event) {
 		File dir = findEventDir(trans, event);
 		if (dir == null)
 			return null;
 		return new File(dir + File.separator + "response_body.txt");
 	}
 
-	public File getLogFile(String simid, String actor, String trans, String event) {
-//		File dir = new File(ipDir 
-//				+ File.separator + actor
-//				+ File.separator + trans
-//				+ File.separator + event
-//				+ File.separator + "log.txt"
-//		);
-//
-//		return dir;
+	public File getLogFile(SimId simid, String trans, String event) {
 		File dir = findEventDir(trans, event);
 		if (dir == null)
 			return null;
 		return new File(dir + File.separator + "log.txt");
 	}
 
-	public List<String> getRegistryIds(String simid, String actor, String trans, String event) {
+	public List<String> getRegistryIds(SimId simid, String actor, String trans, String event) {
 		List<String> ids = new ArrayList<String>();
 
 		File dir = getTransactionEvent(simid, actor, trans, event);

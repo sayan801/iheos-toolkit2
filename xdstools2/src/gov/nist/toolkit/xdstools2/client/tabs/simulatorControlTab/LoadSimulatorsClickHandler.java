@@ -1,6 +1,7 @@
 package gov.nist.toolkit.xdstools2.client.tabs.simulatorControlTab;
 
 import gov.nist.toolkit.actorfactory.client.SimulatorConfig;
+import gov.nist.toolkit.simcommon.client.SimId;
 import gov.nist.toolkit.xdstools2.client.PopupMessage;
 
 import java.util.ArrayList;
@@ -25,14 +26,14 @@ class LoadSimulatorsClickHandler implements ClickHandler {
 		simulatorControlTab.simConfigSuper.panel.clear();
 		String idStr = simulatorControlTab.simIdsTextArea.getText();
 		String[] parts = idStr.split(",");
-		List<String> ids = new ArrayList<String>();
+		List<SimId> ids = new ArrayList<SimId>();
 
 		simulatorControlTab.updateSimulatorCookies(idStr);
 
 		for (int i=0; i<parts.length; i++) {
 			String x = parts[i].trim();
 			if (!x.equals(""))
-				ids.add(x);
+				ids.add(new SimId(x));
 		}
 
 		simulatorControlTab.toolkitService.getSimConfigs(ids, new AsyncCallback<List<SimulatorConfig>>() {

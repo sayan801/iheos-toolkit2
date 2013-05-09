@@ -6,6 +6,7 @@ import gov.nist.toolkit.directsim.client.ContactRegistrationData;
 import gov.nist.toolkit.directsupport.SMTPException;
 import gov.nist.toolkit.email.Emailer;
 import gov.nist.toolkit.installation.Installation;
+import gov.nist.toolkit.simcommon.client.SimId;
 import gov.nist.toolkit.simulators.support.ValidateMessageService;
 import gov.nist.toolkit.testengine.smtp.SMTPAddress;
 import gov.nist.toolkit.tk.TkLoader;
@@ -349,7 +350,7 @@ class doComms implements Runnable {
 		validationReport.append("</body></html>");
 
 		// Generate validation report URL
-		String reportId = new DirectActorFactory().getNewId();
+		SimId reportId = new DirectActorFactory().getNewId();
 		String url = null;
 		File reportFile = null;
 		try {

@@ -9,6 +9,7 @@ import gov.nist.toolkit.actortransaction.client.ATFactory.TransactionType;
 import gov.nist.toolkit.installation.Installation;
 import gov.nist.toolkit.installation.PropertyServiceManager;
 import gov.nist.toolkit.registrymetadata.UuidAllocator;
+import gov.nist.toolkit.simcommon.client.SimId;
 import gov.nist.toolkit.simcommon.client.config.SimulatorConfigElement;
 import gov.nist.toolkit.sitemanagement.Sites;
 import gov.nist.toolkit.sitemanagement.client.Site;
@@ -103,7 +104,7 @@ public abstract class ActorFactory {
 		return configureBaseElements(simType, null);
 	}
 
-	protected SimulatorConfig configureBaseElements(ActorType simType, String newId) {
+	protected SimulatorConfig configureBaseElements(ActorType simType, SimId newId) {
 		if (newId == null)
 			newId = getNewId();
 		SimulatorConfig sc = new SimulatorConfig(newId, simType.getShortName(), SimDb.getNewExpiration(SimulatorConfig.class));
@@ -181,13 +182,13 @@ public abstract class ActorFactory {
 	}
 
 
-	public String getNewId() {
+	public SimId getNewId() {
 		String id = UuidAllocator.allocate();
 		String[] parts = id.split(":");
 		id = parts[2];
 		//		id = id.replaceAll("-", "_");
 
-		return id;
+		return new SimId(id);
 	}
 
 	String mkEndpoint(SimulatorConfig asc, SimulatorConfigElement ele, boolean isTLS) {
@@ -265,10 +266,10 @@ public abstract class ActorFactory {
 	 * @throws ClassNotFoundException
 	 * @throws NoSimException 
 	 */
-	public List<SimulatorConfig> loadSimulators(List<String> ids) throws IOException, ClassNotFoundException, NoSimException {
+	public List<SimulatorConfig> loadSimulators(List<SimId> ids) throws IOException, ClassNotFoundException, NoSimException {
 		List<SimulatorConfig> configs = new ArrayList<SimulatorConfig>();
 
-		for (String id : ids) {
+		for (SimId id : ids) {
 			SimDb simdb = new SimDb(id);
 			File simCntlFile = simdb.getSimulatorControlFile();
 			SimulatorConfig config = restoreSimulator(simCntlFile.toString());
@@ -285,10 +286,10 @@ public abstract class ActorFactory {
 	 * @throws IOException
 	 * @throws ClassNotFoundException
 	 */
-	public List<SimulatorConfig> loadAvailableSimulators(List<String> ids) throws IOException, ClassNotFoundException {
+	public List<SimulatorConfig> loadAvailableSimulators(List<SimId> ids) throws IOException, ClassNotFoundException {
 		List<SimulatorConfig> configs = new ArrayList<SimulatorConfig>();
 
-		for (String id : ids) {
+		for (SimId id : ids) {
 			try {
 				SimDb simdb = new SimDb(id);
 				File simCntlFile = simdb.getSimulatorControlFile();
@@ -314,14 +315,14 @@ public abstract class ActorFactory {
 		return config;
 	}
 
-	public SimulatorConfig getSimulator(String simid) throws IOException, ClassNotFoundException, NoSimException {
+	public SimulatorConfig getSimulator(SimId simid) throws IOException, ClassNotFoundException, NoSimException {
 		SimDb simdb = new SimDb(simid);
 		File simCntlFile = simdb.getSimulatorControlFile();
 		SimulatorConfig config = restoreSimulator(simCntlFile.toString());
 		return config;
 	}	
 
-	public SimulatorConfig getSimConfig(File simDbFile, String simulatorId) throws IOException, ClassNotFoundException, NoSimException {
+	public SimulatorConfig getSimConfig(File simDbFile, SimId simulatorId) throws IOException, ClassNotFoundException, NoSimException {
 		SimDb simdb = new SimDb(simulatorId, null, null);
 		File simCntlFile = simdb.getSimulatorControlFile();
 		SimulatorConfig config = restoreSimulator(simCntlFile.toString());

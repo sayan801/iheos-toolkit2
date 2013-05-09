@@ -1,6 +1,7 @@
 package gov.nist.toolkit.xdstools2.client.tabs.simulatorControlTab;
 
 import gov.nist.toolkit.actorfactory.client.SimulatorConfig;
+import gov.nist.toolkit.simcommon.client.SimId;
 import gov.nist.toolkit.xdstools2.client.PopupMessage;
 
 import java.util.ArrayList;
@@ -25,8 +26,8 @@ class SimConfigSuper {
 		this.panel = panel;
 	}
 	
-	List<String> getIds() {
-		List<String> ids = new ArrayList<String>();
+	List<SimId> getIds() {
+		List<SimId> ids = new ArrayList<SimId>();
 		for (SimConfigMgr mgr : mgrs) {
 			ids.add(mgr.config.getId());
 		}
@@ -41,7 +42,7 @@ class SimConfigSuper {
 		
 		String txt = simulatorControlTab.simIdsTextArea.getText();
 		if (txt == null || txt.equals("")) {
-			simulatorControlTab.simIdsTextArea.setText(mgr.config.getId());
+			simulatorControlTab.simIdsTextArea.setText(mgr.config.getId().getId());
 		} else {
 			txt = txt + ", " + mgr.config.getId();
 			simulatorControlTab.simIdsTextArea.setText(txt);
@@ -60,11 +61,10 @@ class SimConfigSuper {
 	 * Delete existing instance of this simulator
 	 */
 	void delete(SimulatorConfig config) {
-		String targetId = config.getId();
+		SimId targetId = config.getId();
 		SimConfigMgr toDelete = null;
 		for (SimConfigMgr mgr : mgrs) {
-			String id = mgr.config.getId();
-			if (id.equals(targetId)) {
+			if (mgr.config.getId().equals(targetId)) {
 				toDelete = mgr;
 				break;
 			}
@@ -85,7 +85,7 @@ class SimConfigSuper {
 		String txt = "";
 		for (SimConfigMgr mgr : mgrs) {
 			if (txt.equals(""))
-				txt = mgr.config.getId();
+				txt = mgr.config.getId().getId();
 			else
 				txt = txt + ", " + mgr.config.getId();
 			
