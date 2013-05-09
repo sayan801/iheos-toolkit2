@@ -229,7 +229,7 @@ public abstract class ActorFactory {
 			}
 		}
 
-		SimDb simdb = SimDb.mkSim(Installation.installation().simDbFile(), config.getId(), config.getType());
+		SimDb simdb = SimDb.mkSim(config.getId(), config.getType());
 		File simCntlFile = simdb.getSimulatorControlFile();
 		new SimulatorConfigIo().save(config, simCntlFile.toString());   //config.save(simCntlFile.toString());
 	}
@@ -322,7 +322,7 @@ public abstract class ActorFactory {
 	}	
 
 	public SimulatorConfig getSimConfig(File simDbFile, String simulatorId) throws IOException, ClassNotFoundException, NoSimException {
-		SimDb simdb = new SimDb(simDbFile, simulatorId, null, null);
+		SimDb simdb = new SimDb(simulatorId, null, null);
 		File simCntlFile = simdb.getSimulatorControlFile();
 		SimulatorConfig config = restoreSimulator(simCntlFile.toString());
 		return config;

@@ -43,20 +43,22 @@ public class SimDb {
 	static Logger logger = Logger.getLogger(SimDb.class);
 
 
-	static public SimDb mkSim(File dbRoot, String simid, String actor) throws IOException, NoSimException {
-		if (!dbRoot.canWrite() || !dbRoot.isDirectory())
-			throw new IOException("Simulator database location, " + dbRoot.toString() + " is not a directory or cannot be written to");
+	static public SimDb mkSim(String simid, String actor) throws IOException, NoSimException {
 
 		simid = simid.replaceAll("\\.", "_");    // dir name that should be acceptable on all system types
-		File simActorDir = new File(dbRoot.getAbsolutePath() + File.separatorChar + simid + File.separatorChar + actor);
+		File simActorDir = new File(getDbRoot().getAbsolutePath() + File.separatorChar + simid + File.separatorChar + actor);
 		simActorDir.mkdirs();
 		if (!simActorDir.exists()) {
 			logger.error("Simulator " + simid + ", " + actor + " cannot be created");
 			throw new IOException("Simulator " + simid + ", " + actor + " cannot be created");
 		}
 		
-		return new SimDb(dbRoot, simid, actor, null);
+		return new SimDb(simid, actor, null);
 
+	}
+	
+	static File getDbRoot() {
+		return Installation.installation().simDbFile();
 	}
 	
 	public SimDb() {
@@ -64,16 +66,16 @@ public class SimDb {
 	}
 	
 	public SimDb(String simulatorId) throws IOException, NoSimException {
-		this(Installation.installation().simDbFile(), simulatorId, null, null);
+		this(simulatorId, null, null);
 	}
 
 
 	// ipAddr aka simid
-	public SimDb(File dbRoot, String simId, String actor, String transaction) throws IOException, NoSimException {
+	public SimDb(String simId, String actor, String transaction) throws IOException, NoSimException {
 		this.simId = simId;
 		this.actor = actor;
 		this.transaction = transaction;
-		this.dbRoot = dbRoot;
+		this.dbRoot = getDbRoot();
 
 		if (!dbRoot.canWrite() || !dbRoot.isDirectory())
 			throw new IOException("Simulator database location, " + dbRoot.toString() + " is not a directory or cannot be written to");

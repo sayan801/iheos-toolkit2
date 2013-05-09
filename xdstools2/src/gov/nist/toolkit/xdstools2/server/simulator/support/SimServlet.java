@@ -149,7 +149,7 @@ public class SimServlet  extends HttpServlet {
 
 		if (actor == null || actor.equals("null")) {
 			try {
-				SimDb sdb = new SimDb(simDbDir, simid, null, null);
+				SimDb sdb = new SimDb(simid, null, null);
 				actor = sdb.getActorForSimulator();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -166,7 +166,7 @@ public class SimServlet  extends HttpServlet {
 
 		SimDb db;
 		try {
-			db = new SimDb(simDbDir, simid, actor, transaction);
+			db = new SimDb(simid, actor, transaction);
 		} catch (Exception e) {
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			return;
@@ -228,7 +228,7 @@ public class SimServlet  extends HttpServlet {
 
 		if (actor == null || actor.equals("null")) {
 			try {
-				SimDb sdb = new SimDb(simDbDir, simid, null, null);
+				SimDb sdb = new SimDb(simid, null, null);
 				actor = sdb.getActorForSimulator();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -245,7 +245,7 @@ public class SimServlet  extends HttpServlet {
 
 		SimDb db;
 		try {
-			db = new SimDb(simDbDir, simid, actor, transaction);
+			db = new SimDb(simid, actor, transaction);
 			response.setContentType("application/zip");
 			db.getMessageLogZip(response.getOutputStream(), message);
 			response.getOutputStream().close();
@@ -278,7 +278,7 @@ public class SimServlet  extends HttpServlet {
 
 		if (actor == null || actor.equals("null")) {
 			try {
-				SimDb sdb = new SimDb(simDbDir, simid, null, null);
+				SimDb sdb = new SimDb(simid, null, null);
 				actor = sdb.getActorForSimulator();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -296,7 +296,7 @@ public class SimServlet  extends HttpServlet {
 
 		SimDb db;
 		try {
-			db = new SimDb(simDbDir, simid, actor, transaction);
+			db = new SimDb(simid, actor, transaction);
 		} catch (Exception e) {
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			return;
@@ -408,7 +408,7 @@ public class SimServlet  extends HttpServlet {
 		try {
 
 			// DB space for this simulator
-			SimDb db = new SimDb(simDbDir, simid, actor, transaction);
+			SimDb db = new SimDb(simid, actor, transaction);
 			request.setAttribute("SimDb", db);
 
 			logRequest(request, db, actor, transaction);
