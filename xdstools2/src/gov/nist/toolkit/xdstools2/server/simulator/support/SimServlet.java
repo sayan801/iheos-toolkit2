@@ -1,6 +1,6 @@
 package gov.nist.toolkit.xdstools2.server.simulator.support;
 
-import gov.nist.toolkit.actorfactory.ActorFactory;
+import gov.nist.toolkit.actorfactory.AbstractActorFactory;
 import gov.nist.toolkit.actorfactory.RegistryActorFactory;
 import gov.nist.toolkit.actorfactory.SimCache;
 import gov.nist.toolkit.actorfactory.SimDb;
@@ -423,7 +423,7 @@ public class SimServlet  extends HttpServlet {
 			
 			ValidationContext vc = new ValidationContext();
 			
-			SimulatorConfigElement asce = asc.get(ActorFactory.codesEnvironment);
+			SimulatorConfigElement asce = asc.get(AbstractActorFactory.codesEnvironment);
 			if (asce != null)
 				vc.setCodesFilename(asce.asString());
 			

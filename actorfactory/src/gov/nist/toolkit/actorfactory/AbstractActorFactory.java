@@ -32,7 +32,7 @@ import java.util.Map;
  * @author bill
  *
  */
-public abstract class ActorFactory {
+public abstract class AbstractActorFactory {
 
 	protected abstract Simulator buildNew(SimManager simm, boolean configureBase) throws Exception;
 	//	protected abstract List<SimulatorConfig> buildNew(Session session, SimulatorConfig asc) throws Exception;
@@ -41,7 +41,7 @@ public abstract class ActorFactory {
 	public abstract List<TransactionType> getIncomingTransactions();
 	//	protected abstract void addConfigElements(SimulatorConfig asc);
 
-	static final Map<String /* ActorType.name */, ActorFactory> factories = new HashMap<String, ActorFactory>(); 
+	static final Map<String /* ActorType.name */, AbstractActorFactory> factories = new HashMap<String, AbstractActorFactory>(); 
 	static {
 		factories.put(ActorType.REGISTRY.getName(),           new RegistryActorFactory());
 		factories.put(ActorType.REPOSITORY.getName(),         new RepositoryActorFactory());
@@ -52,7 +52,7 @@ public abstract class ActorFactory {
 		factories.put(ActorType.DIRECT_SERVER.getName(),  new DirectActorFactory());
 	}
 
-	static public ActorFactory getActorFactory(ActorType at) {
+	static public AbstractActorFactory getActorFactory(ActorType at) {
 		return factories.get(at.getName());
 	}
 
@@ -130,13 +130,13 @@ public abstract class ActorFactory {
 		return sc;
 	}
 
-	protected ActorFactory() {}
+	protected AbstractActorFactory() {}
 
 	protected void setSimManager(SimManager simManager) {
 		this.simManager = simManager;
 	}
 
-	public ActorFactory(SimManager simManager) {
+	public AbstractActorFactory(SimManager simManager) {
 		this.simManager = simManager;
 	}
 
@@ -148,7 +148,7 @@ public abstract class ActorFactory {
 		if (at == null)
 			throw new NoSimException("Simulator type [" + simtype + "] does not exist");
 
-		ActorFactory af = factories.get(at.getName());
+		AbstractActorFactory af = factories.get(at.getName());
 
 		af.setSimManager(simManager);
 

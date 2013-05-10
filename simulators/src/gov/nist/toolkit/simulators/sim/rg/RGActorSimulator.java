@@ -1,6 +1,6 @@
 package gov.nist.toolkit.simulators.sim.rg;
 
-import gov.nist.toolkit.actorfactory.ActorFactory;
+import gov.nist.toolkit.actorfactory.AbstractActorFactory;
 import gov.nist.toolkit.actorfactory.RGActorFactory;
 import gov.nist.toolkit.actorfactory.RepositoryActorFactory;
 import gov.nist.toolkit.actorfactory.SimDb;
@@ -81,7 +81,7 @@ public class RGActorSimulator extends GatewaySimulatorCommon implements Metadata
 			SoapMessageValidator smv = (SoapMessageValidator) mv;
 			OMElement query = smv.getMessageBody();
 			
-			SimulatorConfigElement asce = asc.getUserByName(ActorFactory.homeCommunityId);
+			SimulatorConfigElement asce = asc.getUserByName(AbstractActorFactory.homeCommunityId);
 			if (asce == null) {
 				er.err(Code.XDSRepositoryError, "RG Internal Error - homeCommunityId not configured", this, "");
 				returnRetrieveError();

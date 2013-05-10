@@ -14,7 +14,7 @@ import java.util.List;
  * @author bill
  *
  */
-public class SimulatorFactory extends ActorFactory {
+public class SimulatorFactory extends AbstractActorFactory {
 	
 	@SuppressWarnings("unused")
 	private SimulatorFactory() {

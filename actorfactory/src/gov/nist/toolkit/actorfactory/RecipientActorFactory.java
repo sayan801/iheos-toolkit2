@@ -17,7 +17,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
-public class RecipientActorFactory  extends ActorFactory {
+public class RecipientActorFactory  extends AbstractActorFactory {
 
 	static final List<TransactionType> incomingTransactions = 
 		Arrays.asList(TransactionType.PROVIDE_AND_REGISTER);

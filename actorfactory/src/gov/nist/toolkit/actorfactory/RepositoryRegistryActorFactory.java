@@ -10,7 +10,7 @@ import gov.nist.toolkit.sitemanagement.client.Site;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepositoryRegistryActorFactory extends ActorFactory {
+public class RepositoryRegistryActorFactory extends AbstractActorFactory {
 
 	RegistryActorFactory registryActorFactory;
 	RepositoryActorFactory repositoryActorFactory;
