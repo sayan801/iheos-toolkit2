@@ -41,6 +41,8 @@ import javax.net.ssl.SSLSession;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.axiom.om.util.Base64;
@@ -340,7 +342,6 @@ public class HttpClient implements HostnameVerifier {
 	}
 
 	void putFile(String filename, String mimeType, String name) throws java.io.IOException {
-		FileInputStream in = new FileInputStream(new File(filename));
 		byte[] buf = new byte[256];
 		int size;
 
@@ -800,7 +801,7 @@ public class HttpClient implements HostnameVerifier {
 			if (doc == null) {
 				InputStream content = getContentInputStream(0);
 				try {
-					doc = gov.nist.toolkit.utilities.xml.XML.parse(content);
+					doc = parse(content);
 				} catch (Exception e) {
 					throw new IOException("Response does not XML parse:\n" + Io.getStringFromInputStream(content));
 				}
@@ -810,6 +811,22 @@ public class HttpClient implements HostnameVerifier {
 			throw e;
 		} 
 	}
+	
+    static public Document parse(InputStream is)  throws IOException, SAXException, ParserConfigurationException {
+    	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    	DocumentBuilder builder= factory.newDocumentBuilder();;
+        try {
+            //System.out.println(getStringFromInputStream(is));
+            Document doc = builder.parse(is);
+            return doc;
+        } catch (SAXException e) {
+            throw new SAXException("XML:parse: XML document failed to parse");
+            
+        } //catch (java.io.IOException e) {
+        // throw new Exception("XML:parse: XML document failed to parse");
+        //}
+    }
+
 
 	//	public String documentAsString() throws Exception {
 	//	OutputFormat of = new OutputFormat(getDocument());
