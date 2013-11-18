@@ -138,7 +138,7 @@ public class QueryServiceManager extends CommonServiceManager {
 	}
 
 	public List<Result> getDocuments(SiteSpec site, AnyIds aids) {
-		logger.debug(session.id() + ": " + "getDocuments");
+		logger.debug(session.id() + ": " + "getDocuments(" + site + ", " + aids + ")");
 		if (site == null) site = session.siteSpec;
 		try {
 			return new GetDocuments(session).run(site, aids);
