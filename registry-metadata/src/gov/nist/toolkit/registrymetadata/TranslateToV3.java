@@ -18,8 +18,9 @@ public class TranslateToV3 extends Translate {
 	public OMElement translate(OMElement ro2, boolean must_dup) throws XdsInternalException {
 		if (MetadataSupport.isV3Namespace(ro2.getNamespace()) && !must_dup) 
 			return Util.deep_copy(ro2);
-		m = new Metadata();
-		return deep_copy(ro2, MetadataSupport.ebRIMns3);
+		m = new Metadata();  // Contains lots of utility functions that will be used
+		OMElement copy = deep_copy(ro2, MetadataSupport.ebRIMns3);
+		return copy;
 	}
  
 	String new_id() {
@@ -47,13 +48,17 @@ public class TranslateToV3 extends Translate {
 		OMElement to = MetadataSupport.om_factory.createOMElement(from.getLocalName(), new_namespace);
 
 		copy_attributes(from, to);
-
+		
+		// Must have id attribute - create one if necessary
 		if (to_name.equals("Association"))
 			add_id(to);
 
+		// Must have id attribute - create one if necessary
 		if (to_name.equals("Classification"))
 			add_id(to);
 
+		// Handle standard atts and force them into the appropriate
+		// order for the V3 schema.
 		for (Att att : Att.values()) {
 			String att_name = att.name();
 			for (Iterator it=from.getChildElements(); it.hasNext(); ) {
@@ -65,15 +70,14 @@ public class TranslateToV3 extends Translate {
 						newx.addAttribute("registryObject", to_id, null);
 					}
 					to.addChild(newx);
+//					System.out.println("after addChild " + to.toString());
 				}
 			}
 		}
 
-			
-		OMElement x;
-
+		// Handle all other elements
 		for (Iterator it=from.getChildElements(); it.hasNext(); ) {
-			x = (OMElement) it.next();
+			OMElement x = (OMElement) it.next();
 
 			if (x.getLocalName().equals("Name")) continue;
 			if (x.getLocalName().equals("Description")) continue;
@@ -84,11 +88,16 @@ public class TranslateToV3 extends Translate {
 			if (x.getLocalName().equals("ObjectRef")) continue;
 
 			to.addChild(deep_copy(x, new_namespace));
+//			System.out.println("after addChild2 " + to.toString());
 		}
 
 		String text = from.getText();
-		to.setText(text);
-
+		if (text != null) {
+			text = text.trim();
+			if (!text.equals(""))
+				to.setText(text);
+		}
+//		System.out.println("deep_copy returning " + to.toString());
 		return to;
 	}
 	
