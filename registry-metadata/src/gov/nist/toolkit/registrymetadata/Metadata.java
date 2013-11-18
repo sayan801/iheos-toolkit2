@@ -119,7 +119,7 @@ public class Metadata {
 	OMElement metadataDup = null; // both of these are set by dup_wrapper which
 	// is used by metadata_copy
 	OMElement wrapperDup = null;
-	boolean mustDup = false;
+	boolean mustDup = true;
 	int idAllocation = 0;
 
 	IdIndex idIndex = null;
@@ -1417,12 +1417,11 @@ public class Metadata {
 
 
 	public void addSlot(OMElement ele, String slot_name, String slot_value) {
-		OMElement slot = this.om_factory().createOMElement("Slot", null);
+		OMElement slot = this.om_factory().createOMElement(MetadataSupport.slot_qnamens);
 		slot.addAttribute("name", slot_name, null);
-		OMElement value_list = this.om_factory().createOMElement("ValueList",
-				null);
+		OMElement value_list = this.om_factory().createOMElement(MetadataSupport.valuelist_qnamens);
 		slot.addChild(value_list);
-		OMElement value = this.om_factory().createOMElement("Value", null);
+		OMElement value = this.om_factory().createOMElement(MetadataSupport.value_qnamens);
 		value_list.addChild(value);
 		value.setText(slot_value);
 		ele.addChild(slot);
@@ -1431,10 +1430,9 @@ public class Metadata {
 
 	// this depends on getV2 or getV3 to sort the attributes into the correct order
 	public OMElement addSlot(OMElement ele, String slot_name) {
-		OMElement slot = this.om_factory().createOMElement("Slot", null);
+		OMElement slot = this.om_factory().createOMElement(MetadataSupport.slot_qnamens);
 		slot.addAttribute("name", slot_name, null);
-		OMElement value_list = this.om_factory().createOMElement("ValueList",
-				null);
+		OMElement value_list = this.om_factory().createOMElement(MetadataSupport.valuelist_qnamens);
 		slot.addChild(value_list);
 		ele.addChild(slot);
 		mustDup = true;
@@ -1477,7 +1475,7 @@ public class Metadata {
 		OMElement value_list = MetadataSupport.firstChildWithLocalName(slot,
 		"ValueList");
 
-		OMElement valueEle = this.om_factory().createOMElement("Value", null);
+		OMElement valueEle = this.om_factory().createOMElement(MetadataSupport.value_qnamens);
 		valueEle.setText(value);
 
 		value_list.addChild(valueEle);
