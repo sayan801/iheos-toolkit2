@@ -208,18 +208,18 @@ public class PlanContext extends BasicContext {
 				if (part_name.equals("RegistryEndpoint")) 
 				{
 					defaultRegistryEndpoint = part.getText();
-					testLog.add_name_value(results_document, part); 
+					testLog.add_name_value(results_document, part.cloneOMElement()); 
 					setRegistryEndpoint(defaultRegistryEndpoint);
 				} 
 				else if (part_name.equals("PatientId")) 
 				{
 					default_patient_id = part.getText();
-					testLog.add_name_value(results_document, part);
+					testLog.add_name_value(results_document, part.cloneOMElement());
 					setPatientId(default_patient_id);
 				} 
 				else if (part_name.equals("Test")) 
 				{
-					testLog.add_name_value(results_document, part);
+					testLog.add_name_value(results_document, part.cloneOMElement());
 					test_num = part.getText();
 				} 
 				else if (part_name.equals("Rule")) 
