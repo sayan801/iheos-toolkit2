@@ -14,7 +14,8 @@
 	<property name="war.sessionCache.dir" location="${war.dir}/SessionCache" />
 	<property name="war.documentCache.dir" location="${war.dir}/xdstools2/DocumentCache" />
 	<property name="war.mailer.dir" location="${war.dir}/WEB-INF/direct/mailer" />
-
+	<property name="war.collections.dir" location="${war.toolkitx.dir}/testkit/collections" />
+	
 	<!-- do some work on testkit collections -->
 	<target name="update-collections">
 		<ant dir="${xdstest2.dir}" antfile="build.xml" target="testkit.collections" inheritAll="true" inheritRefs="true" />
@@ -177,6 +178,14 @@
 				<exclude name="**/.svn" />
 			</fileset>
 		</copy>
+		
+		<mkdir dir="${war.collections.dir}" />
+		<copy todir="${war.collections.dir}">
+			<fileset dir="${testkit.dir}/collections">
+				<exclude name="**/.svn" />
+			</fileset>
+		</copy>
+		
 
 		<!-- the target names match the ActorType short names found in ATFactory.java-->
 		<copy file="${testkit.dir}/collections/repositoryb.tc" tofile="${war.testkit.dir}/actorcollections/rep.tc" />
