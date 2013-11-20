@@ -21,7 +21,7 @@ public class TtkTest {
 			"-err"};
 
 	String[] rb = {
-			"-Dsite=test", 
+			"-Dsite=pub", 
 			"-DXDSTOOLKIT=" + toolkit + "/toolkitx", 
 			"-DXDSTESTLOGDIR=" + toolkit + "/toolkitx/logs", 
 			"-DXDSTESTKIT=" + toolkit + "/toolkitx/testkit",
@@ -29,17 +29,20 @@ public class TtkTest {
 			"-err"};
 
 	String[] single = {
-			"-Dsite=test", 
+			"-Dsite=pub", 
 			"-DXDSTOOLKIT=" + toolkit + "/toolkitx", 
 			"-DXDSTESTLOGDIR=" + toolkit + "/toolkitx/logs", 
 			"-DXDSTESTKIT=" + toolkit + "/toolkitx/testkit",
-			"-t", "11998", 
+			"-t", "11990", 
 			"-err"};
+	// 11966 is pnr
+	// 11990 is r
 
 	@Before
 	public void init() {
 		System.setProperty("XDSSchemaDir", "file://" + toolkit + "/toolkitx/schema");
-		System.setProperty("XDSCodesFile", toolkit + "/toolkitx/codes/codes.xml");
+//		System.setProperty("XDSCodesFile", toolkit + "/toolkitx/codes/codes.xml");
+		System.setProperty("XDSCodesFile", "/Users/bmajur/tmp/toolkit2/environment/NA2014/codes.xml");
 		Installation.installation().externalCache(new File(toolkit + "/toolkitx/logs"));
 	}
 	
