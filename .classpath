@@ -72,8 +72,6 @@
 	<classpathentry kind="lib" path="lib/edireader-4.7.3.jar"/>
 	<classpathentry kind="lib" path="lib/esapi-2.0.1.jar"/>
 	<classpathentry kind="lib" path="lib/groovy-all-2.1.1.jar"/>
-	<classpathentry kind="lib" path="lib/gwt-dev.jar"/>
-	<classpathentry kind="lib" path="lib/gwt-servlet.jar"/>
 	<classpathentry kind="lib" path="lib/gwt-user.jar"/>
 	<classpathentry kind="lib" path="lib/httpcore-4.0.jar"/>
 	<classpathentry kind="lib" path="lib/ivy-2.3.0.jar"/>
@@ -210,5 +208,17 @@
 	<classpathentry kind="lib" path="lib/org.openhealthtools.mdht.uml.cda.mu2consol_1.2.0.201309181642.jar"/>
 	<classpathentry kind="lib" path="lib/wsseTool-1.3.1-20130822.161029-1.jar"/>
 	<classpathentry kind="lib" path="lib/apache-mime4j-0.6.jar.zip"/>
+	<classpathentry kind="lib" path="/Applications/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.5.1/gwt-2.5.1/gwt-user.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/Applications/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.5.1/gwt-2.5.1/doc/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Applications/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.5.1/gwt-2.5.1/gwt-dev.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/Applications/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.5.1/gwt-2.5.1/doc/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Applications/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.5.1/gwt-2.5.1/validation-api-1.0.0.GA-sources.jar"/>
+	<classpathentry kind="lib" path="/Applications/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.5.1/gwt-2.5.1/validation-api-1.0.0.GA.jar" sourcepath="/Applications/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.5.1/gwt-2.5.1/validation-api-1.0.0.GA-sources.jar"/>
 	<classpathentry kind="output" path="xdstools2/war/WEB-INF/classes"/>
 </classpath>
