@@ -135,8 +135,6 @@
 	<classpathentry kind="lib" path="lib/xbean_xpath.jar"/>
 	<classpathentry kind="lib" path="lib/xbean.jar"/>
 	<classpathentry kind="lib" path="lib/xdsLog.jar"/>
-	<classpathentry kind="lib" path="lib/xercesImpl-2.10.0.jar"/>
-	<classpathentry kind="lib" path="lib/xml-apis-2.9.1.jar"/>
 	<classpathentry kind="lib" path="lib/xml-resolver-1.2.jar"/>
 	<classpathentry kind="lib" path="lib/xmlbeans-qname.jar"/>
 	<classpathentry kind="lib" path="lib/xmlpublic.jar"/>
