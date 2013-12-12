@@ -1,11 +1,16 @@
 package gov.nist.toolkit.directsim;
 
+import gov.nist.direct.client.config.SigningCertType;
+import gov.nist.direct.config.DirectConfigManager;
 import gov.nist.messageDispatch.MessageDispatchUtils;
 import gov.nist.toolkit.actorfactory.DirectActorFactory;
+import gov.nist.toolkit.common.coder.Base64Coder;
 import gov.nist.toolkit.directsupport.SMTPException;
+import gov.nist.toolkit.dns.DnsLookup;
 import gov.nist.toolkit.email.Emailer;
 import gov.nist.toolkit.installation.Installation;
 import gov.nist.toolkit.simulators.support.ValidateMessageService;
+import gov.nist.toolkit.testengine.transactions.DirectTransaction;
 import gov.nist.toolkit.tk.TkLoader;
 import gov.nist.toolkit.tk.TkPropsServer;
 import gov.nist.toolkit.tk.client.PropertyNotFoundException;
@@ -38,6 +43,7 @@ import javax.mail.internet.MimeMessage;
 
 import org.apache.log4j.Logger;
 import org.mortbay.log.Log;
+import org.xbill.DNS.TextParseException;
 
 public class DoComms implements Runnable {
 	Socket server;
@@ -302,8 +308,11 @@ public class DoComms implements Runnable {
 		}
 
 		logger.info("Done");
-
-
+		
+		// Send MDN
+		sendMDN(directFrom, directTo.get(0), mvr);
+		
+		
 	}
 	
 	String getDirectTo() {
@@ -653,6 +662,115 @@ public class DoComms implements Runnable {
 		
 		
 		
+	}
+	
+	
+	public void sendMDN(String from, String to, MessageValidationResults mvr) {
+		// Get Message-Id
+		String messageId = "";
+		for(int i=0 ; i<mvr.getResults().size() ; i++) {
+			if(mvr.getResults().get(i).stepName.equals("Message Validator")) {
+				for(int k=0 ; k<mvr.getResults().get(i).er.size() ; k++) {
+					if(mvr.getResults().get(i).er.get(k).name.contains("Message-Id")) {
+						messageId = mvr.getResults().get(i).er.get(k).found;
+					}
+				}
+			}
+		}
+
+		messageId.replace("&#60;", "");
+		messageId.replace("&#62;", "");
+
+		// Get encryption certificate
+		String targetDomain = "";
+		if(from.contains("@")) {
+			targetDomain = from.split("@", 2)[1];
+		}
+
+		byte[] encryptionCert = null;
+		byte[] signingCert;
+		String signingPassword;
+		DirectConfigManager directConfig = new DirectConfigManager(Installation.installation().externalCache());
+		signingCert = directConfig.getSigningCert(SigningCertType.GOOD_CERT);
+		signingPassword = directConfig.getSigningCertPassword(SigningCertType.GOOD_CERT);
+		String encCertSource = "";
+
+		if (isEmpty(encryptionCert) ) {
+			// not uploaded - pre-installed for a known domain - go find it
+			// it is required to be in .der format 
+			File certFile = directConfig.getEncryptionCertFile(targetDomain);
+			//				if (certFile == null)
+			//					throw new Exception("Cannot load pre-installed cert for domain " + targetDomain);
+			if (certFile != null)
+				try {
+					encryptionCert = Io.bytesFromFile(certFile);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			if (!isEmpty(encryptionCert)) {
+				logger.info("    Encryption cert found installed in toolkit");
+				encCertSource = "Installed in toolkit";
+			}
+		} 
+
+		if (isEmpty(encryptionCert)) {
+			// not uploaded or pre-installed for the target domain.  Try fetching
+			// from DNS.
+			DnsLookup dl = new DnsLookup();
+			String encCertString = null;
+			try {
+				encCertString = dl.getCertRecord(targetDomain);
+			} catch (TextParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (encCertString != null)
+				encryptionCert = Base64Coder.decode(encCertString);
+			if (!isEmpty(encryptionCert)) {
+				logger.info("    Encryption cert pulled from DNS");
+				encCertSource = "DNS";
+			}
+
+		}
+		
+		// Mailer host name
+		String directServerName = getDirectServerName(targetDomain); 
+		
+		
+		// Create the Direct transaction
+		DirectTransaction transaction = new DirectTransaction(signingCert, signingPassword, to, from, "MDN", directServerName, messageId, encryptionCert);
+		try {
+			transaction.runMDN();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	// this only applies to certificates in byte[] format
+	boolean isEmpty(byte[] b) {
+		if (b == null) return true;
+		if (b.length < 10) return true;
+		return false;
+	}
+
+	String getDirectServerName(String domainName) {
+		String directServerName = null;
+		try {
+			directServerName = new DnsLookup().getMxRecord(domainName);
+		} catch (TextParseException e) {
+			logger.error("    Error parsing MX record from DNS - for domain " + domainName);
+		}
+
+		if (directServerName != null && !directServerName.equals(""))
+			return directServerName;
+
+		logger.error("    MX record lookup in DNS did not provide a mail handler hostname for domain " + domainName);
+		directServerName = "smtp." + domainName;
+		logger.error( "    Guessing at mail server name - " + directServerName);
+		return directServerName;
 	}
 
 }
