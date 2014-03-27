@@ -1,5 +1,7 @@
 package gov.nist.toolkit.xdstools2.client.tabs.directRegistrationTab;
 
+import java.util.HashSet;
+
 import gov.nist.toolkit.directsim.client.ContactRegistrationData;
 import gov.nist.toolkit.directsim.client.DirectRegistrationData;
 import gov.nist.toolkit.xdstools2.client.PopupMessage;
@@ -25,7 +27,10 @@ public class DeleteDirectHandler implements ClickHandler {
 			// TODO Auto-generated catch block
 			return;
 		}
-		tab.toolkitService.deleteDirect(contact, new DirectRegistrationData(direct, contact.contactAddr), deleteCallback);
+		
+		HashSet<String> contactAddrList = new HashSet<String>();
+		contactAddrList.add(contact.contactAddr);
+		tab.toolkitService.deleteDirect(contact, new DirectRegistrationData(direct, contactAddrList), deleteCallback);
 	}
 
 	AsyncCallback<ContactRegistrationData> deleteCallback = new AsyncCallback<ContactRegistrationData> () {

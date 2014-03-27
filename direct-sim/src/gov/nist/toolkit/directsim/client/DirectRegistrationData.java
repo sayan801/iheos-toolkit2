@@ -1,5 +1,7 @@
 package gov.nist.toolkit.directsim.client;
 
+import java.util.HashSet;
+
 import com.google.gwt.user.client.rpc.IsSerializable;
 
 public class DirectRegistrationData  implements IsSerializable  {
@@ -9,16 +11,16 @@ public class DirectRegistrationData  implements IsSerializable  {
 	// should be accepted on the interface 
 	// file exists -> ok
 	public String directAddr;
-	public String contactAddr;
+	public HashSet<String> contactAddr;
 	
 	public DirectRegistrationData() {
 		
 	}
 	
-	public DirectRegistrationData(String direct, String contact) {
+	public DirectRegistrationData(String direct, HashSet<String> contact) {
 		directAddr = direct;
+		contactAddr = new HashSet<String>();
 		contactAddr = contact;
 	}
 	
-
 }

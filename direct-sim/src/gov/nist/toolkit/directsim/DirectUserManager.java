@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 
 public class DirectUserManager extends DirectManagers {
@@ -69,9 +71,13 @@ public class DirectUserManager extends DirectManagers {
 		for (String direct : contact.directToCertMap.keySet()) {
 			if (direct.equals(""))
 				continue;
-			DirectRegistrationData d = new DirectRegistrationData(direct, contact.contactAddr);
+			
+			// Append the new contact email for direct address
+			HashSet<String> contactsAddress = addContactForDirectAddr(contact.contactAddr, new DirectRegistrationManager(Installation.installation().externalCache()).directPath(direct));
+			
+			DirectRegistrationData d = new DirectRegistrationData(direct, contactsAddress);
 			DirectRegistrationDataServer ds = DirectRegistration.toServer(d);
-			d.contactAddr = contact.contactAddr;
+			d.contactAddr = contactsAddress;
 			save(ds, new DirectRegistrationManager(Installation.installation().externalCache()).directPath(direct));
 		}
 		save(contact, contactPath(contact));
@@ -82,7 +88,19 @@ public class DirectUserManager extends DirectManagers {
 		save(contact);
 		File directFile = new DirectRegistrationManager(Installation.installation().externalCache()).directPath(direct.directAddr);
 		if (directFile.exists()) {
-			directFile.delete();
+			HashSet<String> contactAddr = getContactList(directFile);
+			if(contactAddr.contains(contact.contactAddr)) {
+				contactAddr.remove(contact.contactAddr);
+				if(contactAddr.isEmpty()) {
+					directFile.delete();					
+				} else {
+					DirectRegistrationData d = new DirectRegistrationData(direct.directAddr, contactAddr);
+					DirectRegistrationDataServer ds = DirectRegistration.toServer(d);
+					d.contactAddr = contactAddr;
+					save(ds, directFile);
+				}
+			}
+			
 			return contact;
 		}
 		return contact;
@@ -140,6 +158,48 @@ public class DirectUserManager extends DirectManagers {
 	public boolean directUserExists(String directEmailAddr) {
 		String filename = DirectEmailAddr.FILENAME(directEmailAddr);
 		return directPath(new File(filename)).exists();
+	}
+	
+	public DirectRegistrationDataServer loadContactforDirect(File file) throws Exception {
+		FileInputStream fis = null;
+		ObjectInputStream in = null;
+
+		System.out.println("Reading ContactRegistrationData "  + " from " + file);
+
+		try {
+			fis = new FileInputStream(file);
+			in = new ObjectInputStream(fis);
+			DirectRegistrationDataServer c = new DirectRegistrationDataServer();
+			c = (DirectRegistrationDataServer) in.readObject();
+			return c;
+		} catch (FileNotFoundException e) {
+			throw new Exception("Cannot find file " + file, e);
+		} catch (IOException e) {
+			throw new Exception("Cannot load file " + file, e);
+		} catch (ClassNotFoundException e) {
+			throw new Exception("Cannot create class ContentRegistrationData", e);
+		} finally {
+			if (in != null)
+				in.close();
+			if (fis != null)
+				fis.close();
+		}		
+	}
+	
+	public HashSet<String> getContactList(File file) throws Exception {
+		HashSet<String> contactList = new HashSet<String>();
+		if(file.exists() && !file.isDirectory()) {
+			DirectRegistrationDataServer d = new DirectRegistrationDataServer();
+			d = loadContactforDirect(file);
+			contactList = d.contactAddr;
+		}
+		return contactList;
+	}
+	
+	public HashSet<String> addContactForDirectAddr(String contactAddr, File file) throws Exception {
+		HashSet<String> contactList = getContactList(file);
+		contactList.add(contactAddr);
+		return contactList;
 	}
 	
 }

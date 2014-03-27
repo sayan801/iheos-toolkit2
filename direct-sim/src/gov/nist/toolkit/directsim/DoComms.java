@@ -35,6 +35,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -55,7 +56,7 @@ public class DoComms implements Runnable {
 	boolean logInputs = true;
 	TkPropsServer reportingProps = null;
 	StringBuffer message = new StringBuffer();
-	String contactAddr = null;
+	ArrayList<String> contactAddr = null;
 
 	static Logger logger = Logger.getLogger(DoComms.class);
 
@@ -100,13 +101,15 @@ public class DoComms implements Runnable {
 			return;
 		}
 
-		contactAddr = getContactAddr(hvf, directFrom);
-		if (contactAddr == null) {
+		contactAddr = new ArrayList<String>(getContactAddr(hvf, directFrom));
+		if (contactAddr == null || contactAddr.isEmpty()) {
 			logger.error("No contact address listed for Direct (From) address " + directFrom + " - cannot return report - giving up");
 			return;
 		}
 
-		logger.info("Direct addr (From) " + directFrom + " is registered and has contact email of " + contactAddr);
+		for(int i=0;i<contactAddr.size();i++) {
+			logger.info("Direct addr (From) " + directFrom + " is registered and has contact email of " + contactAddr.get(i));
+		}
 
 		/****************************************************************************************
 		 * 
@@ -304,11 +307,14 @@ public class DoComms implements Runnable {
 
 				// Send report
 				Emailer emailer = new Emailer(reportingProps.withPrefixRemoved("mail"));
-
-				logger.debug("Sending report from " + reportingProps.get("mail.from") + "   to " + contactAddr);
-				emailer.sendEmail2(contactAddr, 
+				
+				// Send report to all contact addresses
+				for(int i=0;i<contactAddr.size();i++) {
+					logger.debug("Sending report from " + reportingProps.get("mail.from") + "   to " + contactAddr.get(i));
+					emailer.sendEmail2(contactAddr.get(i), 
 						"Direct Message Validation Report", 
 						announcement);
+				}
 
 			} catch (Exception e) {
 				logger.error("Cannot send email (" + e.getClass().getName() + ". " + e.getMessage());
@@ -337,9 +343,9 @@ public class DoComms implements Runnable {
 		return directTo.get(0);
 	}
 
-	public String getContactAddr(HtmlValFormatter hvf, String directFrom) {
+	public HashSet<String> getContactAddr(HtmlValFormatter hvf, String directFrom) {
 		directFrom = stripBrackets(directFrom);
-		String contactAddr;
+		HashSet<String> contactAddr = new HashSet<String>();
 		// Get Contact Addr
 		DirectRegistrationManager drm = new DirectRegistrationManager(externalCache);
 		DirectRegistrationDataServer drd = null;
