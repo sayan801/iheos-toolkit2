@@ -39,7 +39,7 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * Created by bill on 7/1/15.
+ *
  */
 public class DsSimCommon {
     SimulatorConfig simulatorConfig = null;
@@ -47,7 +47,7 @@ public class DsSimCommon {
     public RepIndex repIndex = null;
     public SimCommon simCommon;
     Map<String, StoredDocument> documentsToAttach = null;  // cid => document
-    RegistryErrorListGenerator relGen = null;
+    RegistryErrorListGenerator registryErrorListGenerator = null;
 
     static Logger logger = Logger.getLogger(DsSimCommon.class);
 
@@ -165,12 +165,12 @@ public class DsSimCommon {
     }
 
     public void setRegistryErrorListGenerator(RegistryErrorListGenerator relg) {
-        relGen = relg;
+        registryErrorListGenerator = relg;
     }
 
     public RegistryErrorListGenerator getRegistryErrorList(List<ValidationStepResult> results) throws XdsInternalException {
         try {
-            RegistryErrorListGenerator rel = relGen;
+            RegistryErrorListGenerator rel = registryErrorListGenerator;
             if (rel == null)
                 rel = new RegistryErrorListGenerator(Response.version_3, false);
 
@@ -193,7 +193,7 @@ public class DsSimCommon {
             return rel;
         }
         finally {
-            relGen = null;
+            registryErrorListGenerator = null;
         }
     }
 
@@ -383,7 +383,7 @@ public class DsSimCommon {
                 Io.stringToFile(simCommon.db.getResponseBodyFile(), respStr);
             simCommon.os.write(respStr.getBytes());
             simCommon.generateLog();
-//            SimulatorConfigElement callbackElement = getSimulatorConfig().get(SimulatorConfig.TRANSACTION_NOTIFICATION_URI);
+//            SimulatorConfigElement callbackElement = getSimulatorConfig().getRetrievedDocumentsModel(SimulatorConfig.TRANSACTION_NOTIFICATION_URI);
 //            if (callbackElement != null) {
 //                String callbackURI = callbackElement.asString();
 //                if (callbackURI != null && !callbackURI.equals("")) {
@@ -437,8 +437,8 @@ public class DsSimCommon {
      * @param e exception causing fault
      */
     public void sendFault(String description, Exception e) {
-        logger.info("Sending SoapFault - " + description + " - " + ((e == null) ? "" : e.getMessage()));
-        SoapFault fault = new SoapFault(SoapFault.FaultCodes.Receiver, "InteralError: Exception building Response: " + description + " : " + ((e == null) ? "" : e.getMessage()));
+        logger.info("Sending SoapFault - " + description + " - " + ((e == null) ? "" : ExceptionUtil.exception_details(e)));
+        SoapFault fault = new SoapFault(SoapFault.FaultCodes.Receiver, "InternalError: Exception building Response: " + description + " : " + ((e == null) ? "" : e.getMessage()));
         sendFault(fault);
     }
 
@@ -455,7 +455,7 @@ public class DsSimCommon {
     }
 
     public void intallDocumentsToAttach(StoredDocumentMap docmap) {
-        documentsToAttach = new HashMap<String, StoredDocument>();
+        documentsToAttach = new HashMap<>();
         for (StoredDocument stor : docmap.docs) {
             documentsToAttach.put(stor.cid, stor);
         }
