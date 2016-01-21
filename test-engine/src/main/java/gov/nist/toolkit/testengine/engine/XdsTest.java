@@ -716,7 +716,8 @@ public class XdsTest {
 
 				TestInstance testLogId = testSpec.getTestInstance();
 				testSpec.testLogId = testLogId;
-				File logDirectory = logRepository.logDir(testLogId);
+//				File logDirectory = logRepository.logDir(testLogId); // LogRepository was not initialized.
+				File logDirectory = null;
 				if (ts != null && ts.logRepository != null)
 					logDirectory = ts.logRepository.logDir(testLogId);
 

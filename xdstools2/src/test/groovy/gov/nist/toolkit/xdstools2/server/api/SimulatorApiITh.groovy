@@ -1,5 +1,6 @@
 package gov.nist.toolkit.xdstools2.server.api
 
+import gov.nist.toolkit.actorfactory.client.SimId
 import gov.nist.toolkit.actorfactory.client.Simulator
 import gov.nist.toolkit.services.server.SimulatorApi
 import gov.nist.toolkit.session.server.Session
@@ -11,7 +12,7 @@ import spock.lang.Specification
  */
 class SimulatorApiITh extends Specification {
     Session session
-    String simId = 'myreg'
+    String simName = 'myreg'
 
     def setup() {
         session = UnitTestEnvironmentManager.setupLocalToolkit()
@@ -20,6 +21,8 @@ class SimulatorApiITh extends Specification {
     def 'Create, test, delete Simulator'() {
         when:
         SimulatorApi simApi = new SimulatorApi(session)
+        SimId simId = new SimId(simName)
+
         Simulator sim = simApi.create('reg', simId)
         println sim.toString()
 
