@@ -4,10 +4,6 @@ import gov.nist.toolkit.actorfactory.SimCache
 import gov.nist.toolkit.actorfactory.client.SimulatorConfig
 import gov.nist.toolkit.actortransaction.SimulatorActorType
 import gov.nist.toolkit.actortransaction.client.TransactionType
-import gov.nist.toolkit.configDatatypes.client.PatientError
-import gov.nist.toolkit.configDatatypes.client.PatientErrorList
-import gov.nist.toolkit.configDatatypes.client.PatientErrorMap
-import gov.nist.toolkit.configDatatypes.client.PidBuilder
 import gov.nist.toolkit.installation.Installation
 import gov.nist.toolkit.itTests.support.ToolkitSpecification
 import gov.nist.toolkit.results.client.Result
@@ -17,11 +13,14 @@ import gov.nist.toolkit.tookitApi.SimulatorBuilder
 import gov.nist.toolkit.toolkitServices.ToolkitFactory
 import gov.nist.toolkit.toolkitServicesCommon.SimConfig
 import gov.nist.toolkit.toolkitServicesCommon.SimId
+import gov.nist.toolkit.toolkitServicesCommon.resource.PatientErrorListResource
+import gov.nist.toolkit.toolkitServicesCommon.resource.PatientErrorMapResource
+import gov.nist.toolkit.toolkitServicesCommon.resource.PatientErrorResource
 import spock.lang.Shared
 /**
  *
  */
-class RGPidTriggeredErrorHide extends ToolkitSpecification {
+class RGPidTriggeredErrorSpec extends ToolkitSpecification {
     @Shared SimulatorBuilder spi
 
     BasicSimParameters RGParams = new BasicSimParameters();
@@ -67,15 +66,19 @@ class RGPidTriggeredErrorHide extends ToolkitSpecification {
         when: 'force error on this patient id'
         SimConfig RGConfig = spi.get(RGSimId)
 
-        PatientErrorMap errorMap = new PatientErrorMap()
-        PatientError patientError = new PatientError()
-        patientError.patientId = PidBuilder.createPid(patientId)
+        PatientErrorMapResource errorMap = new PatientErrorMapResource()
+        PatientErrorResource patientError = new PatientErrorResource()
+        patientError.patientId = patientId
         patientError.errorCode = 'XDSMyError'
-        PatientErrorList patientErrorList = new PatientErrorList()
+        PatientErrorListResource patientErrorList = new PatientErrorListResource()
         patientErrorList.add(patientError)
-        errorMap.put(TransactionType.name, patientErrorList)
+        errorMap.put(TransactionType.PROVIDE_AND_REGISTER.name, patientErrorList)
 
-        RGConfig.setPatientErrorMap(errorMap)
+//        Element element = new MapAdapter().marshal(errorMap.getMap())
+//        println element.toString()
+//
+
+        RGConfig.setPatientErrorMapResource(errorMap)
         RGConfig = spi.update(RGConfig)
         println 'Updated rg config\n' + RGConfig.describe()
 

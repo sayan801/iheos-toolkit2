@@ -1,13 +1,12 @@
 package gov.nist.toolkit.tookitApi;
 
 import gov.nist.toolkit.actortransaction.client.TransactionType;
-import gov.nist.toolkit.configDatatypes.client.PatientErrorMap;
 import gov.nist.toolkit.toolkitServicesCommon.RefList;
-import gov.nist.toolkit.toolkitServicesCommon.resource.RefListResource;
 import gov.nist.toolkit.toolkitServicesCommon.SimConfig;
+import gov.nist.toolkit.toolkitServicesCommon.resource.PatientErrorMapResource;
+import gov.nist.toolkit.toolkitServicesCommon.resource.RefListResource;
 
 import javax.ws.rs.core.Response;
-import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 
@@ -108,14 +107,14 @@ abstract class AbstractActor implements AbstractActorInterface {
     }
 
     @Override
-    public void setPatientErrorMap(PatientErrorMap errorMap) throws IOException {
-//        config.setPatientErrorMap(errorMap);
+    public void setPatientErrorMapResource(PatientErrorMapResource errorMap)  {
+//        config.setPatientErrorMapResource(errorMap);
     }
 
     @Override
-    public PatientErrorMap getPatientErrorMap() throws IOException {
+    public PatientErrorMapResource getPatientErrorMapResource()  {
         return null;
-//        return config.getPatientErrorMap();
+//        return config.getPatientErrorMapResource();
     }
 
 }

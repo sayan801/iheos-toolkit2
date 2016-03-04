@@ -1,10 +1,8 @@
 package gov.nist.toolkit.toolkitServicesCommon.resource;
 
-import gov.nist.toolkit.configDatatypes.client.PatientErrorMap;
 import gov.nist.toolkit.toolkitServicesCommon.SimConfig;
 
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -16,18 +14,18 @@ import java.util.Set;
 @XmlRootElement
 public class SimConfigResource extends SimIdResource implements SimConfig {
      List<String> props = new ArrayList<String>();
+    PatientErrorMapResource pem = new PatientErrorMapResource();
 
     public SimConfigResource() {}
 
     @Override
-    public void setPatientErrorMap(PatientErrorMap errorMap) throws IOException {
-//        setProperty("PatientErrorMap", PatientErrorMapIO.marshal(errorMap));
+    public void setPatientErrorMapResource(PatientErrorMapResource errorMap)  {
+        pem = errorMap;
     }
 
     @Override
-    public PatientErrorMap getPatientErrorMap() throws IOException {
-        return null;
-//        return PatientErrorMapIO.unmarshal(getProperty("PatientErrorMap"));
+    public PatientErrorMapResource getPatientErrorMapResource()  {
+        return pem;
     }
 
     @Override

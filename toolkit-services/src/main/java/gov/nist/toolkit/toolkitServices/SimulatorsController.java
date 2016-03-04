@@ -1,5 +1,6 @@
 package gov.nist.toolkit.toolkitServices;
 
+import gov.nist.toolkit.actorfactory.SimulatorProperties;
 import gov.nist.toolkit.actorfactory.client.*;
 import gov.nist.toolkit.actortransaction.client.ActorType;
 import gov.nist.toolkit.actortransaction.client.TransactionType;
@@ -20,6 +21,7 @@ import gov.nist.toolkit.simulators.sim.cons.DocConsActorSimulator;
 import gov.nist.toolkit.simulators.sim.src.XdrDocSrcActorSimulator;
 import gov.nist.toolkit.simulators.support.StoredDocument;
 import gov.nist.toolkit.soap.DocumentMap;
+import gov.nist.toolkit.toolkitServices.translators.PatientErrorMapTranslator;
 import gov.nist.toolkit.toolkitServicesCommon.Document;
 import gov.nist.toolkit.toolkitServicesCommon.ResponseStatusType;
 import gov.nist.toolkit.toolkitServicesCommon.resource.*;
@@ -81,7 +83,7 @@ public class SimulatorsController {
             if (errors != null)
                 throw new BadSimConfigException(String.format("Create simulator %s - %s", simId.toString(), errors));
             Simulator simulator = api.createSimulator(simId);
-            SimConfigResource bean = ToolkitFactory.asSimConfigBean(simulator.getConfig(0));
+            SimConfigResource bean = ToolkitFactory.asSimConfigResource(simulator.getConfig(0));
             return Response
                     .ok(bean)
                     .header("Location",
@@ -111,7 +113,7 @@ public class SimulatorsController {
 
     /**
      * Update Simulator Configuration.
-     * @param config containing updates
+     * @param resource containing updates
      * @return accepted (202) and full updated config if changes actually made, notModified (304) and no body if no
      * actual changes made, Conflict (409) if boolean/String type is wrong on a property.
      */
@@ -119,16 +121,16 @@ public class SimulatorsController {
     @Consumes("application/json")
     @Produces("application/json")
     @Path("{id}")
-    public Response update(final SimConfigResource config) {
-        logger.info(String.format("Update request for %s", config.getFullId()));
+    public Response update(final SimConfigResource resource) {
+        logger.info(String.format("Update request for %s", resource.getFullId()));
         SimId simId = null;
-        simId = ToolkitFactory.asServerSimId(config);
+        simId = ToolkitFactory.asServerSimId(resource);
         try {
             SimulatorConfig currentConfig = api.getConfig(simId);
             if (currentConfig == null) throw new NoSimException("");
 
             boolean makeUpdate = false;
-            for (String propName : config.getPropertyNames()) {
+            for (String propName : resource.getPropertyNames()) {
                 SimulatorConfigElement ele = currentConfig.get(propName);
                 if (ele == null) continue;  // no such property
                 if (!ele.isEditable()) {
@@ -136,45 +138,45 @@ public class SimulatorsController {
                 }
 
                 PropType currentType = propType(ele);
-                PropType updateType = propType(config, propName);
+                PropType updateType = propType(resource, propName);
                 if (currentType != updateType)
                     throw new SimPropertyTypeConflictException(propName, currentType.name(), updateType.name());
 
                 if (propType(ele) == PropType.BOOLEAN) {
-                    if (ele.asBoolean() == config.asBoolean(propName)) continue;  // no change
+                    if (ele.asBoolean() == resource.asBoolean(propName)) continue;  // no change
                     if (!makeUpdate)  // first update
                         logger.info(String.format("...property %s", propName));
                     makeUpdate = true;
-                    logger.info(String.format("......%s ==> %s", ele.asBoolean(), config.asBoolean(propName)));
-                    ele.setValue(config.asBoolean(propName));
+                    logger.info(String.format("......%s ==> %s", ele.asBoolean(), resource.asBoolean(propName)));
+                    ele.setValue(resource.asBoolean(propName));
                 }
                 else if (propType(ele) == PropType.STRING) {
-                    if (ele.asString().equals(config.asString(propName))) continue;  // no change
+                    if (ele.asString().equals(resource.asString(propName))) continue;  // no change
                     if (!makeUpdate)  // first update
                         logger.info(String.format("...property %s", propName));
                     makeUpdate = true;
-                    logger.info(String.format("%s ==> %s", ele.asString(), config.asString(propName)));
-                    ele.setValue(config.asString(propName));
+                    logger.info(String.format("%s ==> %s", ele.asString(), resource.asString(propName)));
+                    ele.setValue(resource.asString(propName));
                 }
                 else if (propType(ele) == PropType.LIST) {
-                    if (listCompare(ele.asList(), config.asList(propName))) continue; // no change
+                    if (listCompare(ele.asList(), resource.asList(propName))) continue; // no change
                     if (!makeUpdate)  // first update
                         logger.info(String.format("...property %s", propName));
                     makeUpdate = true;
-                    logger.info(String.format("%s ==> %s", ele.asString(), config.asString(propName)));
-                    ele.setValue(config.asList(propName));
+                    logger.info(String.format("%s ==> %s", ele.asString(), resource.asString(propName)));
+                    ele.setValue(resource.asList(propName));
                 }
             }
-//            if (config.getPatientErrorMap() != null) {
-//                SimulatorConfigElement ele = currentConfig.get(SimulatorProperties.errorForPatient);
-//                if (ele != null) {
-//                    ele.setValue(config.getPatientErrorMap());
-//                }
-//            }
+            if (resource.getPatientErrorMapResource() != null) {
+                SimulatorConfigElement ele = currentConfig.get(SimulatorProperties.errorForPatient);
+                if (ele != null) {
+                    ele.setValue(PatientErrorMapTranslator.fromResource(resource.getPatientErrorMapResource()));
+                }
+            }
             if (makeUpdate) {
-                logger.info(String.format("Updating Sim %s", config.getFullId()));
+                logger.info(String.format("Updating Sim %s", resource.getFullId()));
                 api.saveSimulator(currentConfig);
-                SimConfigResource bean = ToolkitFactory.asSimConfigBean(currentConfig);
+                SimConfigResource bean = ToolkitFactory.asSimConfigResource(currentConfig);
                 logger.info("Returning updated bean");
                 return Response.accepted(bean).build();
             } else
@@ -224,7 +226,7 @@ public class SimulatorsController {
             SimId simId = new SimId(id);
             SimulatorConfig config = api.getConfig(simId);
             if (config == null) throw new NoSimException("");
-            SimConfigResource bean = ToolkitFactory.asSimConfigBean(config);
+            SimConfigResource bean = ToolkitFactory.asSimConfigResource(config);
             return Response.ok(bean).build();
         } catch (Exception e) {
             return new ResultBuilder().mapExceptionToResponse(e, id, ResponseType.RESPONSE);
