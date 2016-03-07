@@ -1,9 +1,9 @@
 package gov.nist.toolkit.toolkitServicesCommon.resource;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import gov.nist.toolkit.configDatatypes.client.Pid;
 
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +11,8 @@ import java.util.List;
  *
  */
 @XmlRootElement
-public class PatientErrorListResource implements Serializable {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class PatientErrorListResource {
     List<PatientErrorResource> list = new ArrayList<>();
 
     public PatientErrorListResource() {}

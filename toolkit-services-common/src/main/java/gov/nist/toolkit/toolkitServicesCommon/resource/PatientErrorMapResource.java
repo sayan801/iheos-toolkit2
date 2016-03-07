@@ -1,84 +1,63 @@
 package gov.nist.toolkit.toolkitServicesCommon.resource;
 
-import gov.nist.toolkit.toolkitServicesCommon.MapAdapter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.io.Serializable;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
  * Maps between TransactionType name and list of PatientErrors
  */
 @XmlRootElement
-public class PatientErrorMapResource implements Serializable, Map<String, PatientErrorListResource> {
-    @XmlJavaTypeAdapter(MapAdapter.class)
-    transient private Map<String, PatientErrorListResource> config = new HashMap<>();
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class PatientErrorMapResource  {
+    List<ErrorMappingResource> list = new ArrayList<>();
 
     public PatientErrorMapResource() {}
 
-    @Override
+    public String toString() {
+        return list.toString();
+    }
+
     public int size() {
-        return config.size();
+        return list.size();
     }
 
-    @Override
     public boolean isEmpty() {
-        return config.isEmpty();
+        return list.isEmpty();
     }
 
-    @Override
-    public boolean containsKey(Object key) {
-        return config.containsKey(key);
+    public PatientErrorListResource get(String transaction) {
+        PatientErrorListResource res = new PatientErrorListResource();
+        for (ErrorMappingResource r : list) {
+            if (transaction.equals(r.getTransaction())) {
+                PatientErrorResource pr = new PatientErrorResource();
+                pr.setErrorCode(r.getError());
+                pr.setPatientId(r.getPid());
+                res.add(pr);
+            }
+        }
+        return res;
     }
 
-    @Override
-    public boolean containsValue(Object value) {
-        return config.containsValue(value);
+    public void put(String transaction, PatientErrorListResource value) {
+        for (PatientErrorResource per : value.values()) {
+            ErrorMappingResource mapping = new ErrorMappingResource();
+            mapping.setTransaction(transaction);
+            mapping.setError(per.getErrorCode());
+            mapping.setPid(per.getPatientId());
+            list.add(mapping);
+        }
     }
 
-    @Override
-    public PatientErrorListResource get(Object key) {
-        return config.get(key);
-    }
-
-    @Override
-    public PatientErrorListResource put(String key, PatientErrorListResource value) {
-        return config.put(key, value);
-    }
-
-    @Override
-    public PatientErrorListResource remove(Object key) {
-        return config.remove(key);
-    }
-
-    @Override
-    public void putAll(Map<? extends String, ? extends PatientErrorListResource> m) {
-        config.putAll(m);
-    }
-
-    @Override
-    public void clear() {
-        config.clear();
-    }
-
-    @Override
     public Set<String> keySet() {
-        return config.keySet();
+        Set<String> set = new HashSet<>();
+        for (ErrorMappingResource  res : list) {
+            set.add(res.getTransaction());
+        }
+        return set;
     }
-
-    @Override
-    public Collection<PatientErrorListResource> values() {
-        return config.values();
-    }
-
-    @Override
-    public Set<Entry<String, PatientErrorListResource>> entrySet() {
-        return config.entrySet();
-    }
-
-    public Map<String, PatientErrorListResource> getMap() { return config; }
 }

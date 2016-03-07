@@ -41,7 +41,8 @@ class RGPidTriggeredErrorSpec extends ToolkitSpecification {
 
         // Initialize remote api for talking to toolkit on Grizzly
         // Needed to build simulators
-        spi = getSimulatorApi(remoteToolkitPort)
+//        spi = getSimulatorApi(remoteToolkitPort)
+        spi = getSimulatorApi('8887')
     }
 
     def setup() {  // run before each test method
@@ -53,6 +54,7 @@ class RGPidTriggeredErrorSpec extends ToolkitSpecification {
 
     def 'test pid triggered error'() {
         when:
+        sleep(200000)
         println 'STEP - DELETE RESPONDING GATEWAY SIM'
         spi.delete(RGParams)
 
@@ -101,7 +103,7 @@ class RGPidTriggeredErrorSpec extends ToolkitSpecification {
 
         then:  'verify query failed'
         results.size() == 1
-        results.get(0).passed()
+        !results.get(0).passed()
 
     }
 }

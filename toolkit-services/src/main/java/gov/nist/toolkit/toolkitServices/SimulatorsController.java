@@ -111,6 +111,20 @@ public class SimulatorsController {
         return null;
     }
 
+    @GET
+    @Produces("application/json")
+    @Path("/{id}/expose")
+    public Response expose(@PathParam("id") String id) {
+        PatientErrorMapResource errorMap = new PatientErrorMapResource();
+        PatientErrorResource patientError = new PatientErrorResource();
+        patientError.setPatientId("444^^^&1.2.3&ISO");
+        patientError.setErrorCode("XDSMyError");
+        PatientErrorListResource patientErrorList = new PatientErrorListResource();
+        patientErrorList.add(patientError);
+        errorMap.put(TransactionType.PROVIDE_AND_REGISTER.getName(), patientErrorList);
+        return Response.accepted(patientErrorList).build();
+    }
+
     /**
      * Update Simulator Configuration.
      * @param resource containing updates
@@ -171,6 +185,7 @@ public class SimulatorsController {
                 SimulatorConfigElement ele = currentConfig.get(SimulatorProperties.errorForPatient);
                 if (ele != null) {
                     ele.setValue(PatientErrorMapTranslator.fromResource(resource.getPatientErrorMapResource()));
+                    makeUpdate = true;
                 }
             }
             if (makeUpdate) {
