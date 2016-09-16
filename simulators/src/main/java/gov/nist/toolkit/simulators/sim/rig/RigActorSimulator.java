@@ -8,7 +8,7 @@ import gov.nist.toolkit.actorfactory.client.SimulatorConfig;
 import gov.nist.toolkit.configDatatypes.client.TransactionType;
 import gov.nist.toolkit.errorrecording.client.XdsErrorCode.Code;
 import gov.nist.toolkit.registrymsg.registry.Response;
-import gov.nist.toolkit.simulators.support.BaseDsActorSimulator;
+import gov.nist.toolkit.simulators.support.DsBaseActorSimulator;
 import gov.nist.toolkit.simulators.support.DsSimCommon;
 import gov.nist.toolkit.simulators.support.SimCommon;
 import gov.nist.toolkit.validatorsSoapMessage.message.SoapMessageValidator;
@@ -26,7 +26,7 @@ import java.io.IOException;
  * href="mailto:moultonr@mir.wustl.edu">moultonr@mir.wustl.edu</a>
  *
  */
-public class RigActorSimulator extends BaseDsActorSimulator {
+public class RigActorSimulator extends DsBaseActorSimulator {
    SimDb db;
    static Logger logger = Logger.getLogger(RigActorSimulator.class);
    MessageValidatorEngine mvc;

@@ -5,7 +5,7 @@ import gov.nist.toolkit.actorfactory.client.SimulatorConfig;
 import gov.nist.toolkit.configDatatypes.client.TransactionType;
 import gov.nist.toolkit.errorrecording.GwtErrorRecorderBuilder;
 import gov.nist.toolkit.securityCommon.SecurityParamsFactory;
-import gov.nist.toolkit.simulators.support.BaseDsActorSimulator;
+import gov.nist.toolkit.simulators.support.DsBaseActorSimulator;
 import gov.nist.toolkit.soap.DocumentMap;
 import gov.nist.toolkit.soap.axis2.MtomBuilder;
 import gov.nist.toolkit.soap.axis2.Soap;
@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  *
  */
-public class XdrDocSrcActorSimulator extends BaseDsActorSimulator {
+public class XdrDocSrcActorSimulator extends DsBaseActorSimulator {
     static final Logger logger = Logger.getLogger(XdrDocSrcActorSimulator.class);
     OMElement messageBody = null;
     DocumentMap documentMap = null;

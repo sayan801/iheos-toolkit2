@@ -9,7 +9,7 @@ import gov.nist.toolkit.registrymsg.registry.Response
 import gov.nist.toolkit.simulators.sim.reg.AdhocQueryResponseGenerator
 import gov.nist.toolkit.simulators.sim.reg.SoapWrapperRegistryResponseSim
 import gov.nist.toolkit.simulators.support.DsSimCommon
-import gov.nist.toolkit.simulators.support.GatewaySimulatorCommon
+import gov.nist.toolkit.simulators.support.GatewaySimulatorCommonBase
 import gov.nist.toolkit.simulators.support.SimCommon
 import gov.nist.toolkit.utilities.xml.XmlUtil
 import gov.nist.toolkit.validatorsSoapMessage.message.SoapMessageValidator
@@ -24,7 +24,7 @@ import org.apache.log4j.Logger
 // XCAI_TODO Add handling for error cases, image not found.
 
 @TypeChecked
-public class IdsActorSimulator extends GatewaySimulatorCommon {
+public class IdsActorSimulator extends GatewaySimulatorCommonBase {
    static Logger logger = Logger.getLogger(IdsActorSimulator.class);
    AdhocQueryResponseGenerator sqs;
 

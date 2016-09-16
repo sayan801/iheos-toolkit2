@@ -6,7 +6,7 @@ import gov.nist.toolkit.configDatatypes.client.TransactionType;
 import gov.nist.toolkit.errorrecording.GwtErrorRecorderBuilder;
 import gov.nist.toolkit.simulators.sim.reg.RegistryResponseGeneratorSim;
 import gov.nist.toolkit.simulators.sim.reg.SoapWrapperRegistryResponseSim;
-import gov.nist.toolkit.simulators.support.BaseDsActorSimulator;
+import gov.nist.toolkit.simulators.support.DsBaseActorSimulator;
 import gov.nist.toolkit.simulators.support.DsSimCommon;
 import gov.nist.toolkit.simulators.support.SimCommon;
 import gov.nist.toolkit.valsupport.engine.MessageValidatorEngine;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Deprecated  // Using RepositoryActorSimulator and RegistryActorSimulator via RepositoryRegistryActorFactory instead
-public class RecipientActorSimulator extends BaseDsActorSimulator {
+public class RecipientActorSimulator extends DsBaseActorSimulator {
 
 	public RecipientActorSimulator() {}
 

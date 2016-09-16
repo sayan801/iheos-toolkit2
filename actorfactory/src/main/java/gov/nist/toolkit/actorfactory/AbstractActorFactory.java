@@ -26,11 +26,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Factory class for simulators.  Technically ActorFactry is no longer accurate
@@ -66,6 +62,7 @@ public abstract class AbstractActorFactory {
       factories.put(ActorType.IMAGING_DOC_SOURCE.getName(), 		new ImagingDocSourceActorFactory());
       factories.put(ActorType.COMBINED_INITIATING_GATEWAY.getName(), new CigActorFactory());
       factories.put(ActorType.COMBINED_RESPONDING_GATEWAY.getName(), new CrgActorFactory());
+		factories.put(ActorType.TEST_HTTP_SIM.getName(), new HttpActorFactory());
 	}
 
 	static public AbstractActorFactory getActorFactory(ActorType at) {
@@ -179,7 +176,7 @@ public abstract class AbstractActorFactory {
 				AbstractActorFactory actorFactory = getActorFactory(conf);
 				saveConfiguration(conf);
 
-				BaseActorSimulator sim = RuntimeManager.getSimulatorRuntime(conf.getId());
+				ActorSimulatorHandlers sim = RuntimeManager.getSimulatorRuntime(conf.getId());
 				logger.info("calling onCreate:" + conf.getId().toString());
 				sim.onCreate(conf);
 			}
@@ -273,7 +270,7 @@ public abstract class AbstractActorFactory {
         logger.info("delete simulator" + simId);
 		SimDb simdb;
 		try {
-			BaseActorSimulator sim = RuntimeManager.getSimulatorRuntime(simId);
+			ActorSimulatorHandlers sim = RuntimeManager.getSimulatorRuntime(simId);
 			SimulatorConfig config = loadSimulator(simId, true);
 			if (config != null)
 				sim.onDelete(config);
@@ -285,12 +282,16 @@ public abstract class AbstractActorFactory {
 			return;		
 		} catch (ClassNotFoundException e) {
 			logger.error(ExceptionUtil.exception_details(e));
+			throw new IOException("Class problem", e);
 		} catch (InvocationTargetException e) {
 			logger.error(ExceptionUtil.exception_details(e));
+			throw new IOException("Class problem", e);
 		} catch (InstantiationException e) {
 			logger.error(ExceptionUtil.exception_details(e));
+			throw new IOException("Class problem", e);
 		} catch (IllegalAccessException e) {
 			logger.error(ExceptionUtil.exception_details(e));
+			throw new IOException("Class problem", e);
 		}
 
 //		AbstractActorFactory actorFactory = getActorFactory(config);

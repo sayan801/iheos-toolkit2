@@ -29,13 +29,13 @@ import java.util.List;
 public class RemoteSqSim  extends TransactionSimulator implements MetadataGeneratingSim, AdhocQueryResponseGeneratingSim {
 	DsSimCommon dsSimCommon;
 	AdhocQueryResponse response;
-	GatewaySimulatorCommon gatewayCommon;
+	GatewaySimulatorCommonBase gatewayCommon;
 	Metadata m = new Metadata();
 	Exception startUpException = null;
 	OMElement query;
 	Logger logger = Logger.getLogger(SqSim.class);
 
-	public RemoteSqSim(SimCommon common, DsSimCommon dsSimCommon, GatewaySimulatorCommon gatewayCommon, SimulatorConfig simulatorConfig, OMElement query) {
+	public RemoteSqSim(SimCommon common, DsSimCommon dsSimCommon, GatewaySimulatorCommonBase gatewayCommon, SimulatorConfig simulatorConfig, OMElement query) {
 		super(common, simulatorConfig);
         this.dsSimCommon = dsSimCommon;
 		this.gatewayCommon = gatewayCommon;

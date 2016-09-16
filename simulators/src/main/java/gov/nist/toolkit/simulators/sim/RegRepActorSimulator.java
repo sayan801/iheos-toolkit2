@@ -7,7 +7,7 @@ import gov.nist.toolkit.simulators.sim.reg.RegistryActorSimulator;
 import gov.nist.toolkit.simulators.sim.reg.RegistryResponseGeneratorSim;
 import gov.nist.toolkit.simulators.sim.reg.SoapWrapperRegistryResponseSim;
 import gov.nist.toolkit.simulators.sim.rep.RepositoryActorSimulator;
-import gov.nist.toolkit.simulators.support.BaseDsActorSimulator;
+import gov.nist.toolkit.simulators.support.DsBaseActorSimulator;
 import gov.nist.toolkit.simulators.support.DsSimCommon;
 import gov.nist.toolkit.valsupport.client.ValidationContext;
 import gov.nist.toolkit.valsupport.engine.MessageValidatorEngine;
@@ -19,7 +19,7 @@ import java.io.IOException;
  *
  */
 
-public class RegRepActorSimulator extends BaseDsActorSimulator {
+public class RegRepActorSimulator extends DsBaseActorSimulator {
     static final Logger logger = Logger.getLogger(RegRepActorSimulator.class);
     RegistryActorSimulator reg;
     RepositoryActorSimulator rep;

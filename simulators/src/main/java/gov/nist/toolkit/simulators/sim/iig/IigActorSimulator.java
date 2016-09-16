@@ -7,7 +7,7 @@ import gov.nist.toolkit.actorfactory.SimDb;
 import gov.nist.toolkit.actorfactory.client.SimulatorConfig;
 import gov.nist.toolkit.configDatatypes.client.TransactionType;
 import gov.nist.toolkit.errorrecording.client.XdsErrorCode.Code;
-import gov.nist.toolkit.simulators.support.BaseDsActorSimulator;
+import gov.nist.toolkit.simulators.support.DsBaseActorSimulator;
 import gov.nist.toolkit.simulators.support.DsSimCommon;
 import gov.nist.toolkit.simulators.support.SimCommon;
 import gov.nist.toolkit.validatorsSoapMessage.message.SoapMessageValidator;
@@ -24,7 +24,7 @@ import java.io.IOException;
  * @author Ralph Moulton / MIR WUSTL IHE Development Project
  * <a href="mailto:moultonr@mir.wustl.edu">moultonr@mir.wustl.edu</a>
  */
-public class IigActorSimulator extends BaseDsActorSimulator {
+public class IigActorSimulator extends DsBaseActorSimulator {
    static Logger logger = Logger.getLogger(IigActorSimulator.class);
 
    public IigActorSimulator(SimCommon common, DsSimCommon dsSimCommon, SimDb db, SimulatorConfig simulatorConfig) {
@@ -47,7 +47,7 @@ public class IigActorSimulator extends BaseDsActorSimulator {
     * (non-Javadoc)
     * 
     * @see
-    * gov.nist.toolkit.simulators.support.BaseDsActorSimulator#run(gov.nist.
+    * gov.nist.toolkit.simulators.support.DsBaseActorSimulator#run(gov.nist.
     * toolkit.configDatatypes.client.TransactionType,
     * gov.nist.toolkit.valsupport.engine.MessageValidatorEngine,
     * java.lang.String)

@@ -3,9 +3,10 @@ package gov.nist.toolkit.actorfactory;
 import gov.nist.toolkit.actorfactory.client.SimulatorConfig;
 
 /**
- * Created by bill on 9/14/15.
+ *
  */
-public class BaseActorSimulator {
+public class ActorSimulatorHandlers {
+
     // Services may need extension via hooks.  These are the hooks
     // They are meant to be overloaded
     public void onCreate(SimulatorConfig config) {}

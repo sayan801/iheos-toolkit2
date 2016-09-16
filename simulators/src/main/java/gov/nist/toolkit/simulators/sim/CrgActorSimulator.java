@@ -3,17 +3,16 @@
  */
 package gov.nist.toolkit.simulators.sim;
 
-import java.io.IOException;
-
-import org.apache.log4j.Logger;
-
 import gov.nist.toolkit.actorfactory.client.SimulatorConfig;
 import gov.nist.toolkit.configDatatypes.client.TransactionType;
 import gov.nist.toolkit.simulators.sim.rg.RGActorSimulator;
 import gov.nist.toolkit.simulators.sim.rig.RigActorSimulator;
-import gov.nist.toolkit.simulators.support.BaseDsActorSimulator;
+import gov.nist.toolkit.simulators.support.DsBaseActorSimulator;
 import gov.nist.toolkit.simulators.support.DsSimCommon;
 import gov.nist.toolkit.valsupport.engine.MessageValidatorEngine;
+import org.apache.log4j.Logger;
+
+import java.io.IOException;
 
 /**
  * Combination Responding Gateway Simulator
@@ -23,7 +22,7 @@ import gov.nist.toolkit.valsupport.engine.MessageValidatorEngine;
  * href="mailto:moultonr@mir.wustl.edu">moultonr@mir.wustl.edu</a>
  *
  */
-public class CrgActorSimulator extends BaseDsActorSimulator {
+public class CrgActorSimulator extends DsBaseActorSimulator {
    
    static final Logger logger = Logger.getLogger(CrgActorSimulator.class);
    
@@ -32,7 +31,7 @@ public class CrgActorSimulator extends BaseDsActorSimulator {
    
    public CrgActorSimulator() {
       rg = new RGActorSimulator();
-      rig = new RigActorSimulator();      
+      rig = new RigActorSimulator();
    }
 
    @Override

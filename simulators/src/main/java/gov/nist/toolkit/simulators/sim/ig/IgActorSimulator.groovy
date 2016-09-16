@@ -6,7 +6,7 @@ import gov.nist.toolkit.errorrecording.client.XdsErrorCode.Code
 import gov.nist.toolkit.simulators.sim.reg.AdhocQueryResponseGenerator
 import gov.nist.toolkit.simulators.sim.reg.SoapWrapperRegistryResponseSim
 import gov.nist.toolkit.simulators.support.DsSimCommon
-import gov.nist.toolkit.simulators.support.GatewaySimulatorCommon
+import gov.nist.toolkit.simulators.support.GatewaySimulatorCommonBase
 import gov.nist.toolkit.simulators.support.SimCommon
 import gov.nist.toolkit.validatorsSoapMessage.message.SoapMessageValidator
 import gov.nist.toolkit.valsupport.engine.MessageValidatorEngine
@@ -17,7 +17,7 @@ import org.apache.axiom.om.OMElement
 import org.apache.log4j.Logger
 
 @TypeChecked
-public class IgActorSimulator extends GatewaySimulatorCommon {
+public class IgActorSimulator extends GatewaySimulatorCommonBase {
    static Logger logger = Logger.getLogger(IgActorSimulator.class);
    AdhocQueryResponseGenerator sqs;
 

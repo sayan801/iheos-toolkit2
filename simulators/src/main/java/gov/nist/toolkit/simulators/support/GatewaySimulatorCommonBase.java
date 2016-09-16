@@ -11,13 +11,13 @@ import gov.nist.toolkit.valregmsg.registry.storedquery.support.StoredQuerySuppor
 
 import org.apache.axiom.om.OMElement;
 
-abstract public class GatewaySimulatorCommon extends BaseDsActorSimulator {
+abstract public class GatewaySimulatorCommonBase extends DsBaseActorSimulator {
 	
-	public GatewaySimulatorCommon(SimCommon common, DsSimCommon dsSimCommon) {
+	public GatewaySimulatorCommonBase(SimCommon common, DsSimCommon dsSimCommon) {
 		super(common, dsSimCommon);
 	}
 
-    public GatewaySimulatorCommon() {}
+    public GatewaySimulatorCommonBase() {}
 
 	public  boolean validateHomeCommunityId(ErrorRecorder er, OMElement query, boolean isRG) {
 		// verify that if Patient ID param not present then homeCommunityId is in header
@@ -52,7 +52,7 @@ abstract public class GatewaySimulatorCommon extends BaseDsActorSimulator {
 		if (!hasPatientIdParm && !hasHome) {
 			er.err(Code.XDSMissingHomeCommunityId, "Non-PatientID query and home is not specified. " +
                     "Params found were " + sqs.getParams().getNames(),
-					(isRG) ? "RGActorSimulator" : "IGActorSimulator", 
+					(isRG) ? "RGActorSimulator" : "IGActorSimulator",
 					"ITI TF-2b: 3.38.4.1");
 			dsSimCommon.sendErrorsInRegistryResponse(er);
 			return false;

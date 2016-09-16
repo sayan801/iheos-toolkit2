@@ -3,6 +3,21 @@
  */
 package gov.nist.toolkit.simulators.sim.idc;
 
+import gov.nist.toolkit.configDatatypes.client.TransactionType;
+import gov.nist.toolkit.registrymsg.repository.RetrieveImageRequestGenerator;
+import gov.nist.toolkit.registrymsg.repository.RetrieveImageRequestModel;
+import gov.nist.toolkit.registrymsg.repository.RetrievedDocumentModel;
+import gov.nist.toolkit.registrymsg.repository.RetrievedDocumentsModel;
+import gov.nist.toolkit.simulators.support.DsBaseActorSimulator;
+import gov.nist.toolkit.sitemanagement.client.Site;
+import gov.nist.toolkit.soap.axis2.Soap;
+import gov.nist.toolkit.testengine.engine.RetrieveB;
+import gov.nist.toolkit.valsupport.engine.MessageValidatorEngine;
+import org.apache.axiom.om.OMElement;
+import org.apache.log4j.Logger;
+
+import javax.xml.parsers.FactoryConfigurationError;
+import javax.xml.stream.XMLStreamException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,29 +27,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.xml.parsers.FactoryConfigurationError;
-import javax.xml.stream.XMLStreamException;
-
-import org.apache.axiom.om.OMElement;
-import org.apache.log4j.Logger;
-
-import gov.nist.toolkit.configDatatypes.client.TransactionType;
-import gov.nist.toolkit.registrymsg.repository.RetrieveImageRequestGenerator;
-import gov.nist.toolkit.registrymsg.repository.RetrieveImageRequestModel;
-import gov.nist.toolkit.registrymsg.repository.RetrievedDocumentModel;
-import gov.nist.toolkit.registrymsg.repository.RetrievedDocumentsModel;
-import gov.nist.toolkit.simulators.support.BaseDsActorSimulator;
-import gov.nist.toolkit.sitemanagement.client.Site;
-import gov.nist.toolkit.soap.axis2.Soap;
-import gov.nist.toolkit.testengine.engine.RetrieveB;
-import gov.nist.toolkit.valsupport.engine.MessageValidatorEngine;
-
 /**
  * Image Document Consumer Actor Simulator. PRELIMINARY @author Ralph Moulton /
  * MIR WUSTL IHE Development Project <a
  * href="mailto:moultonr@mir.wustl.edu">moultonr@mir.wustl.edu</a>
  */
-public class ImgDocConsActorSimulator extends BaseDsActorSimulator {
+public class ImgDocConsActorSimulator extends DsBaseActorSimulator {
 
    private TransactionType type = TransactionType.RET_IMG_DOC_SET_GW;
    public void setTransactionType(TransactionType type) {

@@ -8,7 +8,7 @@ import gov.nist.toolkit.registrymsg.repository.RetrieveRequestModel
 import gov.nist.toolkit.registrymsg.repository.RetrievedDocumentModel
 import gov.nist.toolkit.registrymsg.repository.RetrievedDocumentsModel
 import gov.nist.toolkit.commondatatypes.MetadataSupport
-import gov.nist.toolkit.simulators.support.BaseDsActorSimulator
+import gov.nist.toolkit.simulators.support.DsBaseActorSimulator
 import gov.nist.toolkit.soap.axis2.Soap
 import gov.nist.toolkit.testengine.engine.RetrieveB
 import gov.nist.toolkit.utilities.xml.Util
@@ -21,7 +21,7 @@ import org.apache.log4j.Logger
  *
  */
 @TypeChecked
-public class DocConsActorSimulator extends BaseDsActorSimulator  {
+public class DocConsActorSimulator extends DsBaseActorSimulator  {
     static final Logger logger = Logger.getLogger(DocConsActorSimulator.class);
     List<OMElement> extraSoapHeaderElements = new ArrayList<>();
     boolean tls;

@@ -37,7 +37,7 @@ import org.apache.axiom.om.OMElement
 import org.apache.log4j.Logger
 
 @TypeChecked
-public class RGActorSimulator extends GatewaySimulatorCommon implements MetadataGeneratingSim {
+public class RGActorSimulator extends GatewaySimulatorCommonBase implements MetadataGeneratingSim {
 	SimDb db;
 	static Logger logger = Logger.getLogger(RegistryActorSimulator.class);
 	Metadata m;

@@ -15,7 +15,7 @@ import gov.nist.toolkit.simulators.servlet.SimServlet;
 import gov.nist.toolkit.simulators.sim.reg.RegistryResponseGeneratingSim;
 import gov.nist.toolkit.simulators.sim.reg.SoapWrapperRegistryResponseSim;
 import gov.nist.toolkit.simulators.sim.rep.RepIndex;
-import gov.nist.toolkit.simulators.support.BaseDsActorSimulator;
+import gov.nist.toolkit.simulators.support.DsBaseActorSimulator;
 import gov.nist.toolkit.simulators.support.DsSimCommon;
 import gov.nist.toolkit.simulators.support.SimCommon;
 import gov.nist.toolkit.utilities.xml.XmlUtil;
@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OddsActorSimulator extends BaseDsActorSimulator {
+public class OddsActorSimulator extends DsBaseActorSimulator {
 	static final Logger logger = Logger.getLogger(OddsActorSimulator.class);
 
 	RepIndex repIndex;

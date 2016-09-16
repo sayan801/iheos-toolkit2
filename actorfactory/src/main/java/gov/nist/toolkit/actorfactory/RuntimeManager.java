@@ -17,7 +17,7 @@ import java.lang.reflect.InvocationTargetException;
 public class RuntimeManager {
     static Logger logger = Logger.getLogger(RuntimeManager.class);
 
-    public static BaseActorSimulator getSimulatorRuntime(SimId simId) throws NoSimException, IOException, ClassNotFoundException, IllegalAccessException, InvocationTargetException, InstantiationException {
+    public static ActorSimulatorHandlers getSimulatorRuntime(SimId simId) throws NoSimException, IOException, ClassNotFoundException, IllegalAccessException, InvocationTargetException, InstantiationException {
         SimDb db = new SimDb();
         SimulatorConfig config = GenericSimulatorFactory.getSimConfig(db.getRoot(), simId);
         String actorTypeName = config.getActorType();
@@ -40,10 +40,10 @@ public class RuntimeManager {
         if (constructor == null)
             throw new ToolkitRuntimeException("Cannot find no-argument constructor for " + actorSimClassName);
         Object obj = constructor.newInstance();
-        if (!(obj instanceof BaseActorSimulator)) {
-            throw new ToolkitRuntimeException("Received message for actor type " + actorTypeName + " which has a handler/simulator that does not extend BaseActorSimulator");
+        if (!(obj instanceof ActorSimulatorHandlers)) {
+            throw new ToolkitRuntimeException("Received message for actor type " + actorTypeName + " which has a handler/simulator that does not extend ActorSimulatorHandlers");
         }
-        return (BaseActorSimulator) obj;
+        return (ActorSimulatorHandlers) obj;
     }
 
 }

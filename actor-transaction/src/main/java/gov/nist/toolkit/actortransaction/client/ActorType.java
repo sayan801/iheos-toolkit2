@@ -187,6 +187,15 @@ public enum ActorType implements IsSerializable, Serializable {
             Arrays.asList(TransactionType.RET_IMG_DOC_SET),
             false,
             null
+    ),
+    TEST_HTTP_SIM(
+            "Test HTTP Sim",
+            Arrays.asList("HTTP"),
+            "hts",
+            "gov.nist.toolkit.simulators.sim.http.HttpTestActorSimulator",
+            Arrays.asList(TransactionType.HTTP1),
+            true,
+            null
     )
     ;
 

@@ -1,7 +1,5 @@
 package gov.nist.toolkit.simulators.support;
 
-import gov.nist.toolkit.actorfactory.BaseActorSimulator;
-import gov.nist.toolkit.actorfactory.SimDb;
 import gov.nist.toolkit.actorfactory.client.SimulatorConfig;
 import gov.nist.toolkit.configDatatypes.client.TransactionType;
 import gov.nist.toolkit.errorrecording.ErrorRecorder;
@@ -9,7 +7,6 @@ import gov.nist.toolkit.errorrecording.GwtErrorRecorderBuilder;
 import gov.nist.toolkit.valsupport.client.ValidationContext;
 import gov.nist.toolkit.valsupport.engine.MessageValidatorEngine;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -18,12 +15,8 @@ import java.io.IOException;
  * @author bill
  *
  */
-public abstract class BaseDsActorSimulator extends BaseActorSimulator {
-    protected SimDb db;
-	protected SimCommon common = null;
+public abstract class DsBaseActorSimulator extends BaseActorSimulator {
 	protected DsSimCommon dsSimCommon = null;
-	protected ErrorRecorder er = null;
-	public HttpServletResponse response;
 
 	/**
 	 * Start execution of a transaction to this actor simulator.
@@ -38,14 +31,14 @@ public abstract class BaseDsActorSimulator extends BaseActorSimulator {
 	abstract public void init();
 
 
-	public BaseDsActorSimulator(SimCommon common, DsSimCommon dsSimCommon) {
+	public DsBaseActorSimulator(SimCommon common, DsSimCommon dsSimCommon) {
 //		super(common.getValidationContext());
 		this.common = common;
 		this.dsSimCommon = dsSimCommon;
 		er = common.getCommonErrorRecorder();
 	}
 
-	public BaseDsActorSimulator() {}
+	public DsBaseActorSimulator() {}
 
 	public void init(DsSimCommon c, SimulatorConfig config) {
 		dsSimCommon = c;
@@ -55,6 +48,14 @@ public abstract class BaseDsActorSimulator extends BaseActorSimulator {
 		db = c.simCommon.db;
 		dsSimCommon.setSimulatorConfig(config);
 		response = dsSimCommon.simCommon.response;
+		init();
+	}
+
+	public void init(SimCommon c, SimulatorConfig config) {
+		common = c;
+		er = common.getCommonErrorRecorder();
+		db = c.db;
+		response = c.response;
 		init();
 	}
 

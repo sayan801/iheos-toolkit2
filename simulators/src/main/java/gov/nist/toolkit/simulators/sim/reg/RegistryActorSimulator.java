@@ -14,7 +14,7 @@ import gov.nist.toolkit.simulators.sim.reg.sq.SqSim;
 import gov.nist.toolkit.simulators.sim.reg.store.Committer;
 import gov.nist.toolkit.simulators.sim.reg.store.MetadataCollection;
 import gov.nist.toolkit.simulators.sim.reg.store.RegIndex;
-import gov.nist.toolkit.simulators.support.BaseDsActorSimulator;
+import gov.nist.toolkit.simulators.support.DsBaseActorSimulator;
 import gov.nist.toolkit.simulators.support.DsSimCommon;
 import gov.nist.toolkit.simulators.support.SimCommon;
 import gov.nist.toolkit.valsupport.client.ValidationContext;
@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RegistryActorSimulator extends BaseDsActorSimulator {
+public class RegistryActorSimulator extends DsBaseActorSimulator {
 	static Logger logger = Logger.getLogger(RegistryActorSimulator.class);
 	boolean updateEnabled;
 	private boolean generateResponse = true;
