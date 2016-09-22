@@ -110,16 +110,19 @@ public class InteractionDiagram extends Composite {
             setContents(text);
             setPopupPosition(x, y);
             super.show();
-            if (timer != null) {
-                timer.cancel();
-            }
-            timer = new Timer() {
-                public void run() {
-                    Tooltip.this.hide();
-                    timer = null;
+            if (delay>0) {
+                if (timer != null) {
+                    timer.cancel();
                 }
-            };
-            timer.schedule(delay);
+                timer = new Timer() {
+                    public void run() {
+                        Tooltip.this.hide();
+                        timer = null;
+                    }
+                };
+                timer.schedule(delay);
+            }
+
         }
     }
 
@@ -524,11 +527,17 @@ public class InteractionDiagram extends Composite {
                              showTooltip(mouseOverEvent, errors);
                          }
                      });
-
                      group.addMouseOutHandler(new MouseOutHandler() {
                          @Override
                          public void onMouseOut(MouseOutEvent mouseOutEvent) {
                              getTooltip().hide();
+                         }
+                     });
+
+                     group.addMouseOutHandler(new MouseOutHandler() {
+                         @Override
+                         public void onMouseOut(MouseOutEvent mouseOutEvent) {
+                             hideTooltip();
                          }
                      });
                  }
@@ -840,9 +849,12 @@ public class InteractionDiagram extends Composite {
 
 
     private void showTooltip(MouseEvent<? extends EventHandler> e, List<String> text) {
-        tooltip.show(e.getClientX() + 20, e.getClientY() + 30, text, 5000);
+        tooltip.show(e.getClientX() + 20, e.getClientY() + 30, text, -1);
     }
 
+    private void hideTooltip() {
+        tooltip.hide();
+    }
 
 
     public int getDiagramHeight() {
