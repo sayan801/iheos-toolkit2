@@ -295,7 +295,12 @@ public class PrsSimLogs {
          while (str.substring(p).startsWith("<") == false)
             p-- ;
          str = str.substring(p);
-         p = str.indexOf(mimeBoundary);
+
+         if (mimeBoundary==null)
+            p=-1;
+         else
+            p = str.indexOf(mimeBoundary);
+
          if (p != -1) str = str.substring(0, p);
          str = new String(str.replaceAll("\\s+", " "));
          return str;
