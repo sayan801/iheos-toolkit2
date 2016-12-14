@@ -1,15 +1,18 @@
 package gov.nist.toolkit.xdstools2.client.tabs.conformanceTest;
 
-import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Panel;
-import gov.nist.toolkit.services.client.*;
+import gov.nist.toolkit.services.client.RawResponse;
+import gov.nist.toolkit.services.client.RecOrchestrationRequest;
+import gov.nist.toolkit.services.client.RecOrchestrationResponse;
 import gov.nist.toolkit.sitemanagement.client.SiteSpec;
+import gov.nist.toolkit.xdstools2.client.command.command.BuildRecTestOrchestrationCommand;
 import gov.nist.toolkit.xdstools2.client.util.ClientUtils;
 import gov.nist.toolkit.xdstools2.client.widgets.OrchestrationSupportTestsDisplay;
 import gov.nist.toolkit.xdstools2.client.widgets.buttons.AbstractOrchestrationButton;
+import gov.nist.toolkit.xdstools2.shared.command.request.BuildRecTestOrchestrationRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,8 +45,7 @@ public class BuildRecTestOrchestrationButton extends AbstractOrchestrationButton
         panel().add(initializationResultsPanel);
     }
 
-    @Override
-    public void handleClick(ClickEvent clickEvent) {
+    public void orchestrate() {
         String msg = testContext.verifyTestContext();
         if (msg != null) {
             testContextView.launchDialog(msg);
@@ -57,19 +59,16 @@ public class BuildRecTestOrchestrationButton extends AbstractOrchestrationButton
         request.setEnvironmentName(testTab.getEnvironmentSelection());
         request.setUseExistingState(!isResetRequested());
         SiteSpec sutSiteSpec = testContext.getSiteUnderTest().siteSpec();
+        if (isSaml()) {
+            setSamlAssertion(sutSiteSpec);
+        }
         request.setRegistrySut(sutSiteSpec);
 
         testTab.setSiteToIssueTestAgainst(sutSiteSpec);
 
-
-        ClientUtils.INSTANCE.getToolkitServices().buildRecTestOrchestration(request, new AsyncCallback<RawResponse>() {
+        new BuildRecTestOrchestrationCommand(){
             @Override
-            public void onFailure(Throwable throwable) {
-                handleError(throwable);
-            }
-
-            @Override
-            public void onSuccess(RawResponse rawResponse) {
+            public void onComplete(RawResponse rawResponse) {
                 if (handleError(rawResponse, RecOrchestrationResponse.class)) return;
                 final RecOrchestrationResponse orchResponse = (RecOrchestrationResponse) rawResponse;
                 testTab.setOrchestrationResponse(orchResponse);
@@ -92,10 +91,7 @@ public class BuildRecTestOrchestrationButton extends AbstractOrchestrationButton
 
                 initializationResultsPanel.add(new HTML("Patient ID for all tests: " + orchResponse.getRegisterPid().toString()));
                 initializationResultsPanel.add(new HTML("<br />"));
-
             }
-        });
-
-
+        }.run(new BuildRecTestOrchestrationRequest(ClientUtils.INSTANCE.getCommandContext(),request));
     }
 }

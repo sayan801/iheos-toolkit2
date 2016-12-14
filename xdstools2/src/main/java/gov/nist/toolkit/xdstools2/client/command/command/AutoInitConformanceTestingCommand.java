@@ -9,6 +9,6 @@ import gov.nist.toolkit.xdstools2.shared.command.CommandContext;
 public abstract class AutoInitConformanceTestingCommand extends GenericCommand<CommandContext,Boolean>{
     @Override
     public void run(CommandContext var1) {
-        ClientUtils.INSTANCE.getToolkitServices().getAutoInitConformanceTesting(this);
+        ClientUtils.INSTANCE.getToolkitServices().getAutoInitConformanceTesting(var1,this);
     }
 }

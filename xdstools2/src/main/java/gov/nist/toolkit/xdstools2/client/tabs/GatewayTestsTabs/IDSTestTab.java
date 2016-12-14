@@ -11,12 +11,16 @@ import gov.nist.toolkit.results.client.Result;
 import gov.nist.toolkit.results.client.TestInstance;
 import gov.nist.toolkit.sitemanagement.client.SiteSpec;
 import gov.nist.toolkit.xdstools2.client.*;
+import gov.nist.toolkit.xdstools2.client.command.command.GetTestResultsCommand;
+import gov.nist.toolkit.xdstools2.client.command.command.RunMesaTestCommand;
 import gov.nist.toolkit.xdstools2.client.inspector.MetadataInspectorTab;
 import gov.nist.toolkit.xdstools2.client.siteActorManagers.GetDocumentsSiteActorManager;
 import gov.nist.toolkit.xdstools2.client.tabs.genericQueryTab.GenericQueryTab;
 import gov.nist.toolkit.xdstools2.client.util.ClientUtils;
 import gov.nist.toolkit.xdstools2.client.util.ToolkitServiceAsync;
 import gov.nist.toolkit.xdstools2.client.widgets.PopupMessage;
+import gov.nist.toolkit.xdstools2.shared.command.request.GetTestResultsRequest;
+import gov.nist.toolkit.xdstools2.shared.command.request.RunTestRequest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +31,6 @@ import java.util.Map;
  * toolkit test tab for IDS SUT testing *
  */
 public class IDSTestTab extends GenericQueryTab implements GatewayTool {
-    protected final ToolkitServiceAsync toolkitService = ClientUtils.INSTANCE.getToolkitServices();
     String selectedActor = ActorType.IMAGING_DOC_SOURCE.getShortName();
     SimulatorConfig rrConfig;
     GenericQueryTab genericQueryTab;
@@ -245,7 +248,12 @@ public class IDSTestTab extends GenericQueryTab implements GatewayTool {
                 testToRun = "tc:" + COLLECTION_NAME;
             }
 
-            toolkitService.runMesaTest(getCurrentTestSession(), getSiteSelection(), new TestInstance(testToRun), testSelectionManager.getSelectedSections(), parms, true, queryCallback);
+            new RunMesaTestCommand(){
+                @Override
+                public void onComplete(List<Result> result) {
+                    queryCallback.onSuccess(result);
+                }
+            }.run(new RunTestRequest(getCommandContext(),getSiteSelection(),new TestInstance(testToRun),parms,true,testSelectionManager.getSelectedSections()));
         }
 
     }
@@ -261,15 +269,10 @@ public class IDSTestTab extends GenericQueryTab implements GatewayTool {
             public void onClick(ClickEvent clickEvent) {
                 List<TestInstance> tests = new ArrayList<TestInstance>();
                 tests.add(new TestInstance("15807"));
-                toolkitService.getTestResults(tests, getCurrentTestSession(), new AsyncCallback<Map<String, Result>>() {
+                new GetTestResultsCommand(){
                     @Override
-                    public void onFailure(Throwable throwable) {
-                        new PopupMessage(throwable.getMessage());
-                    }
-
-                    @Override
-                    public void onSuccess(Map<String, Result> stringResultMap) {
-                        Result result = stringResultMap.get("15807");
+                    public void onComplete(Map<String, Result> resultMap) {
+                        Result result = resultMap.get("15807");
                         if (result == null) {
                             new PopupMessage("Results not available");
                             return;
@@ -281,10 +284,9 @@ public class IDSTestTab extends GenericQueryTab implements GatewayTool {
                         results.add(result);
                         itab.setResults(results);
                         itab.setSiteSpec(siteSpec);
-//                        itab.setToolkitService(toolkitService);
                         itab.onTabLoad(true, "Insp");
                     }
-                });
+                }.run(new GetTestResultsRequest(getCommandContext(),tests));
             }
         });
         return button;

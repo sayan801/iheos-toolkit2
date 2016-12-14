@@ -5,11 +5,13 @@ import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.*;
+import gov.nist.toolkit.sitemanagement.client.SiteSpec;
 import gov.nist.toolkit.xdstools2.client.ErrorHandler;
 import gov.nist.toolkit.xdstools2.client.ToolWindow;
 import gov.nist.toolkit.xdstools2.client.command.command.*;
 import gov.nist.toolkit.xdstools2.client.util.ClientUtils;
 import gov.nist.toolkit.xdstools2.client.widgets.HorizontalFlowPanel;
+import gov.nist.toolkit.xdstools2.shared.command.CommandContext;
 import gov.nist.toolkit.xdstools2.shared.command.request.GetSiteNamesRequest;
 import gov.nist.toolkit.xdstools2.shared.command.request.SetAssignedSiteForTestSessionRequest;
 
@@ -32,12 +34,14 @@ class TestContextDialog extends DialogBox {
     private Button acceptButton = new Button("Assign System for Test Session");
     private Button clearTestSessionButton = new Button("Clear Test Session");
     private FlowPanel sitesForTestSessionPanel = new FlowPanel();
+    private SiteSelectionValidator siteSelectionValidator;
 
 
-    TestContextDialog(ToolWindow toolWindow, SiteManager siteManager, String message) {
+    TestContextDialog(ToolWindow toolWindow, SiteManager siteManager, SiteSelectionValidator siteSelectionValidator, String message) {
         super(true, true);
         this.toolWindow = toolWindow;
         this.siteManager = siteManager;
+        this.siteSelectionValidator = siteSelectionValidator;
 
         FlowPanel panel = new FlowPanel();
         setGlassEnabled(true);
@@ -156,6 +160,8 @@ class TestContextDialog extends DialogBox {
             String selectedSite = getSelectedSite();
             if (TestContext.NONE.equals(selectedSite))
                 selectedSite = null;
+            if (siteSelectionValidator != null)
+                siteSelectionValidator.validate(new SiteSpec(selectedSite));
             siteManager.setSiteName(selectedSite);
             toolWindow.setCurrentTestSession(getSelectedTestSession());
             siteManager.update();
@@ -181,7 +187,7 @@ class TestContextDialog extends DialogBox {
                     siteManager.setSiteName(result);
                     selectSite(result);
                 }
-            }.run(newTestSession);
+            }.run(ClientUtils.INSTANCE.getCommandContext());
         }
     }
 
@@ -256,7 +262,7 @@ class TestContextDialog extends DialogBox {
                     testSessionListBox.setSelectedIndex(testSessionListBox.getItemCount() - 1);
                     toolWindow.setCurrentTestSession(newItem);
                 }
-            }.run(newItem);
+            }.run(new CommandContext(ClientUtils.INSTANCE.getEnvironmentState().getEnvironmentName(),newItem));
         }
     }
     private void loadTestSessions(final String initialSelection) {

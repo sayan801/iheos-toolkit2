@@ -19,12 +19,12 @@ import gov.nist.toolkit.results.client.TestInstance;
 import gov.nist.toolkit.simcommon.client.config.SimulatorConfigElement;
 import gov.nist.toolkit.sitemanagement.client.SiteSpec;
 import gov.nist.toolkit.xdstools2.client.StringSort;
-import gov.nist.toolkit.xdstools2.client.command.command.GetSiteNamesByTranTypeCommand;
+import gov.nist.toolkit.xdstools2.client.command.command.*;
 import gov.nist.toolkit.xdstools2.client.tabs.simulatorControlTab.*;
 import gov.nist.toolkit.xdstools2.client.tabs.simulatorControlTab.intf.SimConfigMgrIntf;
 import gov.nist.toolkit.xdstools2.client.util.ClientUtils;
 import gov.nist.toolkit.xdstools2.client.widgets.PopupMessage;
-import gov.nist.toolkit.xdstools2.shared.command.request.GetSiteNamesByTranTypeRequest;
+import gov.nist.toolkit.xdstools2.shared.command.request.*;
 
 import java.util.*;
 
@@ -308,26 +308,11 @@ public class OddsSimConfigMgr implements SimConfigMgrIntf {
 
 
     private void getOdDocumentEntries(SimulatorControlTab simulatorControlTab) {
-        ClientUtils.INSTANCE.getToolkitServices().getOnDemandDocumentEntryDetails(getConfig().getId(), new AsyncCallback<List<DocumentEntryDetail>>() {
+        new GetOnDemandDocumentEntryDetailsCommand(){
             @Override
-            public void onFailure(Throwable throwable) {
-                regActionMessage.getElement().getStyle().setColor("red");
-                regActionMessage.setText("getOnDemandDocumentEntryDetails Error:" + throwable.toString());
-            }
-
-            @Override
-            public void onSuccess(List<DocumentEntryDetail> documentEntryDetails) {
+            public void onComplete(List<DocumentEntryDetail> documentEntryDetails) {
                 oddeEntriesTbl.clear();
                 int oddeRow = 0;
-
-
-//                new PopupMessage(GWT.getModuleBaseForStaticFiles());
-//                refreshSupplyState.getElement().getStyle().setMarginLeft(80, Style.Unit.PCT);
-
-//                oddeEntriesTbl.setWidget(oddeRow, 0,refreshSupplyState);
-//                oddeEntriesTbl.getFlexCellFormatter().setColSpan(oddeRow,0,6);
-//                oddeEntriesTbl.getFlexCellFormatter().setHorizontalAlignment(oddeRow,0, HasHorizontalAlignment.ALIGN_RIGHT);
-//                oddeRow++;
 
                 oddeEntriesTbl.setWidget(oddeRow, 0, new HTML("<b>Created On</b>"));
                 oddeEntriesTbl.setWidget(oddeRow, 1, new HTML("<b>On-Demand Document Unique ID</b>"));
@@ -339,14 +324,10 @@ public class OddsSimConfigMgr implements SimConfigMgrIntf {
                 ssHp.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
                 ssHp.add(new HTML("<b>Supply State</b>"));
                 ssHp.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
-//                refreshSupplyState.getElement().addClassName("roundedButton1");
-//                ssHp.display(refreshSupplyState);
                 refreshImg.setAltText("Refresh");
                 refreshImg.setTitle("Refresh");
                 refreshImg.getElement().getStyle().setCursor(Style.Cursor.POINTER);
                 refreshImg.getElement().getStyle().setVerticalAlign(Style.VerticalAlign.MIDDLE);
-
-
 
                 ssHp.add(refreshImg);
 
@@ -355,7 +336,6 @@ public class OddsSimConfigMgr implements SimConfigMgrIntf {
 
                 if (documentEntryDetails!=null) {
                     // Sort descending (List is originally in ascending order)
-//                  Collections.reverse(documentEntryDetails);   -- This seems to need an additional inherits module:
                     int oDdocCount = documentEntryDetails.size()-1 /* Z-B Idx*/;
                     for (int cx=oDdocCount; cx>-1; cx--) {
                         DocumentEntryDetail ded = documentEntryDetails.get(cx);
@@ -381,7 +361,7 @@ public class OddsSimConfigMgr implements SimConfigMgrIntf {
                     }
                 }
             }
-        });
+        }.run(new GetOnDemandDocumentEntryDetailsRequest(ClientUtils.INSTANCE.getCommandContext(),getConfig().getId()));
     }
 
     private void displayRegisterOptions() {
@@ -514,14 +494,9 @@ public class OddsSimConfigMgr implements SimConfigMgrIntf {
 
 
     void loadTestsFromCollection(final ListBox lbx, final String testCollectionName) {
-        ClientUtils.INSTANCE.getToolkitServices().getCollection("collections", testCollectionName, new AsyncCallback<Map<String, String>>() {
-
-            public void onFailure(Throwable caught) {
-                new PopupMessage("getCollection(" + testCollectionName + "): " +  " -----  " + caught.getMessage());
-            }
-
-            public void onSuccess(Map<String, String> result) {
-
+        new GetCollectionCommand() {
+            @Override
+            public void onComplete(Map<String, String> result) {
                 Set<String> testNumsSet = result.keySet();
                 List<String> testNums = new ArrayList<String>();
                 testNums.addAll(testNumsSet);
@@ -536,7 +511,7 @@ public class OddsSimConfigMgr implements SimConfigMgrIntf {
                     lbx.setSelectedIndex(0);
                 }
             }
-        });
+        }.run(new GetCollectionRequest(ClientUtils.INSTANCE.getCommandContext(), "collections", testCollectionName));
     }
 
     private void registerODDE() {
@@ -553,47 +528,38 @@ public class OddsSimConfigMgr implements SimConfigMgrIntf {
         params.put("$patientid$", oddePatientIdCEBox.getTb().getValue());
         params.put("$repuid$", getConfig().get(SimulatorProperties.repositoryUniqueId).asString()); // oddsReposTDBox.toString() getTb().getValue());
 
-        ClientUtils.INSTANCE.getToolkitServices().registerWithLocalizedTrackingInODDS(getConfig().getId().getUser(), new TestInstance(contentBundleLbx.getSelectedValue())
-                , new SiteSpec(regSSP.getSelected().get(0), ActorType.REGISTRY, null), getConfig().getId() , params
-                , new AsyncCallback<Map<String, String>>() {
-                    @Override
-                    public void onFailure(Throwable throwable) {
-                        regActionMessage.getElement().getStyle().setColor("red");
-                        regActionMessage.setText("Error: " + throwable.getMessage());
+        new RegisterWithLocalizedTrackingInODDSCommand(){
+            @Override
+            public void onFailure(Throwable throwable) {
+                regActionMessage.getElement().getStyle().setColor("red");
+                regActionMessage.setText("Error: " + throwable.getMessage());
 
-                        setRegButton("Initialize", true);
+                setRegButton("Initialize", true);
+            }
+            @Override
+            public void onComplete(Map<String, String> responseMap) {
+                setRegButton("Initialize", true);
+                if (responseMap.containsKey("error")) {
+                    regActionMessage.getElement().getStyle().setColor("red");
+
+                    StringBuffer sb = new StringBuffer();
+                    sb.append(responseMap.get("error"));
+                    sb.append("<br/>");
+
+                    for (int cx=0; cx < responseMap.size()-1; cx++) {
+                        sb.append(responseMap.get("assertion"+cx));
+                        sb.append("<br/>");
                     }
-
-                    @Override
-                    public void onSuccess(Map<String, String> responseMap) {
-
-                        setRegButton("Initialize", true);
-                        if (responseMap.containsKey("error")) {
-//                            new PopupMessage("Sorry, registration of an On-Demand Document Entry failed: ");
-                            regActionMessage.getElement().getStyle().setColor("red");
-
-                            StringBuffer sb = new StringBuffer();
-                            sb.append(responseMap.get("error"));
-                            sb.append("<br/>");
-
-                            for (int cx=0; cx < responseMap.size()-1; cx++) {
-                                sb.append(responseMap.get("assertion"+cx));
-                                sb.append("<br/>");
-                            }
-                            regActionMessage.setHTML(sb.toString());
-                        } else {
-                            regActionMessage.getElement().getStyle().setColor("black");
-                            regActionMessage.setHTML("<br/>Registration was successful. ODDE Id is " + responseMap.get("key"));
-                            getOdDocumentEntries(getSimulatorControlTab());
-                        }
-
-
-                    }
-                });
-
-
-
-
+                    regActionMessage.setHTML(sb.toString());
+                } else {
+                    regActionMessage.getElement().getStyle().setColor("black");
+                    regActionMessage.setHTML("<br/>Registration was successful. ODDE Id is " + responseMap.get("key"));
+                    getOdDocumentEntries(getSimulatorControlTab());
+                }
+            }
+        }.run(new RegisterRequest(ClientUtils.INSTANCE.getCommandContext(),
+                getConfig().getId().getUser(),new TestInstance(contentBundleLbx.getSelectedValue()),
+                new SiteSpec(regSSP.getSelected().get(0), ActorType.REGISTRY, null),params, getConfig().getId()));
     }
 
     private void setRegButton(String initialize, boolean enabled) {
@@ -655,17 +621,13 @@ public class OddsSimConfigMgr implements SimConfigMgrIntf {
         getConfig().get(SimulatorProperties.oddsRepositorySite).setValue(reposSSP.getSelected());
         getConfig().get(SimulatorProperties.oddsRegistrySite).setValue(regSSP.getSelected());
 
-        ClientUtils.INSTANCE.getToolkitServices().putSimConfig(config, new AsyncCallback<String>() {
-
-            public void onFailure(Throwable caught) {
-                new PopupMessage("saveSimConfig:" + caught.getMessage());
-            }
-
-            public void onSuccess(String result) {
+        new PutSimConfigCommand(){
+            @Override
+            public void onComplete(String result) {
                 // reload simulators to getRetrievedDocumentsModel updates
                 new LoadSimulatorsClickHandler(simulatorControlTab, testSession).onClick(null);
             }
-        });
+        }.run(new SimConfigRequest(ClientUtils.INSTANCE.getCommandContext(),config));
     }
 
     public int getRow() {

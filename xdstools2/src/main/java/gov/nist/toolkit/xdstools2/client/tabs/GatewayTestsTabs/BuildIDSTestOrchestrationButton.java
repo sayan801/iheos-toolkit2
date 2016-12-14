@@ -1,6 +1,5 @@
 package gov.nist.toolkit.xdstools2.client.tabs.GatewayTestsTabs;
 
-import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTML;
@@ -11,9 +10,13 @@ import gov.nist.toolkit.configDatatypes.SimulatorProperties;
 import gov.nist.toolkit.services.client.IdsOrchestrationRequest;
 import gov.nist.toolkit.services.client.IdsOrchestrationResponse;
 import gov.nist.toolkit.services.client.RawResponse;
+import gov.nist.toolkit.xdstools2.client.command.command.BuildIdsTestOrchestrationCommand;
+import gov.nist.toolkit.xdstools2.client.util.ClientUtils;
 import gov.nist.toolkit.xdstools2.client.widgets.PopupMessage;
 import gov.nist.toolkit.xdstools2.client.tabs.genericQueryTab.GenericQueryTab;
+import gov.nist.toolkit.xdstools2.client.widgets.PopupMessage;
 import gov.nist.toolkit.xdstools2.client.widgets.buttons.AbstractOrchestrationButton;
+import gov.nist.toolkit.xdstools2.shared.command.request.BuildIdsTestOrchestrationRequest;
 
 
 /**
@@ -29,21 +32,16 @@ class BuildIDSTestOrchestrationButton extends AbstractOrchestrationButton {
         this.includeIG = includeIG;
     }
 
-    public void handleClick(ClickEvent event) {
+    public void orchestrate() {
         if (GenericQueryTab.empty(testTab.getCurrentTestSession())) {
             new PopupMessage("Must select test session first");
             return;
         }
         IdsOrchestrationRequest request = new IdsOrchestrationRequest();
         request.setUserName(testTab.getCurrentTestSession());
-        testTab.toolkitService.buildIdsTestOrchestration(request, new AsyncCallback<RawResponse>() {
+        new BuildIdsTestOrchestrationCommand(){
             @Override
-            public void onFailure(Throwable throwable) {
-                handleError(throwable);
-            }
-
-            @Override
-            public void onSuccess(RawResponse rawResponse) {
+            public void onComplete(RawResponse rawResponse) {
                 if (handleError(rawResponse, IdsOrchestrationResponse.class)) return;
                 IdsOrchestrationResponse orchResponse = (IdsOrchestrationResponse) rawResponse;
 
@@ -76,15 +74,9 @@ class BuildIDSTestOrchestrationButton extends AbstractOrchestrationButton {
                 table.setWidget(row, 1, new HTML("Provide and Register TLS"));
                 table.setWidget(row++, 2, new HTML(config.getConfigEle(SimulatorProperties.pnrTlsEndpoint).asString()));
 
-
-//                    panel().display(testTab.addTestEnvironmentInspectorButton(config.getId().toString()));
-
-                // generate log launcher buttons
-//                panel().display(testTab.testSelectionManager.buildLogLauncher(testTab.rgConfigs));
-
                 testTab.genericQueryTab.reloadTransactionOfferings();
             }
-        });
+        }.run(new BuildIdsTestOrchestrationRequest(ClientUtils.INSTANCE.getCommandContext(),request));
     }
 
     Widget light(Widget w) {

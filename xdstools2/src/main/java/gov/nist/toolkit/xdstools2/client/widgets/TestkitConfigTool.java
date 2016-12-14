@@ -10,6 +10,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import gov.nist.toolkit.xdstools2.client.TabContainer;
 import gov.nist.toolkit.xdstools2.client.command.command.CheckTestkitExistenceCommand;
 import gov.nist.toolkit.xdstools2.client.command.command.ConfigureTestkitCommand;
+import gov.nist.toolkit.xdstools2.client.command.command.GenerateTestkitStructureCommand;
 import gov.nist.toolkit.xdstools2.client.command.command.IndexTestkitsCommand;
 import gov.nist.toolkit.xdstools2.client.selectors.EnvironmentManager;
 import gov.nist.toolkit.xdstools2.client.util.ClientUtils;
@@ -22,7 +23,6 @@ import gov.nist.toolkit.xdstools2.shared.command.CommandContext;
  * Created by oherrmann on 3/3/16.
  */
 public class TestkitConfigTool extends Composite {
-    private ToolkitServiceAsync toolkitService= ClientUtils.INSTANCE.getToolkitServices();
 
     private VerticalPanel container = new VerticalPanel();
     private final HTML resultPanel=new HTML();
@@ -44,9 +44,17 @@ public class TestkitConfigTool extends Composite {
         Button runUpdater=new Button("Run",new RunTestkitConfigHandler());
         container.add(runUpdater);
         container.add(new Button("Reindex Test Kits", new IndexTestKitsHandler()));
+        container.add(new Button("Create EC testkit structure",new TestkitConfigTool.CreateTestkitStructureHandler()));
         container.add(indexStatus);
 
         initWidget(container);
+    }
+
+    private class CreateTestkitStructureHandler implements ClickHandler {
+        @Override
+        public void onClick(ClickEvent clickEvent) {
+            new GenerateTestkitStructureCommand().run(ClientUtils.INSTANCE.getCommandContext());
+        }
     }
 
     private class IndexTestKitsHandler implements ClickHandler {

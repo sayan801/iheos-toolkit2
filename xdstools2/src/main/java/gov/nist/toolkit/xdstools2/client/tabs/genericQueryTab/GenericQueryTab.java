@@ -19,6 +19,8 @@ import gov.nist.toolkit.sitemanagement.client.Site;
 import gov.nist.toolkit.sitemanagement.client.SiteSpec;
 import gov.nist.toolkit.sitemanagement.client.TransactionOfferings;
 import gov.nist.toolkit.xdstools2.client.*;
+import gov.nist.toolkit.xdstools2.client.command.command.GetStsSamlAssertionCommand;
+import gov.nist.toolkit.xdstools2.client.command.command.GetToolkitPropertiesCommand;
 import gov.nist.toolkit.xdstools2.client.command.command.GetTransactionOfferingsCommand;
 import gov.nist.toolkit.xdstools2.client.event.ActorConfigUpdatedEvent;
 import gov.nist.toolkit.xdstools2.client.event.EnvironmentChangedEvent;
@@ -30,6 +32,7 @@ import gov.nist.toolkit.xdstools2.client.tabs.actorConfigTab.ActorConfigTab;
 import gov.nist.toolkit.xdstools2.client.util.ClientUtils;
 import gov.nist.toolkit.xdstools2.client.widgets.PidWidget;
 import gov.nist.toolkit.xdstools2.client.widgets.PopupMessage;
+import gov.nist.toolkit.xdstools2.shared.command.request.GetStsSamlAssertionRequest;
 
 import java.util.*;
 
@@ -180,9 +183,11 @@ public abstract class GenericQueryTab  extends ToolWindow {
                 }
             }
         } else {   // Select by transaction (used in GetDocuments tab)
-            SiteSpec site=transactionSelectionManager.generateSiteSpec();
-            if (site!=null) {
-                selectedSites.add(site.getName());
+            if (transactionSelectionManager != null) {
+                SiteSpec site = transactionSelectionManager.generateSiteSpec();
+                if (site != null) {
+                    selectedSites.add(site.getName());
+                }
             }
         }
     }
@@ -228,6 +233,9 @@ public abstract class GenericQueryTab  extends ToolWindow {
         if (resultPanel != null && clearResults)
             resultPanel.clear();
         initMainGrid();
+
+        if (mainConfigPanel == null)
+            return;
 
         mainConfigPanel.clear();
 
@@ -280,17 +288,15 @@ public abstract class GenericQueryTab  extends ToolWindow {
 
         commonParamGrid.setWidget(commonGridRow++, contentsColumn, fp);
 
-
-        ClientUtils.INSTANCE.getToolkitServices().getToolkitProperties(new AsyncCallback<Map<String, String>>() {
+        new GetToolkitPropertiesCommand(){
             @Override
             public void onFailure(Throwable throwable) {
                 new PopupMessage("Error getting properties for SAML selector display: " + throwable.toString());
                 fp.setVisible(false);
                 samlLabel.setVisible(false);
             }
-
             @Override
-            public void onSuccess(final Map<String, String> tkPropMap) {
+            public void onComplete(final Map<String, String> tkPropMap) {
                 samlEnabled = Boolean.parseBoolean(tkPropMap.get("Enable_SAML"));
 
                 if (samlEnabled) {
@@ -323,7 +329,7 @@ public abstract class GenericQueryTab  extends ToolWindow {
                     samlLabel.setVisible(false);
                 }
             }
-        });
+        }.run(getCommandContext());
 
 
 
@@ -565,34 +571,25 @@ public abstract class GenericQueryTab  extends ToolWindow {
                             SiteSpec stsSpec =  new SiteSpec("GazelleSts");
                             Map<String, String> params = new HashMap<>();
                             params.put("$saml-username$",selectedValue);
-                            try {
-                                ClientUtils.INSTANCE.getToolkitServices().getStsSamlAssertion(selectedValue, testInstance, stsSpec, params, new AsyncCallback<String>() {
-                                    @Override
-                                    public void onFailure(Throwable throwable) {
-                                        SafeHtmlBuilder shb = new SafeHtmlBuilder();
-                                        shb.appendHtmlConstant("Error");
-//                                        new PopupMessage(shb.toSafeHtml(),new HTML(throwable.toString()));
-                                        resultPanel.clear();
-                                        addStatusBox("");
-                                        setStatus("Status: Failure",false);
-                                        resultPanel.add(new HTML(throwable.toString()));
-                                    }
-
-                                    @Override
-                                    public void onSuccess(String s) {
-                                        samlAssertion = s;
-                                        runner.onClick(clickEvent);
-                                    }
-                                });
-                            } catch (Exception ex) {
-                                new PopupMessage("Client call failed: getStsSamlAssertion: " + ex.toString());
-                            }
+                            new GetStsSamlAssertionCommand(){
+                                @Override
+                                public void onFailure(Throwable throwable) {
+                                    SafeHtmlBuilder shb = new SafeHtmlBuilder();
+                                    shb.appendHtmlConstant("Error");
+                                    resultPanel.clear();
+                                    addStatusBox("");
+                                    setStatus("Status: Failure",false);
+                                    resultPanel.add(new HTML(throwable.toString()));
+                                }
+                                @Override
+                                public void onComplete(String result) {
+                                    samlAssertion = result;
+                                    runner.onClick(clickEvent);
+                                }
+                            }.run(new GetStsSamlAssertionRequest(getCommandContext(),selectedValue,testInstance,stsSpec,params));
                         } else {
                             runner.onClick(clickEvent);
-//                            getGoButton().addClickHandler(runner);
                         }
-
-
                     }
                 });
             }
@@ -855,7 +852,6 @@ public abstract class GenericQueryTab  extends ToolWindow {
     protected AsyncCallback<List<Result>> queryCallback = new AsyncCallback<List<Result>> () {
 
         public void onFailure(Throwable caught) {
-//			resultPanel.clear();
             resultPanel.add(addHTML("<font color=\"#FF0000\">" + "Error running validation: " + caught.getMessage() + "</font>"));
             resultsShortDescription.setText("");
         }

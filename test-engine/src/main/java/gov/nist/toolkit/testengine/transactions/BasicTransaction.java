@@ -223,7 +223,8 @@ public abstract class BasicTransaction  {
 
 			run(request_element);
 
-			reportManagerPostRun();
+			if (s_ctx.getExpectedStatus().size()>0 && !s_ctx.getExpectedStatus().get(0).isFault())
+				reportManagerPostRun();
 		} catch (Exception e) {
 			s_ctx.set_error("Internal Error: " + ExceptionUtil.exception_details(e));
 			step_failure = true;
@@ -385,7 +386,7 @@ public abstract class BasicTransaction  {
 		step_failure = true;
 	}
 
-	void validate_registry_response_in_soap(OMElement env, int metadata_type) throws XdsInternalException, MetadataValidationException, MetadataException {
+	void validate_registry_response_in_soap(OMElement env, String topElementName, int metadata_type) throws XdsInternalException, MetadataValidationException, MetadataException {
 		if (!env.getLocalName().equals("Envelope"))
 			throw new XdsInternalException("Expected 'Envelope' but found " + env.getLocalName() + " instead");
 		OMElement hdr = env.getFirstElement();
@@ -401,22 +402,30 @@ public abstract class BasicTransaction  {
 			throw new XdsInternalException("Expected 'Body' but found nothing instead");
 		if (!body.getLocalName().equals("Body"))
 			throw new XdsInternalException("Expected 'Body' but found " + body.getLocalName() + " instead");
-		validate_registry_response(body.getFirstElement(), metadata_type);
+		validate_registry_response(body.getFirstElement(), topElementName, metadata_type);
 
 	}
 
-	void validate_registry_response(OMElement result, int metadata_type) throws XdsInternalException, MetadataValidationException, MetadataException {
+	void validate_registry_response(OMElement result, String topElementName, int metadata_type) throws XdsInternalException, MetadataValidationException, MetadataException {
 		// metadata type was MetadataTypes.METADATA_TYPE_PR
-		validate_registry_response_no_set_status(result, metadata_type);
+		validate_registry_response_no_set_status(result, topElementName, metadata_type);
 
 		add_step_status_to_output();
 	}
 
-	void validate_registry_response_no_set_status(OMElement registry_result, int metadata_type) throws XdsInternalException, MetadataValidationException, MetadataException {
+	void validate_registry_response_no_set_status(OMElement registry_result, String topElementName, int metadata_type) throws XdsInternalException, MetadataValidationException, MetadataException {
 		if (registry_result == null) {
 			s_ctx.set_error("No Result message");
 			step_failure = true;
 			return;
+		}
+
+		if (topElementName != null && registry_result != null) {
+			if (!topElementName.equals(registry_result.getLocalName())) {
+				s_ctx.set_error("Message top level element must be " + topElementName + " found " + registry_result.getLocalName() + " instead");
+				step_failure = true;
+				return;
+			}
 		}
 
 		RegistryResponseParser registry_response = new RegistryResponseParser(registry_result);
@@ -512,6 +521,15 @@ public abstract class BasicTransaction  {
 				step_failure = true;
 			}
 		} else {
+
+			if (currentStatus.isFault() && (expectedStatus.size()>0) && expectedStatus.get(0).isFault()) {
+				// Originally set to true in the BasicTransaction
+				// 			s_ctx.set_error("Internal Error: " + ExceptionUtil.exception_details(e));
+				// Since Fault is Expected Status, it is not a step failure.
+				s_ctx.resetStatus();
+				step_failure = false;
+				return;
+			}
 
 			StringBuffer expectedStatusSb = new StringBuffer();
 			int counter=1;
@@ -1280,9 +1298,9 @@ public abstract class BasicTransaction  {
 		return SoapActionFactory.getResponseAction(getRequestAction());
 	}
 
-	OMElement getSecurityEl() throws XdsInternalException  {
+	public OMElement getSecurityEl(String assertionStr) throws XdsInternalException  {
 		String wsse = "<wsse:Security soapenv:mustUnderstand=\"true\" xmlns:soapenv=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\">"
-		+ transactionSettings.siteSpec.getStsAssertion()
+		+ assertionStr
 		+ "</wsse:Security>";
 
 		return Util.parse_xml(wsse);
@@ -1302,7 +1320,7 @@ public abstract class BasicTransaction  {
 			if (transactionSettings.siteSpec.getStsAssertion()!=null) {
 				if (additionalHeaders==null)
 					additionalHeaders = new ArrayList<OMElement>();
-				additionalHeaders.add(getSecurityEl());
+				additionalHeaders.add(getSecurityEl(transactionSettings.siteSpec.getStsAssertion()));
 			}
 		}
 //		soap = testConfig.soap;

@@ -42,6 +42,10 @@ class RgOrchestrationBuilder {
     }
 
     RawResponse buildTestEnvironment() {
+        boolean sutSaml = false
+        SimId sutSimId = null
+        SimulatorConfig sutSimConfig = null
+        SimulatorConfigElement stsSce = null
         try {
             String home
             RgOrchestrationResponse response = new RgOrchestrationResponse()
@@ -61,8 +65,27 @@ class RgOrchestrationBuilder {
             SiteSpec rrSite
             boolean reuse = false  // updated as we progress
 
+
+
             if (request.useExposedRR) {
                 // RG and RR in same site - verify site contents
+
+                // Momentarily turn off SAML if the SUT is a simulator. Need manual intervening for real systems.
+                sutSimId =  new SimId(request.siteUnderTest.name)
+                if (Installation.instance().propertyServiceManager().getPropertyManager().isEnableSaml()) {
+
+                    sutSimConfig = api.getConfig(sutSimId)
+                    if (sutSimConfig!=null) {
+                        stsSce = sutSimConfig.get(SimulatorProperties.requiresStsSaml)
+
+                        if (stsSce != null && stsSce.isBoolean() && stsSce.asBoolean()) {
+                            sutSaml = true
+                            stsSce.setValue(false) // Turn off SAML for orchestration
+                            api.saveSimulator(sutSimConfig)
+                        }
+                    }
+                }
+
                 Site site = SiteBuilder.siteFromSiteSpec(request.siteUnderTest, session.id)
                 if (site == null) return RawResponseBuilder.build(String.format("RG under Test (%s) does not exist in site configurations."))
                 // TODO - document that SUT with exposed RR must support PIF v2 or have PID validation disabled
@@ -128,12 +151,19 @@ class RgOrchestrationBuilder {
                 item12318.setSuccess(api.getTestLogs(testInstance12318).isSuccess());
             }
 
+
+
             orchProps.save();
 
             return response;
         }
         catch (Exception e) {
             return RawResponseBuilder.build(e);
+        } finally {
+            if (sutSaml) {
+                stsSce.setValue(true)
+                api.saveSimulator(sutSimConfig)
+            }
         }
     }
 
