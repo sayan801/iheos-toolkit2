@@ -10,6 +10,19 @@
 
       Evaluation - Transaction is successful
     </Goal>
+
+	<ActorTransactionSequenceDiagram> 
+		<Actor role="Document Source" name="Test Client">
+			<Transaction type="prb">
+				<Actor role="rep" name="sut">
+					<Transaction type="rb">
+						<Actor role="reg" name=""/>
+					</Transaction>
+				</Actor>
+			</Transaction>
+		</Actor>
+	</ActorTransactionSequenceDiagram>
+
     <ExpectedStatus>Success</ExpectedStatus>
     <ProvideAndRegisterTransaction>
       <XDSb/>

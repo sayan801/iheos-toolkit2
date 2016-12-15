@@ -6,6 +6,17 @@
       to verify the metadata containing a single DocumentEntry was forwarded in a
       Register transaction.
     </Goal>
+
+
+	<ActorTransactionSequenceDiagram> 
+		<Actor role="Document Consumer" name="Test Client">
+			<Transaction type="sq">
+				<Actor role="reg" name="reg"/>
+			</Transaction>
+		</Actor>
+	</ActorTransactionSequenceDiagram>
+	
+
     <ExpectedStatus>Success</ExpectedStatus>
     <StoredQueryTransaction>
       <XDSb/>
