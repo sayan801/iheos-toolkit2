@@ -208,6 +208,7 @@
 		<dependency>
 			<groupId>net.ihe.gazelle</groupId>
 			<artifactId>sequoia-security-adaptor-jar</artifactId>
+			<version>1.0.1</version>
 			<exclusions>
 				<exclusion>
 					<groupId>log4j</groupId>

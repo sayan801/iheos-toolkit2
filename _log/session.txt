@@ -1,0 +1,146 @@
+ferenced in test does not exist.
+May 26, 2025 10:43:36 PM gov.nist.toolkit.testengine.scripts.CodesUpdater processMetadataFile
+WARNING: WARNING: /home/technicise41/code/iheos-toolkit2/test-engine/target/test-classes/external_cache/environment/codeUpdateTest/testkits/default/examples/11974/rplc/rplc_doc.xml file referenced in test does not exist.
+May 26, 2025 10:43:36 PM gov.nist.toolkit.testengine.scripts.CodesUpdater processMetadataFile
+WARNING: WARNING: /home/technicise41/code/iheos-toolkit2/test-engine/target/test-classes/external_cache/environment/codeUpdateTest/testkits/default/examples/11974/orig/single_doc.xml file referenced in test does not exist.
+May 26, 2025 10:43:36 PM gov.nist.toolkit.testengine.scripts.CodesUpdater processMetadataFile
+WARNING: WARNING: /home/technicise41/code/iheos-toolkit2/test-engine/target/test-classes/external_cache/environment/codeUpdateTest/testkits/default/examples/12051/single_doc.xml file referenced in test does not exist.
+May 26, 2025 10:43:36 PM gov.nist.toolkit.testengine.scripts.CodesUpdater processMetadataFile
+WARNING: WARNING: /home/technicise41/code/iheos-toolkit2/test-engine/target/test-classes/external_cache/environment/codeUpdateTest/testkits/default/examples/C32/submit/single_doc.xml file referenced in test does not exist.
+May 26, 2025 10:43:36 PM gov.nist.toolkit.testengine.scripts.CodesUpdater processMetadataFile
+WARNING: WARNING: /home/technicise41/code/iheos-toolkit2/test-engine/target/test-classes/external_cache/environment/codeUpdateTest/testkits/default/examples/11973/existing_doc_to_fol/metadata.xml file referenced in test does not exist.
+May 26, 2025 10:43:36 PM gov.nist.toolkit.testengine.scripts.CodesUpdater processMetadataFile
+WARNING: WARNING: /home/technicise41/code/iheos-toolkit2/test-engine/target/test-classes/external_cache/environment/codeUpdateTest/testkits/default/examples/11973/submit_doc/single_doc.xml file referenced in test does not exist.
+May 26, 2025 10:43:36 PM gov.nist.toolkit.testengine.scripts.CodesUpdater processMetadataFile
+WARNING: WARNING: /home/technicise41/code/iheos-toolkit2/test-engine/target/test-classes/external_cache/environment/codeUpdateTest/testkits/default/examples/11973/rplc/rplc.xml file referenced in test does not exist.
+May 26, 2025 10:43:36 PM gov.nist.toolkit.testengine.scripts.CodesUpdater processMetadataFile
+WARNING: WARNING: /home/technicise41/code/iheos-toolkit2/test-engine/target/test-classes/external_cache/environment/codeUpdateTest/testkits/default/examples/11973/create_fol/fol.xml file referenced in test does not exist.
+May 26, 2025 10:43:36 PM gov.nist.toolkit.testengine.scripts.CodesUpdater processMetadataFile
+WARNING: WARNING: /home/technicise41/code/iheos-toolkit2/test-engine/target/test-classes/external_cache/environment/codeUpdateTest/testkits/default/examples/12049/single_doc.xml file referenced in test does not exist.
+May 26, 2025 10:43:36 PM gov.nist.toolkit.testengine.scripts.CodesUpdater processMetadataFile
+WARNING: WARNING: /home/technicise41/code/iheos-toolkit2/test-engine/target/test-classes/external_cache/environment/codeUpdateTest/testkits/default/examples/11975/xfrm/xfrm_doc.xml file referenced in test does not exist.
+May 26, 2025 10:43:36 PM gov.nist.toolkit.testengine.scripts.CodesUpdater processMetadataFile
+WARNING: WARNING: /home/technicise41/code/iheos-toolkit2/test-engine/target/test-classes/external_cache/environment/codeUpdateTest/testkits/default/examples/11975/orig/single_doc.xml file referenced in test does not exist.
+May 26, 2025 10:43:36 PM gov.nist.toolkit.testengine.scripts.CodesUpdater exploreTests
+WARNING: No tests defined in /home/technicise41/code/iheos-toolkit2/test-engine/target/test-classes/external_cache/environment/codeUpdateTest/testkits/default/xcpd
+May 26, 2025 10:43:36 PM gov.nist.toolkit.testengine.scripts.CodesUpdater exploreTests
+WARNING: No tests defined in /home/technicise41/code/iheos-toolkit2/test-engine/target/test-classes/external_cache/environment/codeUpdateTest/testkits/default/selftest
+May 26, 2025 10:43:36 PM gov.nist.toolkit.testengine.scripts.CodesUpdater run
+INFO: Creating output log file in /home/technicise41/code/iheos-toolkit2/test-engine/target/test-classes/external_cache/environment/codeUpdateTest/Testkit update logs/20250526224336.out...
+May 26, 2025 10:43:36 PM gov.nist.toolkit.testengine.scripts.CodesUpdater run
+INFO: ... file created.
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.839 sec
+Running gov.nist.toolkit.testengine.ContentTypeParserTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec
+Running gov.nist.toolkit.testengine.ReplaceStringTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+Running BasicTransactionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running StringSubTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+
+Results :
+
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ test-engine ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/test-engine/target/test-engine-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ test-engine >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ test-engine ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ test-engine <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ test-engine ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/test-engine/target/test-engine-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ test-engine ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/test-engine/target/test-engine-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/test-engine/7.12.0/test-engine-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/test-engine/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/test-engine/7.12.0/test-engine-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/test-engine/target/test-engine-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/test-engine/7.12.0/test-engine-7.12.0-sources.jar
+[INFO] 
+[INFO] ----------------------< gov.nist.toolkit:session >----------------------
+[INFO] Building session 7.12.0                                          [38/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for net.ihe.gazelle:sequoia-security-adaptor-jar:jar:1.0.1-SNAPSHOT is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] tk-deps 7.12.0 ..................................... SUCCESS [  0.114 s]
+[INFO] xds-exceptions 7.12.0 .............................. SUCCESS [  1.120 s]
+[INFO] config-datatypes 7.12.0 ............................ SUCCESS [  2.449 s]
+[INFO] common-datatypes 7.12.0 ............................ SUCCESS [  0.159 s]
+[INFO] utilities 7.12.0 ................................... SUCCESS [  0.763 s]
+[INFO] tk 7.12.0 .......................................... SUCCESS [  0.199 s]
+[INFO] installation 7.12.0 ................................ SUCCESS [  0.424 s]
+[INFO] actor-transaction 7.12.0 ........................... SUCCESS [  0.800 s]
+[INFO] docref 7.12.0 ...................................... SUCCESS [  0.058 s]
+[INFO] transaction-notification-service 7.12.0 ............ SUCCESS [  0.158 s]
+[INFO] error-recording 7.12.0 ............................. SUCCESS [  0.794 s]
+[INFO] http 7.12.0 ........................................ SUCCESS [  0.916 s]
+[INFO] adt 7.12.0 ......................................... SUCCESS [  0.243 s]
+[INFO] envSettings 7.12.0 ................................. SUCCESS [  0.073 s]
+[INFO] validators-support 7.12.0 .......................... SUCCESS [  0.266 s]
+[INFO] security-common 7.12.0 ............................. SUCCESS [  0.059 s]
+[INFO] dsig 7.12.0 ........................................ SUCCESS [  0.112 s]
+[INFO] saml 7.12.0 ........................................ SUCCESS [  0.602 s]
+[INFO] registry-support 7.12.0 ............................ SUCCESS [  0.198 s]
+[INFO] registry-metadata 7.12.0 ........................... SUCCESS [  1.090 s]
+[INFO] site-management 7.12.0 ............................. SUCCESS [  0.190 s]
+[INFO] sim-common 7.12.0 .................................. SUCCESS [  1.331 s]
+[INFO] actorfactory 7.12.0 ................................ SUCCESS [  1.266 s]
+[INFO] common 7.12.0 ...................................... SUCCESS [  0.114 s]
+[INFO] interaction-model 7.12.0 ........................... SUCCESS [  0.116 s]
+[INFO] testkit-utilities 7.12.0 ........................... SUCCESS [  0.987 s]
+[INFO] registry-msg-formats 7.12.0 ........................ SUCCESS [  0.913 s]
+[INFO] sim-support 7.12.0 ................................. SUCCESS [  0.796 s]
+[INFO] results 7.12.0 ..................................... SUCCESS [  0.135 s]
+[INFO] xdstest2-logging 7.12.0 ............................ SUCCESS [  0.228 s]
+[INFO] plugin-support 7.12.0 .............................. SUCCESS [  0.185 s]
+[INFO] plugins 7.12.0 ..................................... SUCCESS [  0.019 s]
+[INFO] soap 7.12.0 ........................................ SUCCESS [  0.207 s]
+[INFO] validators-registry-metadata 7.12.0 ................ SUCCESS [  1.015 s]
+[INFO] message-validator-factory2 7.12.0 .................. SUCCESS [  0.040 s]
+[INFO] validators-registry-message 7.12.0 ................. SUCCESS [  0.486 s]
+[INFO] test-engine 7.12.0 ................................. SUCCESS [  2.842 s]
+[INFO] session 7.12.0 ..................................... FAILURE [  0.023 s]
+[INFO] validators-soap-message 7.12.0 ..................... SKIPPED
+[INFO] simulators 7.12.0 .................................. SKIPPED
+[INFO] sim-proxy 7.12.0 ................................... SKIPPED
+[INFO] services 7.12.0 .................................... SKIPPED
+[INFO] toolkit-services-common 7.12.0 ..................... SKIPPED
+[INFO] toolkit-services 7.12.0 ............................ SKIPPED
+[INFO] rest-tools 7.12.0 .................................. SKIPPED
+[INFO] grizzly-support 7.12.0 ............................. SKIPPED
+[INFO] toolkit-api 7.12.0 ................................. SKIPPED
+[INFO] interaction-mapper 7.12.0 .......................... SKIPPED
+[INFO] interaction-diagram 7.12.0 ......................... SKIPPED
+[INFO] XDS Toolkit 7.12.0 ................................. SKIPPED
+[INFO] sim-test-servlet 7.12.0 ............................ SKIPPED
+[INFO] new-validation-system 7.12.0 ....................... SKIPPED
+[INFO] test-doc-tool 7.12.0 ............................... SKIPPED
+[INFO] it-support 7.12.0 .................................. SKIPPED
+[INFO] myproxy 1.0-SNAPSHOT ............................... SKIPPED
+[INFO] it-tests 7.12.0 .................................... SKIPPED
+[INFO] toolkit2 7.12.0 .................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.808 s
+[INFO] Finished at: 2025-05-26T22:43:36+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project session: Could not resolve dependencies for project gov.nist.toolkit:session:jar:7.12.0: net.ihe.gazelle:sequoia-security-adaptor-jar:jar:1.0.1-SNAPSHOT was not found in https://repo1.maven.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of maven-central has elapsed or updates are forced -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :session
