@@ -1,0 +1,2595 @@
+technicise41@technicise41-H510M-H:~/code/iheos-toolkit2$ mvn clean install -Dbuild.profile.id=Release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/usr/share/maven/lib/guava.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] tk-deps                                                            [pom]
+[INFO] xds-exceptions                                                     [jar]
+[INFO] config-datatypes                                                   [jar]
+[INFO] common-datatypes                                                   [jar]
+[INFO] utilities                                                          [jar]
+[INFO] tk                                                                 [jar]
+[INFO] installation                                                       [jar]
+[INFO] actor-transaction                                                  [jar]
+[INFO] docref                                                             [jar]
+[INFO] transaction-notification-service                                   [jar]
+[INFO] error-recording                                                    [jar]
+[INFO] http                                                               [jar]
+[INFO] adt                                                                [jar]
+[INFO] envSettings                                                        [jar]
+[INFO] validators-support                                                 [jar]
+[INFO] security-common                                                    [jar]
+[INFO] dsig                                                               [jar]
+[INFO] saml                                                               [jar]
+[INFO] registry-support                                                   [jar]
+[INFO] registry-metadata                                                  [jar]
+[INFO] site-management                                                    [jar]
+[INFO] sim-common                                                         [jar]
+[INFO] actorfactory                                                       [jar]
+[INFO] common                                                             [jar]
+[INFO] interaction-model                                                  [jar]
+[INFO] testkit-utilities                                                  [jar]
+[INFO] registry-msg-formats                                               [jar]
+[INFO] sim-support                                                        [jar]
+[INFO] results                                                            [jar]
+[INFO] xdstest2-logging                                                   [jar]
+[INFO] plugin-support                                                     [jar]
+[INFO] plugins                                                            [jar]
+[INFO] soap                                                               [jar]
+[INFO] validators-registry-metadata                                       [jar]
+[INFO] message-validator-factory2                                         [jar]
+[INFO] validators-registry-message                                        [jar]
+[INFO] test-engine                                                        [jar]
+[INFO] session                                                            [jar]
+[INFO] validators-soap-message                                            [jar]
+[INFO] simulators                                                         [jar]
+[INFO] sim-proxy                                                          [jar]
+[INFO] services                                                           [jar]
+[INFO] toolkit-services-common                                            [jar]
+[INFO] toolkit-services                                                   [jar]
+[INFO] rest-tools                                                         [jar]
+[INFO] grizzly-support                                                    [jar]
+[INFO] toolkit-api                                                        [jar]
+[INFO] interaction-mapper                                                 [jar]
+[INFO] interaction-diagram                                                [jar]
+[INFO] XDS Toolkit                                                        [war]
+[INFO] sim-test-servlet                                                   [war]
+[INFO] new-validation-system                                              [jar]
+[INFO] test-doc-tool                                                      [jar]
+[INFO] it-support                                                         [jar]
+[INFO] myproxy                                                            [jar]
+[INFO] it-tests                                                           [jar]
+[INFO] toolkit2                                                           [pom]
+[INFO] 
+[INFO] ----------------------< gov.nist.toolkit:tk-deps >----------------------
+[INFO] Building tk-deps 7.12.0                                           [1/57]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ tk-deps ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ tk-deps ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/tk-deps/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/tk-deps/7.12.0/tk-deps-7.12.0.pom
+[INFO] 
+[INFO] ------------------< gov.nist.toolkit:xds-exceptions >-------------------
+[INFO] Building xds-exceptions 7.12.0                                    [2/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ xds-exceptions ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/xds-exceptions/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ xds-exceptions ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ xds-exceptions ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ xds-exceptions ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 40 source files to /home/technicise41/code/iheos-toolkit2/xds-exceptions/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ xds-exceptions ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/xds-exceptions/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ xds-exceptions ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ xds-exceptions ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ xds-exceptions ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/xds-exceptions/target/xds-exceptions-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ xds-exceptions >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ xds-exceptions ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ xds-exceptions <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ xds-exceptions ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/xds-exceptions/target/xds-exceptions-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ xds-exceptions ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/xds-exceptions/target/xds-exceptions-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/xds-exceptions/7.12.0/xds-exceptions-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/xds-exceptions/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/xds-exceptions/7.12.0/xds-exceptions-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/xds-exceptions/target/xds-exceptions-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/xds-exceptions/7.12.0/xds-exceptions-7.12.0-sources.jar
+[INFO] 
+[INFO] -----------------< gov.nist.toolkit:config-datatypes >------------------
+[INFO] Building config-datatypes 7.12.0                                  [3/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ config-datatypes ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/config-datatypes/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ config-datatypes ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ config-datatypes ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ config-datatypes ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ config-datatypes ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ config-datatypes ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ config-datatypes ---
+[INFO] Surefire report directory: /home/technicise41/code/iheos-toolkit2/config-datatypes/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running gov.nist.toolkit.configDatatypes.server.MessageTypeScannerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.419 sec
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ config-datatypes ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/config-datatypes/target/config-datatypes-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ config-datatypes >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ config-datatypes ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ config-datatypes <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ config-datatypes ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/config-datatypes/target/config-datatypes-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ config-datatypes ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/config-datatypes/target/config-datatypes-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/config-datatypes/7.12.0/config-datatypes-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/config-datatypes/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/config-datatypes/7.12.0/config-datatypes-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/config-datatypes/target/config-datatypes-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/config-datatypes/7.12.0/config-datatypes-7.12.0-sources.jar
+[INFO] 
+[INFO] -----------------< gov.nist.toolkit:common-datatypes >------------------
+[INFO] Building common-datatypes 7.12.0                                  [4/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ common-datatypes ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/common-datatypes/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ common-datatypes ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ common-datatypes ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ common-datatypes ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/technicise41/code/iheos-toolkit2/common-datatypes/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ common-datatypes ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/common-datatypes/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ common-datatypes ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ common-datatypes ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ common-datatypes ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/common-datatypes/target/common-datatypes-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ common-datatypes >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ common-datatypes ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ common-datatypes <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ common-datatypes ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/common-datatypes/target/common-datatypes-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ common-datatypes ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/common-datatypes/target/common-datatypes-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/common-datatypes/7.12.0/common-datatypes-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/common-datatypes/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/common-datatypes/7.12.0/common-datatypes-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/common-datatypes/target/common-datatypes-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/common-datatypes/7.12.0/common-datatypes-7.12.0-sources.jar
+[INFO] 
+[INFO] ---------------------< gov.nist.toolkit:utilities >---------------------
+[INFO] Building utilities 7.12.0                                         [5/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ utilities ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/utilities/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ utilities ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ utilities ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/utilities/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ utilities ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ utilities ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/utilities/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ utilities ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ utilities ---
+[INFO] Surefire report directory: /home/technicise41/code/iheos-toolkit2/utilities/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running gov.nist.toolkit.utilities.io.HashTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.218 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ utilities ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/utilities/target/utilities-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ utilities >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ utilities ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ utilities <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ utilities ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/utilities/target/utilities-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ utilities ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/utilities/target/utilities-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/utilities/7.12.0/utilities-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/utilities/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/utilities/7.12.0/utilities-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/utilities/target/utilities-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/utilities/7.12.0/utilities-7.12.0-sources.jar
+[INFO] 
+[INFO] ------------------------< gov.nist.toolkit:tk >-------------------------
+[INFO] Building tk 7.12.0                                                [6/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ tk ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/tk/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ tk ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ tk ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ tk ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /home/technicise41/code/iheos-toolkit2/tk/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ tk ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/tk/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ tk ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ tk ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ tk ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/tk/target/tk-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ tk >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ tk ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ tk <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ tk ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/tk/target/tk-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ tk ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/tk/target/tk-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/tk/7.12.0/tk-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/tk/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/tk/7.12.0/tk-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/tk/target/tk-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/tk/7.12.0/tk-7.12.0-sources.jar
+[INFO] 
+[INFO] -------------------< gov.nist.toolkit:installation >--------------------
+[INFO] Building installation 7.12.0                                      [7/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ installation ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/installation/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ installation ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ installation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ installation ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ installation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/installation/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ installation ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ installation ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ installation ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/installation/target/installation-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ installation >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ installation ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ installation <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ installation ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/installation/target/installation-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ installation ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/installation/target/installation-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/installation/7.12.0/installation-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/installation/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/installation/7.12.0/installation-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/installation/target/installation-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/installation/7.12.0/installation-7.12.0-sources.jar
+[INFO] 
+[INFO] -----------------< gov.nist.toolkit:actor-transaction >-----------------
+[INFO] Building actor-transaction 7.12.0                                 [8/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ actor-transaction ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/actor-transaction/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ actor-transaction ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ actor-transaction ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ actor-transaction ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ actor-transaction ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ actor-transaction ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ actor-transaction ---
+[INFO] Surefire report directory: /home/technicise41/code/iheos-toolkit2/actor-transaction/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running gov.nist.toolkit.actortransaction.EndpointParserTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.256 sec
+Running TransactionErrorCodeDbLoaderTest
+**** /home/technicise41/code/iheos-toolkit2/actor-transaction/target/test-classes/ProfileDefinedErrorCodes.txtTests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec
+
+Results :
+
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ actor-transaction ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/actor-transaction/target/actor-transaction-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ actor-transaction >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ actor-transaction ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ actor-transaction <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ actor-transaction ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/actor-transaction/target/actor-transaction-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ actor-transaction ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/actor-transaction/target/actor-transaction-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/actor-transaction/7.12.0/actor-transaction-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/actor-transaction/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/actor-transaction/7.12.0/actor-transaction-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/actor-transaction/target/actor-transaction-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/actor-transaction/7.12.0/actor-transaction-7.12.0-sources.jar
+[INFO] 
+[INFO] ----------------------< gov.nist.toolkit:docref >-----------------------
+[INFO] Building docref 7.12.0                                            [9/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ docref ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/docref/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ docref ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ docref ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/docref/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ docref ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /home/technicise41/code/iheos-toolkit2/docref/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ docref ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/docref/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ docref ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ docref ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ docref ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/docref/target/docref-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ docref >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ docref ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ docref <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ docref ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/docref/target/docref-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ docref ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/docref/target/docref-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/docref/7.12.0/docref-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/docref/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/docref/7.12.0/docref-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/docref/target/docref-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/docref/7.12.0/docref-7.12.0-sources.jar
+[INFO] 
+[INFO] ---------< gov.nist.toolkit:transaction-notification-service >----------
+[INFO] Building transaction-notification-service 7.12.0                 [10/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ transaction-notification-service ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/transaction-notification-service/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ transaction-notification-service ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ transaction-notification-service ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/transaction-notification-service/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ transaction-notification-service ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /home/technicise41/code/iheos-toolkit2/transaction-notification-service/target/classes
+[INFO] /home/technicise41/code/iheos-toolkit2/transaction-notification-service/src/main/java/gov/nist/toolkit/transactionNotificationService/CallbackResource.java: /home/technicise41/code/iheos-toolkit2/transaction-notification-service/src/main/java/gov/nist/toolkit/transactionNotificationService/CallbackResource.java uses or overrides a deprecated API.
+[INFO] /home/technicise41/code/iheos-toolkit2/transaction-notification-service/src/main/java/gov/nist/toolkit/transactionNotificationService/CallbackResource.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/technicise41/code/iheos-toolkit2/transaction-notification-service/src/main/java/gov/nist/toolkit/transactionNotificationService/CallbackResource.java: /home/technicise41/code/iheos-toolkit2/transaction-notification-service/src/main/java/gov/nist/toolkit/transactionNotificationService/CallbackResource.java uses unchecked or unsafe operations.
+[INFO] /home/technicise41/code/iheos-toolkit2/transaction-notification-service/src/main/java/gov/nist/toolkit/transactionNotificationService/CallbackResource.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ transaction-notification-service ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/transaction-notification-service/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ transaction-notification-service ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ transaction-notification-service ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ transaction-notification-service ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/transaction-notification-service/target/transaction-notification-service-7.12.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ transaction-notification-service ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/transaction-notification-service/target/transaction-notification-service-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/transaction-notification-service/7.12.0/transaction-notification-service-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/transaction-notification-service/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/transaction-notification-service/7.12.0/transaction-notification-service-7.12.0.pom
+[INFO] 
+[INFO] ------------------< gov.nist.toolkit:error-recording >------------------
+[INFO] Building error-recording 7.12.0                                  [11/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ error-recording ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/error-recording/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ error-recording ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ error-recording ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ error-recording ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ error-recording ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/error-recording/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ error-recording ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ error-recording ---
+[INFO] Surefire report directory: /home/technicise41/code/iheos-toolkit2/error-recording/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running gov.nist.toolkit.errorrecording.factories.ErrorRecorderTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.247 sec
+
+Results :
+
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ error-recording ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/error-recording/target/error-recording-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ error-recording >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ error-recording ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ error-recording <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ error-recording ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/error-recording/target/error-recording-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ error-recording ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/error-recording/target/error-recording-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/error-recording/7.12.0/error-recording-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/error-recording/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/error-recording/7.12.0/error-recording-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/error-recording/target/error-recording-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/error-recording/7.12.0/error-recording-7.12.0-sources.jar
+[INFO] 
+[INFO] -----------------------< gov.nist.toolkit:http >------------------------
+[INFO] Building http 7.12.0                                             [12/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ http ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/http/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ http ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ http ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ http ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ http ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/http/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ http ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ http ---
+[INFO] Surefire report directory: /home/technicise41/code/iheos-toolkit2/http/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running gov.nist.toolkit.http.HttpParserTest
+May 26, 2025 10:14:33 PM gov.nist.toolkit.http.HttpParser init
+INFO: Content-Type: application/xop+xml; charset=UTF-8; type="application/soap+xml"
+May 26, 2025 10:14:33 PM gov.nist.toolkit.http.HttpParser init
+INFO: Content-Transfer-Encoding: binary
+May 26, 2025 10:14:33 PM gov.nist.toolkit.http.HttpParser init
+INFO: Content-ID: <0.5ec4cc776323e8f60dac0b09ac0be1e8abdad40b2b718f3c@apache.org>
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.287 sec
+Running gov.nist.toolkit.http.MultipartParserBaTest
+[Content-Type:[multipart/related; boundary=Boundary; type="application/xop+xml"]]
+
+--Boundary
+Content-Type: text/plain
+Content-ID: <foo#home>
+
+Hello World!
+--Boundary--
+
+	boundary string = Boundary
+	multipart has 1 parts
+	No start parameter found on Content-Type header - using first Part
+	Start Part identified as [foo#home]
+	ContentType is multipart/related
+	ContentType type param is application/xop+xml
+
+[Content-Type:[multipart/related; boundary=Boundary; type="application/xop+xml"]]
+
+--Boundary
+Content-Type: text/plain
+Content-ID: <foo#home>
+
+Hello World!
+
+
+
+
+
+
+
+--Boundary--
+
+	boundary string = Boundary
+	multipart has 1 parts
+	No start parameter found on Content-Type header - using first Part
+	Start Part identified as [foo#home]
+	ContentType is multipart/related
+	ContentType type param is application/xop+xml
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 sec
+
+Results :
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ http ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/http/target/http-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ http >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ http ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ http <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ http ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/http/target/http-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ http ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/http/target/http-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/http/7.12.0/http-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/http/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/http/7.12.0/http-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/http/target/http-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/http/7.12.0/http-7.12.0-sources.jar
+[INFO] 
+[INFO] ------------------------< gov.nist.toolkit:adt >------------------------
+[INFO] Building adt 7.12.0                                              [13/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ adt ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/adt/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ adt ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ adt ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ adt ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 15 source files to /home/technicise41/code/iheos-toolkit2/adt/target/classes
+[INFO] /home/technicise41/code/iheos-toolkit2/adt/src/main/java/gov/nist/toolkit/adt/AdtRecordBean.java: /home/technicise41/code/iheos-toolkit2/adt/src/main/java/gov/nist/toolkit/adt/AdtRecordBean.java uses unchecked or unsafe operations.
+[INFO] /home/technicise41/code/iheos-toolkit2/adt/src/main/java/gov/nist/toolkit/adt/AdtRecordBean.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ adt ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ adt ---
+[INFO] Changes detected - recompiling the module!
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ adt ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ adt ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/adt/target/adt-7.12.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ adt ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/adt/target/adt-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/adt/7.12.0/adt-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/adt/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/adt/7.12.0/adt-7.12.0.pom
+[INFO] 
+[INFO] --------------------< gov.nist.toolkit:envSettings >--------------------
+[INFO] Building envSettings 7.12.0                                      [14/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ envSettings ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/envSettings/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ envSettings ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ envSettings ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/envSettings/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ envSettings ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/technicise41/code/iheos-toolkit2/envSettings/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ envSettings ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/envSettings/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ envSettings ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ envSettings ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ envSettings ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/envSettings/target/envSettings-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ envSettings >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ envSettings ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ envSettings <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ envSettings ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/envSettings/target/envSettings-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ envSettings ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/envSettings/target/envSettings-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/envSettings/7.12.0/envSettings-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/envSettings/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/envSettings/7.12.0/envSettings-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/envSettings/target/envSettings-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/envSettings/7.12.0/envSettings-7.12.0-sources.jar
+[INFO] 
+[INFO] ----------------< gov.nist.toolkit:validators-support >-----------------
+[INFO] Building validators-support 7.12.0                               [15/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ validators-support ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/validators-support/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ validators-support ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ validators-support ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ validators-support ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 19 source files to /home/technicise41/code/iheos-toolkit2/validators-support/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ validators-support ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/validators-support/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ validators-support ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ validators-support ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ validators-support ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/validators-support/target/validators-support-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ validators-support >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ validators-support ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ validators-support <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ validators-support ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/validators-support/target/validators-support-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ validators-support ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/validators-support/target/validators-support-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/validators-support/7.12.0/validators-support-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/validators-support/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/validators-support/7.12.0/validators-support-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/validators-support/target/validators-support-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/validators-support/7.12.0/validators-support-7.12.0-sources.jar
+[INFO] 
+[INFO] ------------------< gov.nist.toolkit:security-common >------------------
+[INFO] Building security-common 7.12.0                                  [16/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ security-common ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/security-common/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ security-common ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ security-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/security-common/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ security-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/technicise41/code/iheos-toolkit2/security-common/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ security-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/security-common/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ security-common ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ security-common ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ security-common ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/security-common/target/security-common-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ security-common >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ security-common ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ security-common <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ security-common ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/security-common/target/security-common-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ security-common ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/security-common/target/security-common-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/security-common/7.12.0/security-common-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/security-common/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/security-common/7.12.0/security-common-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/security-common/target/security-common-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/security-common/7.12.0/security-common-7.12.0-sources.jar
+[INFO] 
+[INFO] -----------------------< gov.nist.toolkit:dsig >------------------------
+[INFO] Building dsig 7.12.0                                             [17/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ dsig ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/dsig/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ dsig ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ dsig ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/dsig/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ dsig ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/technicise41/code/iheos-toolkit2/dsig/target/classes
+[INFO] /home/technicise41/code/iheos-toolkit2/dsig/src/main/java/gov/nist/toolkit/dsig/XMLDSigProcessor.java: /home/technicise41/code/iheos-toolkit2/dsig/src/main/java/gov/nist/toolkit/dsig/XMLDSigProcessor.java uses or overrides a deprecated API.
+[INFO] /home/technicise41/code/iheos-toolkit2/dsig/src/main/java/gov/nist/toolkit/dsig/XMLDSigProcessor.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ dsig ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/dsig/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ dsig ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ dsig ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ dsig ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/dsig/target/dsig-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ dsig >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ dsig ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ dsig <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ dsig ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/dsig/target/dsig-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ dsig ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/dsig/target/dsig-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/dsig/7.12.0/dsig-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/dsig/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/dsig/7.12.0/dsig-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/dsig/target/dsig-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/dsig/7.12.0/dsig-7.12.0-sources.jar
+[INFO] 
+[INFO] -----------------------< gov.nist.toolkit:saml >------------------------
+[INFO] Building saml 7.12.0                                             [18/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ saml ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/saml/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ saml ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ saml ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/saml/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ saml ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 69 source files to /home/technicise41/code/iheos-toolkit2/saml/target/classes
+[INFO] /home/technicise41/code/iheos-toolkit2/saml/src/main/java/gov/nist/toolkit/saml/builder/SAMLAssertionWrapper.java: Some input files use or override a deprecated API.
+[INFO] /home/technicise41/code/iheos-toolkit2/saml/src/main/java/gov/nist/toolkit/saml/builder/SAMLAssertionWrapper.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/technicise41/code/iheos-toolkit2/saml/src/main/java/gov/nist/toolkit/saml/util/DOM2Writer.java: /home/technicise41/code/iheos-toolkit2/saml/src/main/java/gov/nist/toolkit/saml/util/DOM2Writer.java uses or overrides a deprecated API that is marked for removal.
+[INFO] /home/technicise41/code/iheos-toolkit2/saml/src/main/java/gov/nist/toolkit/saml/util/DOM2Writer.java: Recompile with -Xlint:removal for details.
+[INFO] /home/technicise41/code/iheos-toolkit2/saml/src/main/java/gov/nist/toolkit/saml/builder/AttributeBuilder.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/technicise41/code/iheos-toolkit2/saml/src/main/java/gov/nist/toolkit/saml/builder/AttributeBuilder.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ saml ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/saml/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ saml ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ saml ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ saml ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/saml/target/saml-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ saml >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ saml ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ saml <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ saml ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/saml/target/saml-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ saml ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/saml/target/saml-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/saml/7.12.0/saml-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/saml/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/saml/7.12.0/saml-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/saml/target/saml-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/saml/7.12.0/saml-7.12.0-sources.jar
+[INFO] 
+[INFO] -----------------< gov.nist.toolkit:registry-support >------------------
+[INFO] Building registry-support 7.12.0                                 [19/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ registry-support ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/registry-support/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ registry-support ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ registry-support ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/registry-support/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ registry-support ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /home/technicise41/code/iheos-toolkit2/registry-support/target/classes
+[INFO] /home/technicise41/code/iheos-toolkit2/registry-support/src/main/java/gov/nist/toolkit/registrysupport/RegistryErrorListGenerator.java: /home/technicise41/code/iheos-toolkit2/registry-support/src/main/java/gov/nist/toolkit/registrysupport/RegistryErrorListGenerator.java uses unchecked or unsafe operations.
+[INFO] /home/technicise41/code/iheos-toolkit2/registry-support/src/main/java/gov/nist/toolkit/registrysupport/RegistryErrorListGenerator.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ registry-support ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/registry-support/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ registry-support ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ registry-support ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ registry-support ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/registry-support/target/registry-support-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ registry-support >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ registry-support ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ registry-support <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ registry-support ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/registry-support/target/registry-support-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ registry-support ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/registry-support/target/registry-support-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/registry-support/7.12.0/registry-support-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/registry-support/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/registry-support/7.12.0/registry-support-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/registry-support/target/registry-support-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/registry-support/7.12.0/registry-support-7.12.0-sources.jar
+[INFO] 
+[INFO] -----------------< gov.nist.toolkit:registry-metadata >-----------------
+[INFO] Building registry-metadata 7.12.0                                [20/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ registry-metadata ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/registry-metadata/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ registry-metadata ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ registry-metadata ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ registry-metadata ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ registry-metadata ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/registry-metadata/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ registry-metadata ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ registry-metadata ---
+[INFO] Surefire report directory: /home/technicise41/code/iheos-toolkit2/registry-metadata/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running gov.nist.toolkit.registrymetadata.deletion.ConstructorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.224 sec
+Running gov.nist.toolkit.registrymetadata.deletion.ApndTest
+[SubmissionSet(super:RO(id:Uuid(SS1))), DocumentEntry(super:RO(id:Uuid(DE1))), Association(source:Uuid(SS1), target:Uuid(DE1), type:HasMember, super:RO(id:Uuid(assn1))), SubmissionSet(super:RO(id:Uuid(SS2))), DocumentEntry(super:RO(id:Uuid(DE2))), Association(source:Uuid(SS2), target:Uuid(DE2), type:HasMember, super:RO(id:Uuid(assn2))), Association(source:Uuid(DE2), target:Uuid(DE1), type:APND, super:RO(id:Uuid(apnd)))]
+ruleDanglingSS_DE_HasMember (Uuid(SS2))
+ruleDeletingDocumentEntry (Uuid(SS2))
+ruleDeletingSubmissionSet (Uuid(SS2))
+ruleDanglingSS_ASSN_HasMember (Uuid(SS2))
+ruleDeletingRPLCIsIllegalWithoutMU (Uuid(SS2))
+ruleDanglingSS_Fol_HasMember (Uuid(SS2))
+ruleNotInRegistry (Uuid(SS2))
+ruleDanglingSS (Uuid(SS2))
+ruleDeletingXFRM (Uuid(SS2))
+ruleDeletingIsSnapshotOf (Uuid(SS2))
+ruleDeletingFolder (Uuid(SS2))
+ruleDanglingSS_DE_HasMember (Uuid(DE2))
+ruleDeletingDocumentEntry (Uuid(DE2))
+ruleDeletingSubmissionSet (Uuid(DE2))
+ruleDanglingSS_ASSN_HasMember (Uuid(DE2))
+ruleDeletingRPLCIsIllegalWithoutMU (Uuid(DE2))
+ruleDanglingSS_Fol_HasMember (Uuid(DE2))
+ruleNotInRegistry (Uuid(DE2))
+ruleDanglingSS (Uuid(DE2))
+ruleDeletingXFRM (Uuid(DE2))
+ruleDeletingIsSnapshotOf (Uuid(DE2))
+ruleDeletingFolder (Uuid(DE2))
+ruleDanglingSS_DE_HasMember (Uuid(assn2))
+ruleDeletingDocumentEntry (Uuid(assn2))
+ruleDeletingSubmissionSet (Uuid(assn2))
+ruleDanglingSS_ASSN_HasMember (Uuid(assn2))
+ruleDeletingRPLCIsIllegalWithoutMU (Uuid(assn2))
+ruleDanglingSS_Fol_HasMember (Uuid(assn2))
+ruleNotInRegistry (Uuid(assn2))
+ruleDanglingSS (Uuid(assn2))
+ruleDeletingXFRM (Uuid(assn2))
+ruleDeletingIsSnapshotOf (Uuid(assn2))
+ruleDeletingFolder (Uuid(assn2))
+ruleDanglingSS_DE_HasMember (Uuid(apnd))
+ruleDeletingDocumentEntry (Uuid(apnd))
+ruleDeletingSubmissionSet (Uuid(apnd))
+ruleDanglingSS_ASSN_HasMember (Uuid(apnd))
+ruleDeletingRPLCIsIllegalWithoutMU (Uuid(apnd))
+ruleDanglingSS_Fol_HasMember (Uuid(apnd))
+ruleNotInRegistry (Uuid(apnd))
+ruleDanglingSS (Uuid(apnd))
+ruleDeletingXFRM (Uuid(apnd))
+ruleDeletingIsSnapshotOf (Uuid(apnd))
+ruleDeletingFolder (Uuid(apnd))
+[SubmissionSet(super:RO(id:Uuid(SS1))), DocumentEntry(super:RO(id:Uuid(DE1))), Association(source:Uuid(SS1), target:Uuid(DE1), type:HasMember, super:RO(id:Uuid(assn1))), SubmissionSet(super:RO(id:Uuid(SS2))), DocumentEntry(super:RO(id:Uuid(DE2))), Association(source:Uuid(SS2), target:Uuid(DE2), type:HasMember, super:RO(id:Uuid(assn2))), Association(source:Uuid(DE2), target:Uuid(DE1), type:APND, super:RO(id:Uuid(apnd)))]
+ruleDanglingSS_DE_HasMember (Uuid(apnd))
+ruleDeletingDocumentEntry (Uuid(apnd))
+ruleDeletingSubmissionSet (Uuid(apnd))
+ruleDanglingSS_ASSN_HasMember (Uuid(apnd))
+ruleDeletingRPLCIsIllegalWithoutMU (Uuid(apnd))
+ruleDanglingSS_Fol_HasMember (Uuid(apnd))
+ruleNotInRegistry (Uuid(apnd))
+ruleDanglingSS (Uuid(apnd))
+ruleDeletingXFRM (Uuid(apnd))
+ruleDeletingIsSnapshotOf (Uuid(apnd))
+ruleDeletingFolder (Uuid(apnd))
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.192 sec
+Running gov.nist.toolkit.registrymetadata.deletion.SingleDocTest
+[SubmissionSet(super:RO(id:Uuid(SS))), DocumentEntry(super:RO(id:Uuid(DE))), Association(source:Uuid(SS), target:Uuid(DE), type:HasMember, super:RO(id:Uuid(assn1)))]
+remove set is [Uuid(SS), Uuid(DE), Uuid(assn1)]
+ruleDanglingSS_DE_HasMember (Uuid(SS))
+ruleDeletingDocumentEntry (Uuid(SS))
+ruleDeletingSubmissionSet (Uuid(SS))
+ruleDanglingSS_ASSN_HasMember (Uuid(SS))
+ruleDeletingRPLCIsIllegalWithoutMU (Uuid(SS))
+ruleDanglingSS_Fol_HasMember (Uuid(SS))
+ruleNotInRegistry (Uuid(SS))
+ruleDanglingSS (Uuid(SS))
+ruleDeletingXFRM (Uuid(SS))
+ruleDeletingIsSnapshotOf (Uuid(SS))
+ruleDeletingFolder (Uuid(SS))
+ruleDanglingSS_DE_HasMember (Uuid(DE))
+ruleDeletingDocumentEntry (Uuid(DE))
+ruleDeletingSubmissionSet (Uuid(DE))
+ruleDanglingSS_ASSN_HasMember (Uuid(DE))
+ruleDeletingRPLCIsIllegalWithoutMU (Uuid(DE))
+ruleDanglingSS_Fol_HasMember (Uuid(DE))
+ruleNotInRegistry (Uuid(DE))
+ruleDanglingSS (Uuid(DE))
+ruleDeletingXFRM (Uuid(DE))
+ruleDeletingIsSnapshotOf (Uuid(DE))
+ruleDeletingFolder (Uuid(DE))
+ruleDanglingSS_DE_HasMember (Uuid(assn1))
+ruleDeletingDocumentEntry (Uuid(assn1))
+ruleDeletingSubmissionSet (Uuid(assn1))
+ruleDanglingSS_ASSN_HasMember (Uuid(assn1))
+ruleDeletingRPLCIsIllegalWithoutMU (Uuid(assn1))
+ruleDanglingSS_Fol_HasMember (Uuid(assn1))
+ruleNotInRegistry (Uuid(assn1))
+ruleDanglingSS (Uuid(assn1))
+ruleDeletingXFRM (Uuid(assn1))
+ruleDeletingIsSnapshotOf (Uuid(assn1))
+ruleDeletingFolder (Uuid(assn1))
+[SubmissionSet(super:RO(id:Uuid(SS))), DocumentEntry(super:RO(id:Uuid(DE))), Association(source:Uuid(SS), target:Uuid(DE), type:HasMember, super:RO(id:Uuid(assn1)))]
+ruleDanglingSS_DE_HasMember (Uuid(assn1))
+ruleDeletingDocumentEntry (Uuid(assn1))
+ruleDeletingSubmissionSet (Uuid(assn1))
+ruleDanglingSS_ASSN_HasMember (Uuid(assn1))
+ruleDeletingRPLCIsIllegalWithoutMU (Uuid(assn1))
+ruleDanglingSS_Fol_HasMember (Uuid(assn1))
+ruleNotInRegistry (Uuid(assn1))
+ruleDanglingSS (Uuid(assn1))
+ruleDeletingXFRM (Uuid(assn1))
+ruleDeletingIsSnapshotOf (Uuid(assn1))
+ruleDeletingFolder (Uuid(assn1))
+[SubmissionSet(super:RO(id:Uuid(SS))), DocumentEntry(super:RO(id:Uuid(DE))), Association(source:Uuid(SS), target:Uuid(DE), type:HasMember, super:RO(id:Uuid(assn1)))]
+ruleDanglingSS_DE_HasMember (Uuid(DE))
+ruleDeletingDocumentEntry (Uuid(DE))
+ruleDeletingSubmissionSet (Uuid(DE))
+ruleDanglingSS_ASSN_HasMember (Uuid(DE))
+ruleDeletingRPLCIsIllegalWithoutMU (Uuid(DE))
+ruleDanglingSS_Fol_HasMember (Uuid(DE))
+ruleNotInRegistry (Uuid(DE))
+ruleDanglingSS (Uuid(DE))
+ruleDeletingXFRM (Uuid(DE))
+ruleDeletingIsSnapshotOf (Uuid(DE))
+ruleDeletingFolder (Uuid(DE))
+[SubmissionSet(super:RO(id:Uuid(SS))), DocumentEntry(super:RO(id:Uuid(DE))), Association(source:Uuid(SS), target:Uuid(DE), type:HasMember, super:RO(id:Uuid(assn1)))]
+ruleDanglingSS_DE_HasMember (Uuid(SS))
+ruleDeletingDocumentEntry (Uuid(SS))
+ruleDeletingSubmissionSet (Uuid(SS))
+ruleDanglingSS_ASSN_HasMember (Uuid(SS))
+ruleDeletingRPLCIsIllegalWithoutMU (Uuid(SS))
+ruleDanglingSS_Fol_HasMember (Uuid(SS))
+ruleNotInRegistry (Uuid(SS))
+ruleDanglingSS (Uuid(SS))
+ruleDeletingXFRM (Uuid(SS))
+ruleDeletingIsSnapshotOf (Uuid(SS))
+ruleDeletingFolder (Uuid(SS))
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec
+
+Results :
+
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ registry-metadata ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/registry-metadata/target/registry-metadata-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ registry-metadata >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ registry-metadata ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ registry-metadata <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ registry-metadata ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/registry-metadata/target/registry-metadata-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ registry-metadata ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/registry-metadata/target/registry-metadata-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/registry-metadata/7.12.0/registry-metadata-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/registry-metadata/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/registry-metadata/7.12.0/registry-metadata-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/registry-metadata/target/registry-metadata-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/registry-metadata/7.12.0/registry-metadata-7.12.0-sources.jar
+[INFO] 
+[INFO] ------------------< gov.nist.toolkit:site-management >------------------
+[INFO] Building site-management 7.12.0                                  [21/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ site-management ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/site-management/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ site-management ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ site-management ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ site-management ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 12 source files to /home/technicise41/code/iheos-toolkit2/site-management/target/classes
+[INFO] /home/technicise41/code/iheos-toolkit2/site-management/src/main/java/gov/nist/toolkit/sitemanagement/client/Site.java: /home/technicise41/code/iheos-toolkit2/site-management/src/main/java/gov/nist/toolkit/sitemanagement/client/Site.java uses or overrides a deprecated API.
+[INFO] /home/technicise41/code/iheos-toolkit2/site-management/src/main/java/gov/nist/toolkit/sitemanagement/client/Site.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ site-management ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/site-management/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ site-management ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ site-management ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ site-management ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/site-management/target/site-management-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ site-management >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ site-management ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ site-management <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ site-management ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/site-management/target/site-management-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ site-management ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/site-management/target/site-management-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/site-management/7.12.0/site-management-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/site-management/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/site-management/7.12.0/site-management-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/site-management/target/site-management-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/site-management/7.12.0/site-management-7.12.0-sources.jar
+[INFO] 
+[INFO] --------------------< gov.nist.toolkit:sim-common >---------------------
+[INFO] Building sim-common 7.12.0                                       [22/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ sim-common ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/sim-common/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ sim-common ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ sim-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ sim-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ sim-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ sim-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ sim-common ---
+[INFO] Surefire report directory: /home/technicise41/code/iheos-toolkit2/sim-common/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running gov.nist.toolkit.simcommon.server.ActorFactoryLoadTest
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading Actor Factories
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType XDR Document Source
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+SEVERE: AbstractActorFactory: Cannot load factory class for Actor Type Fixed Reply - gov.nist.toolkit.actorfactory.FixedReplyFactory
+Exception ClassNotFoundException
+	java.lang.ClassNotFoundException: gov.nist.toolkit.actorfactory.FixedReplyFactory
+	at gov.nist.toolkit.simcommon.server.AbstractActorFactory.factories(AbstractActorFactory.java:71)
+	at gov.nist.toolkit.simcommon.server.AbstractActorFactory.getActorFactory(AbstractActorFactory.java:95)
+	at gov.nist.toolkit.simcommon.server.ActorFactoryLoadTest.$spock_feature_0_0(ActorFactoryLoadTest.groovy:19)
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Document Registry
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Document Repository
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType On-Demand Document Source
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Document Repository/Registry
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Document Recipient
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Initiating Gateway
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Initiating Gateway X
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Initiating Imaging Gateway
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Combined Initiating Gateway
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Responding Gateway
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Responding Gateway X
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Responding Gateway - On Demand
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Responding Imaging Gateway
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Combined Responding Gateway
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType XDS Document Consumer
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Imaging Document Source
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Imaging Document Consumer
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Filter Proxy
+May 26, 2025 10:14:37 PM gov.nist.toolkit.simcommon.server.AbstractActorFactory factories
+INFO: Loading ActorType Sim Proxy
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.36 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ sim-common ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/sim-common/target/sim-common-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ sim-common >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ sim-common ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ sim-common <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ sim-common ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/sim-common/target/sim-common-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ sim-common ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/sim-common/target/sim-common-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/sim-common/7.12.0/sim-common-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/sim-common/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/sim-common/7.12.0/sim-common-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/sim-common/target/sim-common-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/sim-common/7.12.0/sim-common-7.12.0-sources.jar
+[INFO] 
+[INFO] -------------------< gov.nist.toolkit:actorfactory >--------------------
+[INFO] Building actorfactory 7.12.0                                     [23/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ actorfactory ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/actorfactory/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ actorfactory ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ actorfactory ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ actorfactory ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ actorfactory ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 35 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ actorfactory ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ actorfactory ---
+[INFO] Surefire report directory: /home/technicise41/code/iheos-toolkit2/actorfactory/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running gov.nist.toolkit.actorfactory.JacksonTest
+{}
+{"name":null,"type":null,"transType":null,"valueType":"STRING","booleanValue":false,"stringValue":"","listValue":[],"patientErrorMap":{},"extraValue":"","tls":false,"editable":false}
+{"id":null,"actorType":null,"expires":null,"expired":false,"environmentName":null,"elements":[],"log":0}
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.478 sec
+Running gov.nist.toolkit.actorfactory.client.PidSetTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running gov.nist.toolkit.actorfactory.client.PidTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 sec
+Running gov.nist.toolkit.actorfactory.SimDbTest
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager reinitialize
+INFO: Reinitialize External Cache to /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.Installation <clinit>
+INFO: Attempting static initialization of WARHOME
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.Installation <init>
+INFO: Installation rooted at warHome=null externalCache=null
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.Installation externalCache
+INFO: Installation: External Cache set to null
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initialize
+INFO: Initialize External Cache to /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.Installation externalCache
+INFO: Installation: External Cache set to /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initialize external cache check
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Environments exist - not updating.
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initializing resource cache in /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.Installation warHome
+INFO: V2 - Installation - war home set to /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/war
+May 26, 2025 10:14:39 PM java_util_logging_Logger$info$1 call
+INFO: Property manager initialized from /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/toolkit.properties
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.PropertyManager loadProperties
+INFO: Loading toolkit properties from /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/toolkit.properties
+May 26, 2025 10:14:39 PM java_util_logging_Logger$info$1 call
+INFO: External_Cache Directory does not exist.
+May 26, 2025 10:14:39 PM java_util_logging_Logger$info$1 call
+INFO: Checking for EXTERNAL_CACHE System Property ...
+May 26, 2025 10:14:39 PM java_util_logging_Logger$info$1 call
+INFO: User needs to manually configure the EXTERNAL_CACHE in the Toolkit Configuration UI.
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.Installation warHome
+INFO: External Cache as reported by toolkit.properties
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.Installation warHome
+INFO: Installation: External Cache set to /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.Installation warHome
+INFO: Toolkit running at localhost:${Toolkit_Port}
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+SEVERE: Cannot initialize resourceCache area of External Cache at /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache - Source '/home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/war/toolkitx/resourceCache' does not exist
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initialize external cache check
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Environments exist - not updating.
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initializing resource cache in /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+SEVERE: Cannot initialize resourceCache area of External Cache at /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache - Source '/home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/war/toolkitx/resourceCache' does not exist
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager reinitialize
+INFO: Reinitialize External Cache to /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.Installation externalCache
+INFO: Installation: External Cache set to null
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initialize
+INFO: Initialize External Cache to /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.Installation externalCache
+INFO: Installation: External Cache set to /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initialize external cache check
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Environments exist - not updating.
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initializing resource cache in /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+SEVERE: Cannot initialize resourceCache area of External Cache at /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache - Source '/home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/war/toolkitx/resourceCache' does not exist
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initialize external cache check
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Environments exist - not updating.
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initializing resource cache in /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+SEVERE: Cannot initialize resourceCache area of External Cache at /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache - Source '/home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/war/toolkitx/resourceCache' does not exist
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager reinitialize
+INFO: Reinitialize External Cache to /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.Installation externalCache
+INFO: Installation: External Cache set to null
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initialize
+INFO: Initialize External Cache to /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.Installation externalCache
+INFO: Installation: External Cache set to /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initialize external cache check
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Environments exist - not updating.
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initializing resource cache in /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+SEVERE: Cannot initialize resourceCache area of External Cache at /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache - Source '/home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/war/toolkitx/resourceCache' does not exist
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initialize external cache check
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Environments exist - not updating.
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initializing resource cache in /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+SEVERE: Cannot initialize resourceCache area of External Cache at /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache - Source '/home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/war/toolkitx/resourceCache' does not exist
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager reinitialize
+INFO: Reinitialize External Cache to /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.Installation externalCache
+INFO: Installation: External Cache set to null
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initialize
+INFO: Initialize External Cache to /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.Installation externalCache
+INFO: Installation: External Cache set to /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initialize external cache check
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Environments exist - not updating.
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initializing resource cache in /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+SEVERE: Cannot initialize resourceCache area of External Cache at /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache - Source '/home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/war/toolkitx/resourceCache' does not exist
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initialize external cache check
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Environments exist - not updating.
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initializing resource cache in /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache
+May 26, 2025 10:14:39 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+SEVERE: Cannot initialize resourceCache area of External Cache at /home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache - Source '/home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/war/toolkitx/resourceCache' does not exist
+/home/technicise41/code/iheos-toolkit2/actorfactory/target/test-classes/external_cache/simdb/bill/a_file.txt
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.224 sec
+
+Results :
+
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ actorfactory ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/actorfactory/target/actorfactory-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ actorfactory >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ actorfactory ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ actorfactory <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ actorfactory ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/actorfactory/target/actorfactory-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ actorfactory ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/actorfactory/target/actorfactory-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/actorfactory/7.12.0/actorfactory-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/actorfactory/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/actorfactory/7.12.0/actorfactory-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/actorfactory/target/actorfactory-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/actorfactory/7.12.0/actorfactory-7.12.0-sources.jar
+[INFO] 
+[INFO] ----------------------< gov.nist.toolkit:common >-----------------------
+[INFO] Building common 7.12.0                                           [24/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ common ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/common/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ common ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/common/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /home/technicise41/code/iheos-toolkit2/common/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/common/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ common ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ common ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ common ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/common/target/common-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ common >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ common ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ common <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ common ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/common/target/common-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ common ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/common/target/common-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/common/7.12.0/common-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/common/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/common/7.12.0/common-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/common/target/common-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/common/7.12.0/common-7.12.0-sources.jar
+[INFO] 
+[INFO] -----------------< gov.nist.toolkit:interaction-model >-----------------
+[INFO] Building interaction-model 7.12.0                                [25/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ interaction-model ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/interaction-model/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ interaction-model ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ interaction-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ interaction-model ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /home/technicise41/code/iheos-toolkit2/interaction-model/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ interaction-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/interaction-model/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ interaction-model ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ interaction-model ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ interaction-model ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/interaction-model/target/interaction-model-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ interaction-model >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ interaction-model ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ interaction-model <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ interaction-model ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/interaction-model/target/interaction-model-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ interaction-model ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/interaction-model/target/interaction-model-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/interaction-model/7.12.0/interaction-model-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/interaction-model/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/interaction-model/7.12.0/interaction-model-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/interaction-model/target/interaction-model-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/interaction-model/7.12.0/interaction-model-7.12.0-sources.jar
+[INFO] 
+[INFO] -----------------< gov.nist.toolkit:testkit-utilities >-----------------
+[INFO] Building testkit-utilities 7.12.0                                [26/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ testkit-utilities ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/testkit-utilities/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ testkit-utilities ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ testkit-utilities ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ testkit-utilities ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ testkit-utilities ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 96 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ testkit-utilities ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ testkit-utilities ---
+[INFO] Surefire report directory: /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running gov.nist.toolkit.testkitutilities.SearchPathTest
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager reinitialize
+INFO: Reinitialize External Cache to /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.Installation <clinit>
+INFO: Attempting static initialization of WARHOME
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.Installation <init>
+INFO: Installation rooted at warHome=null externalCache=null
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.Installation externalCache
+INFO: Installation: External Cache set to null
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initialize
+INFO: Initialize External Cache to /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.Installation externalCache
+INFO: Installation: External Cache set to /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initialize external cache check
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Environments exist - not updating.
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initializing resource cache in /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.Installation warHome
+INFO: V2 - Installation - war home set to /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/war
+May 26, 2025 10:14:40 PM java_util_logging_Logger$info$1 call
+INFO: Property manager initialized from /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/toolkit.properties
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.PropertyManager loadProperties
+INFO: Loading toolkit properties from /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/toolkit.properties
+May 26, 2025 10:14:40 PM java_util_logging_Logger$info$1 call
+INFO: External_Cache Directory does not exist.
+May 26, 2025 10:14:40 PM java_util_logging_Logger$info$1 call
+INFO: Checking for EXTERNAL_CACHE System Property ...
+May 26, 2025 10:14:40 PM java_util_logging_Logger$info$1 call
+INFO: User needs to manually configure the EXTERNAL_CACHE in the Toolkit Configuration UI.
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.Installation warHome
+INFO: External Cache as reported by toolkit.properties
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.Installation warHome
+INFO: Installation: External Cache set to /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.Installation warHome
+INFO: Toolkit running at localhost:8889
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+SEVERE: Cannot initialize resourceCache area of External Cache at /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache - Source '/home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/war/toolkitx/resourceCache' does not exist
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initialize external cache check
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Environments exist - not updating.
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initializing resource cache in /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+SEVERE: Cannot initialize resourceCache area of External Cache at /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache - Source '/home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/war/toolkitx/resourceCache' does not exist
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager reinitialize
+INFO: Reinitialize External Cache to /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.Installation externalCache
+INFO: Installation: External Cache set to null
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initialize
+INFO: Initialize External Cache to /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.Installation externalCache
+INFO: Installation: External Cache set to /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initialize external cache check
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Environments exist - not updating.
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initializing resource cache in /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+SEVERE: Cannot initialize resourceCache area of External Cache at /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache - Source '/home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/war/toolkitx/resourceCache' does not exist
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initialize external cache check
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Environments exist - not updating.
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initializing resource cache in /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+SEVERE: Cannot initialize resourceCache area of External Cache at /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache - Source '/home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/war/toolkitx/resourceCache' does not exist
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager reinitialize
+INFO: Reinitialize External Cache to /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.Installation externalCache
+INFO: Installation: External Cache set to null
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initialize
+INFO: Initialize External Cache to /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.Installation externalCache
+INFO: Installation: External Cache set to /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initialize external cache check
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Environments exist - not updating.
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initializing resource cache in /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+SEVERE: Cannot initialize resourceCache area of External Cache at /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache - Source '/home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/war/toolkitx/resourceCache' does not exist
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initialize external cache check
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Environments exist - not updating.
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+INFO: Initializing resource cache in /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache
+May 26, 2025 10:14:40 PM gov.nist.toolkit.installation.server.ExternalCacheManager initializeExternalCacheWithInternalData
+SEVERE: Cannot initialize resourceCache area of External Cache at /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/external_cache - Source '/home/technicise41/code/iheos-toolkit2/testkit-utilities/target/test-classes/war/toolkitx/resourceCache' does not exist
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.455 sec
+
+Results :
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ testkit-utilities ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/testkit-utilities-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ testkit-utilities >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ testkit-utilities ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ testkit-utilities <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ testkit-utilities ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/testkit-utilities-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ testkit-utilities ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/testkit-utilities-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/testkit-utilities/7.12.0/testkit-utilities-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/testkit-utilities/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/testkit-utilities/7.12.0/testkit-utilities-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/testkit-utilities/target/testkit-utilities-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/testkit-utilities/7.12.0/testkit-utilities-7.12.0-sources.jar
+[INFO] 
+[INFO] ---------------< gov.nist.toolkit:registry-msg-formats >----------------
+[INFO] Building registry-msg-formats 7.12.0                             [27/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ registry-msg-formats ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/registry-msg-formats/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ registry-msg-formats ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ registry-msg-formats ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ registry-msg-formats ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ registry-msg-formats ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/registry-msg-formats/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ registry-msg-formats ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ registry-msg-formats ---
+[INFO] Surefire report directory: /home/technicise41/code/iheos-toolkit2/registry-msg-formats/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running gov.nist.toolkit.registrymsg.repository.RetrieveResponseParserTest
+urn:ihe:iti:xds-b:2007
+
+<xdsb:RetrieveDocumentSetResponse xmlns:xdsb="urn:ihe:iti:xds-b:2007">
+   <rs:RegistryResponse status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success"
+         xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0"/>
+   <xdsb:DocumentResponse>
+      <xdsb:HomeCommunityId>urn:oid:1.2.3.4</xdsb:HomeCommunityId>
+      <xdsb:RepositoryUniqueId>1.3.6.1.4...1000</xdsb:RepositoryUniqueId>
+      <xdsb:DocumentUniqueId>1.3.6.1.4...2300</xdsb:DocumentUniqueId>
+      <xdsb:mimeType>text/xml</xdsb:mimeType>
+      <xdsb:Document>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</xdsb:Document>
+   </xdsb:DocumentResponse>
+</xdsb:RetrieveDocumentSetResponse>
+{1.3.6.1.4...2300=RetInfo:
+doc_uid=1.3.6.1.4...2300
+rep_uid=1.3.6.1.4...1000
+contents has 36 bytes
+hash=958e860499e2d694c61345d161a8ae356da7ac3c
+size=36
+home=urn:oid:1.2.3.4
+contentType=text/xml
+errors=
+}
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.417 sec
+Running gov.nist.toolkit.registrymsg.registry.AdhocQueryRequestParserTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ registry-msg-formats ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/registry-msg-formats/target/registry-msg-formats-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ registry-msg-formats >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ registry-msg-formats ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ registry-msg-formats <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ registry-msg-formats ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/registry-msg-formats/target/registry-msg-formats-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ registry-msg-formats ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/registry-msg-formats/target/registry-msg-formats-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/registry-msg-formats/7.12.0/registry-msg-formats-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/registry-msg-formats/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/registry-msg-formats/7.12.0/registry-msg-formats-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/registry-msg-formats/target/registry-msg-formats-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/registry-msg-formats/7.12.0/registry-msg-formats-7.12.0-sources.jar
+[INFO] 
+[INFO] --------------------< gov.nist.toolkit:sim-support >--------------------
+[INFO] Building sim-support 7.12.0                                      [28/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ sim-support ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/sim-support/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ sim-support ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ sim-support ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/sim-support/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ sim-support ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ sim-support ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 25 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ sim-support ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ sim-support ---
+[INFO] Surefire report directory: /home/technicise41/code/iheos-toolkit2/sim-support/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running gov.nist.toolkit.simcoresupport.mhd.HashTest
+SBJNbcOy5pOiB2Z8MqxnJBSROZQ=Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.277 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ sim-support ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/sim-support/target/sim-support-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ sim-support >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ sim-support ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ sim-support <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ sim-support ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/sim-support/target/sim-support-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ sim-support ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/sim-support/target/sim-support-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/sim-support/7.12.0/sim-support-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/sim-support/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/sim-support/7.12.0/sim-support-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/sim-support/target/sim-support-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/sim-support/7.12.0/sim-support-7.12.0-sources.jar
+[INFO] 
+[INFO] ----------------------< gov.nist.toolkit:results >----------------------
+[INFO] Building results 7.12.0                                          [29/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ results ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/results/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ results ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ results ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ results ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ results ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 23 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ results ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ results ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ results ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/results/target/results-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ results >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ results ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ results <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ results ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/results/target/results-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ results ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/results/target/results-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/results/7.12.0/results-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/results/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/results/7.12.0/results-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/results/target/results-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/results/7.12.0/results-7.12.0-sources.jar
+[INFO] 
+[INFO] -----------------< gov.nist.toolkit:xdstest2-logging >------------------
+[INFO] Building xdstest2-logging 7.12.0                                 [30/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ xdstest2-logging ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/xdstest2-logging/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ xdstest2-logging ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ xdstest2-logging ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ xdstest2-logging ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 26 source files to /home/technicise41/code/iheos-toolkit2/xdstest2-logging/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ xdstest2-logging ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/xdstest2-logging/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ xdstest2-logging ---
+[INFO] Changes detected - recompiling the module!
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ xdstest2-logging ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ xdstest2-logging ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/xdstest2-logging/target/xdstest2-logging-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ xdstest2-logging >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ xdstest2-logging ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ xdstest2-logging <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ xdstest2-logging ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/xdstest2-logging/target/xdstest2-logging-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ xdstest2-logging ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/xdstest2-logging/target/xdstest2-logging-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/xdstest2-logging/7.12.0/xdstest2-logging-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/xdstest2-logging/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/xdstest2-logging/7.12.0/xdstest2-logging-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/xdstest2-logging/target/xdstest2-logging-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/xdstest2-logging/7.12.0/xdstest2-logging-7.12.0-sources.jar
+[INFO] 
+[INFO] ------------------< gov.nist.toolkit:plugin-support >-------------------
+[INFO] Building plugin-support 7.12.0                                   [31/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ plugin-support ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/plugin-support/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ plugin-support ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ plugin-support ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/plugin-support/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ plugin-support ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ plugin-support ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/plugin-support/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ plugin-support ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ plugin-support ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ plugin-support ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/plugin-support/target/plugin-support-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ plugin-support >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ plugin-support ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ plugin-support <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ plugin-support ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/plugin-support/target/plugin-support-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ plugin-support ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/plugin-support/target/plugin-support-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/plugin-support/7.12.0/plugin-support-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/plugin-support/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/plugin-support/7.12.0/plugin-support-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/plugin-support/target/plugin-support-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/plugin-support/7.12.0/plugin-support-7.12.0-sources.jar
+[INFO] 
+[INFO] ----------------------< gov.nist.toolkit:plugins >----------------------
+[INFO] Building plugins 7.12.0                                          [32/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ plugins ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/plugins/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ plugins ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ plugins ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/plugins/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ plugins ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ plugins ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/plugins/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ plugins ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ plugins ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ plugins ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/plugins/target/plugins-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ plugins >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ plugins ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ plugins <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ plugins ---
+[INFO] No sources in project. Archive not created.
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ plugins ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/plugins/target/plugins-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/plugins/7.12.0/plugins-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/plugins/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/plugins/7.12.0/plugins-7.12.0.pom
+[INFO] 
+[INFO] -----------------------< gov.nist.toolkit:soap >------------------------
+[INFO] Building soap 7.12.0                                             [33/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ soap ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/soap/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ soap ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ soap ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/soap/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ soap ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ soap ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/soap/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ soap ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ soap ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ soap ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/soap/target/soap-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ soap >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ soap ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ soap <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ soap ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/soap/target/soap-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ soap ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/soap/target/soap-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/soap/7.12.0/soap-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/soap/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/soap/7.12.0/soap-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/soap/target/soap-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/soap/7.12.0/soap-7.12.0-sources.jar
+[INFO] 
+[INFO] -----------< gov.nist.toolkit:validators-registry-metadata >------------
+[INFO] Building validators-registry-metadata 7.12.0                     [34/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ validators-registry-metadata ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/validators-registry-metadata/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ validators-registry-metadata ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ validators-registry-metadata ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/validators-registry-metadata/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ validators-registry-metadata ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ validators-registry-metadata ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ validators-registry-metadata ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Using Groovy-Eclipse compiler to compile both Java and Groovy files
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ validators-registry-metadata ---
+[INFO] Surefire report directory: /home/technicise41/code/iheos-toolkit2/validators-registry-metadata/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running CodeValidationTestCase
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.163 sec
+Running gov.nist.toolkit.valregmetadata.field.CXTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec
+Running gov.nist.toolkit.valregmetadata.field.SimpleMetadataValidatorTest
+SECTIONHEADING
+    Evaluating metadata model structure[OK]
+
+SECTIONHEADING
+    SubmissionSet(SubmissionSet01)[OK]
+
+CHALLENGE
+    Validating that Slots present are legal[OK]
+
+CHALLENGE
+    Validating required Slots present[OK]
+
+CHALLENGE
+    Validating Slots are coded correctly[OK]
+
+CHALLENGE
+    Validating Classifications present are legal[OK]
+
+CHALLENGE
+    Validating Required Classifications present[OK]
+
+CHALLENGE
+    Validating Classifications coded correctly[OK]
+
+CHALLENGE
+    Validating ExternalIdentifiers present are legal[OK]
+
+CHALLENGE
+    Validating Required ExternalIdentifiers present[OK]
+
+CHALLENGE
+    Validating ExternalIdentifiers coded correctly[ERROR]
+
+ERROR
+    XDSRegistryMetadataError : SubmissionSet(SubmissionSet01): ExternalIdentifier(identificationScheme=urn:uuid:96fdda7c-d067-4183-912e-bf5ee74998a8, type=XDSSubmissionSet.uniqueId): 2009.9.1.2456 is not in OID format[ERROR]
+
+SECTIONHEADING
+    DocumentEntry(Document01)[OK]
+
+CHALLENGE
+    Validating that Slots present are legal[OK]
+
+CHALLENGE
+    Validating required Slots present[OK]
+
+CHALLENGE
+    Validating Slots are coded correctly[OK]
+
+CHALLENGE
+    Validating Classifications present are legal[OK]
+
+CHALLENGE
+    Validating Required Classifications present[OK]
+
+CHALLENGE
+    Validating Classifications coded correctly[OK]
+
+CHALLENGE
+    Validating ExternalIdentifiers present are legal[OK]
+
+CHALLENGE
+    Validating Required ExternalIdentifiers present[OK]
+
+CHALLENGE
+    Validating ExternalIdentifiers coded correctly[ERROR]
+
+ERROR
+    XDSRegistryMetadataError : DocumentEntry(Document01): ExternalIdentifier(identificationScheme=urn:uuid:58a6f841-87b3-4a3e-92fd-a8ffeff98427, type=XDSDocumentEntry.patientId): 1f02951c102b400^^^&1.3.6.1.sd4.1.21367.2005.13.20.1000&ISO : Expected &OID&ISO after ^^^ in CX data type: OID part does not parse as an OID[ERROR]
+
+ERROR
+    XDSRegistryMetadataError : DocumentEntry(Document01): ExternalIdentifier(identificationScheme=urn:uuid:2e82c1f6-a085-4c72-9da3-8640a32e42ab, type=XDSDocumentEntry.uniqueId): 2009.9.1.2455 is not in OID format[ERROR]
+
+SECTIONHEADING
+    Association(ID_1216346_2)[OK]
+
+CHALLENGE
+    Validating that Slots present are legal[OK]
+
+CHALLENGE
+    Validating required Slots present[OK]
+
+CHALLENGE
+    Validating Slots are coded correctly[OK]
+
+CHALLENGE
+    Classifications present are legal[OK]
+
+CHALLENGE
+    Required Classifications present[OK]
+
+CHALLENGE
+    Classifications coded correctly[OK]
+
+CHALLENGE
+    Validating ExternalIdentifiers present are legal[OK]
+
+CHALLENGE
+    Validating Required ExternalIdentifiers present[OK]
+
+CHALLENGE
+    Validating ExternalIdentifiers coded correctly[OK]
+
+SECTIONHEADING
+    Other metadata objects[OK]
+
+SECTIONHEADING
+    Evaluating use of Affinity Domain coding[OK]
+
+SECTIONHEADING
+    Submission Structure[OK]
+
+    SubmissionSet(SubmissionSet01): SubmissionSet found[OK]
+
+    Association(ID_1216346_2): is a SubmissionSet to DocmentEntry HasMember association[OK]
+
+ERROR
+    XDSPatientIdDoesNotMatch : Multiple Patient IDs found in submission: [1f02951c102b400^^^&1.3.6.1.4.1.21367.2005.13.20.1000&ISO, 1f02951c102b400^^^&1.3.6.1.sd4.1.21367.2005.13.20.1000&ISO][ERROR]
+
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 sec
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ validators-registry-metadata ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/validators-registry-metadata/target/validators-registry-metadata-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ validators-registry-metadata >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ validators-registry-metadata ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ validators-registry-metadata <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ validators-registry-metadata ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/validators-registry-metadata/target/validators-registry-metadata-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ validators-registry-metadata ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/validators-registry-metadata/target/validators-registry-metadata-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/validators-registry-metadata/7.12.0/validators-registry-metadata-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/validators-registry-metadata/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/validators-registry-metadata/7.12.0/validators-registry-metadata-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/validators-registry-metadata/target/validators-registry-metadata-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/validators-registry-metadata/7.12.0/validators-registry-metadata-7.12.0-sources.jar
+[INFO] 
+[INFO] ------------< gov.nist.toolkit:message-validator-factory2 >-------------
+[INFO] Building message-validator-factory2 7.12.0                       [35/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ message-validator-factory2 ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/message-validator-factory2/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ message-validator-factory2 ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ message-validator-factory2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/message-validator-factory2/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ message-validator-factory2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/technicise41/code/iheos-toolkit2/message-validator-factory2/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ message-validator-factory2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/message-validator-factory2/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ message-validator-factory2 ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ message-validator-factory2 ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ message-validator-factory2 ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/message-validator-factory2/target/message-validator-factory2-7.12.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.3:jar (attach-sources) > generate-sources @ message-validator-factory2 >>>
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ message-validator-factory2 ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] <<< maven-source-plugin:2.3:jar (attach-sources) < generate-sources @ message-validator-factory2 <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:2.3:jar (attach-sources) @ message-validator-factory2 ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/message-validator-factory2/target/message-validator-factory2-7.12.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ message-validator-factory2 ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/message-validator-factory2/target/message-validator-factory2-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/message-validator-factory2/7.12.0/message-validator-factory2-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/message-validator-factory2/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/message-validator-factory2/7.12.0/message-validator-factory2-7.12.0.pom
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/message-validator-factory2/target/message-validator-factory2-7.12.0-sources.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/message-validator-factory2/7.12.0/message-validator-factory2-7.12.0-sources.jar
+[INFO] 
+[INFO] ------------< gov.nist.toolkit:validators-registry-message >------------
+[INFO] Building validators-registry-message 7.12.0                      [36/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ validators-registry-message ---
+[INFO] Deleting /home/technicise41/code/iheos-toolkit2/validators-registry-message/target
+[INFO] 
+[INFO] --- groovy-eclipse-compiler:3.6.0-03:add-groovy-build-paths (default-add-groovy-build-paths) @ validators-registry-message ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ validators-registry-message ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/technicise41/code/iheos-toolkit2/validators-registry-message/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ validators-registry-message ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 86 source files to /home/technicise41/code/iheos-toolkit2/validators-registry-message/target/classes
+[INFO] /home/technicise41/code/iheos-toolkit2/validators-registry-message/src/main/java/gov/nist/toolkit/valregmsg/validation/factories/ValidationContextValidationFactory.java: Some input files use or override a deprecated API.
+[INFO] /home/technicise41/code/iheos-toolkit2/validators-registry-message/src/main/java/gov/nist/toolkit/valregmsg/validation/factories/ValidationContextValidationFactory.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/technicise41/code/iheos-toolkit2/validators-registry-message/src/main/java/gov/nist/toolkit/valregmsg/registry/storedquery/support/SqParams.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/technicise41/code/iheos-toolkit2/validators-registry-message/src/main/java/gov/nist/toolkit/valregmsg/registry/storedquery/support/SqParams.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ validators-registry-message ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 32 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ validators-registry-message ---
+[INFO] Changes detected - recompiling the module!
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ validators-registry-message ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ validators-registry-message ---
+[INFO] Building jar: /home/technicise41/code/iheos-toolkit2/validators-registry-message/target/validators-registry-message-7.12.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ validators-registry-message ---
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/validators-registry-message/target/validators-registry-message-7.12.0.jar to /home/technicise41/.m2/repository/gov/nist/toolkit/validators-registry-message/7.12.0/validators-registry-message-7.12.0.jar
+[INFO] Installing /home/technicise41/code/iheos-toolkit2/validators-registry-message/pom.xml to /home/technicise41/.m2/repository/gov/nist/toolkit/validators-registry-message/7.12.0/validators-registry-message-7.12.0.pom
+[INFO] 
+[INFO] --------------------< gov.nist.toolkit:test-engine >--------------------
+[INFO] Building test-engine 7.12.0                                      [37/57]
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for net.ihe.gazelle:sequoia-security-adaptor-jar:jar:1.0.1-SNAPSHOT is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] tk-deps 7.12.0 ..................................... SUCCESS [  0.129 s]
+[INFO] xds-exceptions 7.12.0 .............................. SUCCESS [  1.403 s]
+[INFO] config-datatypes 7.12.0 ............................ SUCCESS [  2.122 s]
+[INFO] common-datatypes 7.12.0 ............................ SUCCESS [  0.189 s]
+[INFO] utilities 7.12.0 ................................... SUCCESS [  0.847 s]
+[INFO] tk 7.12.0 .......................................... SUCCESS [  0.203 s]
+[INFO] installation 7.12.0 ................................ SUCCESS [  0.469 s]
+[INFO] actor-transaction 7.12.0 ........................... SUCCESS [  0.806 s]
+[INFO] docref 7.12.0 ...................................... SUCCESS [  0.051 s]
+[INFO] transaction-notification-service 7.12.0 ............ SUCCESS [  0.203 s]
+[INFO] error-recording 7.12.0 ............................. SUCCESS [  0.640 s]
+[INFO] http 7.12.0 ........................................ SUCCESS [  0.899 s]
+[INFO] adt 7.12.0 ......................................... SUCCESS [  0.272 s]
+[INFO] envSettings 7.12.0 ................................. SUCCESS [  0.090 s]
+[INFO] validators-support 7.12.0 .......................... SUCCESS [  0.273 s]
+[INFO] security-common 7.12.0 ............................. SUCCESS [  0.067 s]
+[INFO] dsig 7.12.0 ........................................ SUCCESS [  0.136 s]
+[INFO] saml 7.12.0 ........................................ SUCCESS [  0.716 s]
+[INFO] registry-support 7.12.0 ............................ SUCCESS [  0.175 s]
+[INFO] registry-metadata 7.12.0 ........................... SUCCESS [  1.102 s]
+[INFO] site-management 7.12.0 ............................. SUCCESS [  0.237 s]
+[INFO] sim-common 7.12.0 .................................. SUCCESS [  1.307 s]
+[INFO] actorfactory 7.12.0 ................................ SUCCESS [  1.324 s]
+[INFO] common 7.12.0 ...................................... SUCCESS [  0.097 s]
+[INFO] interaction-model 7.12.0 ........................... SUCCESS [  0.175 s]
+[INFO] testkit-utilities 7.12.0 ........................... SUCCESS [  0.992 s]
+[INFO] registry-msg-formats 7.12.0 ........................ SUCCESS [  0.961 s]
+[INFO] sim-support 7.12.0 ................................. SUCCESS [  1.156 s]
+[INFO] results 7.12.0 ..................................... SUCCESS [  0.161 s]
+[INFO] xdstest2-logging 7.12.0 ............................ SUCCESS [  0.254 s]
+[INFO] plugin-support 7.12.0 .............................. SUCCESS [  0.197 s]
+[INFO] plugins 7.12.0 ..................................... SUCCESS [  0.018 s]
+[INFO] soap 7.12.0 ........................................ SUCCESS [  0.210 s]
+[INFO] validators-registry-metadata 7.12.0 ................ SUCCESS [  0.999 s]
+[INFO] message-validator-factory2 7.12.0 .................. SUCCESS [  0.065 s]
+[INFO] validators-registry-message 7.12.0 ................. SUCCESS [  0.462 s]
+[INFO] test-engine 7.12.0 ................................. FAILURE [  0.042 s]
+[INFO] session 7.12.0 ..................................... SKIPPED
+[INFO] validators-soap-message 7.12.0 ..................... SKIPPED
+[INFO] simulators 7.12.0 .................................. SKIPPED
+[INFO] sim-proxy 7.12.0 ................................... SKIPPED
+[INFO] services 7.12.0 .................................... SKIPPED
+[INFO] toolkit-services-common 7.12.0 ..................... SKIPPED
+[INFO] toolkit-services 7.12.0 ............................ SKIPPED
+[INFO] rest-tools 7.12.0 .................................. SKIPPED
+[INFO] grizzly-support 7.12.0 ............................. SKIPPED
+[INFO] toolkit-api 7.12.0 ................................. SKIPPED
+[INFO] interaction-mapper 7.12.0 .......................... SKIPPED
+[INFO] interaction-diagram 7.12.0 ......................... SKIPPED
+[INFO] XDS Toolkit 7.12.0 ................................. SKIPPED
+[INFO] sim-test-servlet 7.12.0 ............................ SKIPPED
+[INFO] new-validation-system 7.12.0 ....................... SKIPPED
+[INFO] test-doc-tool 7.12.0 ............................... SKIPPED
+[INFO] it-support 7.12.0 .................................. SKIPPED
+[INFO] myproxy 1.0-SNAPSHOT ............................... SKIPPED
+[INFO] it-tests 7.12.0 .................................... SKIPPED
+[INFO] toolkit2 7.12.0 .................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19.842 s
+[INFO] Finished at: 2025-05-26T22:14:45+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project test-engine: Could not resolve dependencies for project gov.nist.toolkit:test-engine:jar:7.12.0: net.ihe.gazelle:sequoia-security-adaptor-jar:jar:1.0.1-SNAPSHOT was not found in https://repo1.maven.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of maven-central has elapsed or updates are forced -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :test-engine
+
